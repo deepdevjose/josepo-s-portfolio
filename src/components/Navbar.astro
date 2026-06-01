@@ -1,0 +1,146 @@
+---
+import Icon from "./Icon.astro";
+import {
+  languageOptions,
+  localePaths,
+  type Locale,
+  type NavItem
+} from "../data/site";
+
+interface Props {
+  brand: string;
+  links: NavItem[];
+  connect: string;
+  languageLabel: string;
+  locale: Locale;
+}
+
+const { brand, links, connect, languageLabel, locale } = Astro.props;
+---
+
+<header class="fixed inset-x-0 top-0 z-50 border-b border-black/5 bg-paper/86 backdrop-blur-xl">
+  <nav class="mx-auto max-w-site px-5 lg:px-8" aria-label="Primary navigation">
+    <div class="flex h-16 items-center justify-between gap-4">
+      <a href="#top" class="group flex items-center gap-2 font-semibold text-ink">
+        <span>{brand}</span>
+        <span class="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_0_3px_rgba(47,159,95,0.12)] transition group-hover:scale-125"></span>
+      </a>
+
+      <div class="hidden items-center gap-7 md:flex">
+        {links.map((item) => (
+          <a class="text-sm font-medium text-ink/78 transition hover:text-ink" href={item.href}>
+            {item.label}
+          </a>
+        ))}
+      </div>
+
+      <div class="flex items-center gap-2">
+        <div class="hidden items-center gap-1 rounded-lg border border-black/10 bg-white/50 p-1 sm:flex" aria-label={languageLabel}>
+          {languageOptions.map((option) => (
+            <a
+              href={localePaths[option.locale]}
+              class:list={[
+                "rounded-md px-2 py-1 text-xs font-semibold transition",
+                option.locale === locale ? "bg-ink text-white" : "text-muted hover:bg-black/5 hover:text-ink"
+              ]}
+              aria-current={option.locale === locale ? "page" : undefined}
+              title={option.name}
+            >
+              {option.label}
+            </a>
+          ))}
+        </div>
+
+        <a
+          href="mailto:hello@deepdevjose.com"
+          class="group inline-flex items-center gap-2 rounded-lg bg-ink px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-black"
+        >
+          <span class="hidden sm:inline">{connect}</span>
+          <span class="sm:hidden">{connect.split(" ")[0]}</span>
+          <Icon name="arrow-up-right" class="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </a>
+
+        <!-- Mobile menu button -->
+        <button
+          id="mobile-menu-button"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          class="ml-2 inline-flex items-center rounded-lg border border-black/5 bg-white/90 p-2 text-ink md:hidden"
+          aria-label="Open menu"
+        >
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="scrollbar-none flex gap-3 overflow-x-auto border-t border-black/5 py-3 md:hidden">
+      {links.map((item) => (
+        <a class="shrink-0 px-4 py-2 rounded-md text-sm font-semibold text-muted transition hover:text-ink" href={item.href}>
+          {item.label}
+        </a>
+      ))}
+      <span class="h-4 w-px shrink-0 bg-black/10"></span>
+      {languageOptions.map((option) => (
+        <a
+          href={localePaths[option.locale]}
+          class:list={[
+            "shrink-0 px-3 py-2 rounded-md text-sm font-semibold transition",
+            option.locale === locale ? "text-ink" : "text-muted hover:text-ink"
+          ]}
+          aria-current={option.locale === locale ? "page" : undefined}
+        >
+          {option.label}
+        </a>
+      ))}
+    </div>
+
+    <!-- Mobile full-screen menu (hidden by default) -->
+    <div id="mobile-menu" class="hidden fixed inset-0 z-60 flex flex-col bg-paper/98 p-6 md:hidden" aria-hidden="true">
+      <div class="flex items-center justify-between">
+        <a href="#top" class="text-xl font-semibold">{brand}</a>
+        <button id="mobile-menu-close" class="p-2 rounded-md" aria-label="Close menu">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <nav class="mt-6 flex flex-col gap-3" aria-label="Mobile primary">
+        {links.map((item) => (
+          <a href={item.href} class="block rounded-lg px-4 py-3 text-lg font-semibold text-ink hover:bg-black/4">{item.label}</a>
+        ))}
+
+        <div class="mt-4 border-t border-black/6 pt-4">
+          <p class="mb-2 text-sm text-muted">{languageLabel}</p>
+          <div class="flex gap-2">
+            {languageOptions.map((option) => (
+              <a href={localePaths[option.locale]} class:list={["rounded-md px-3 py-2 text-sm font-semibold","option.locale===locale? 'bg-ink text-white': 'text-muted hover:bg-black/4'"]}>{option.label}</a>
+            ))}
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <script>
+      (function(){
+        const btn = document.getElementById('mobile-menu-button');
+        const close = document.getElementById('mobile-menu-close');
+        const menu = document.getElementById('mobile-menu');
+        if(!btn || !menu) return;
+        function open(){
+          menu.classList.remove('hidden');
+          menu.setAttribute('aria-hidden','false');
+          btn.setAttribute('aria-expanded','true');
+          document.body.style.overflow='hidden';
+        }
+        function closeMenu(){
+          menu.classList.add('hidden');
+          menu.setAttribute('aria-hidden','true');
+          btn.setAttribute('aria-expanded','false');
+          document.body.style.overflow='';
+        }
+        btn.addEventListener('click', open);
+        if(close) close.addEventListener('click', closeMenu);
+        menu.addEventListener('click', (e)=>{ if(e.target===menu) closeMenu(); });
+      })();
+    </script>
+  </nav>
+</header>

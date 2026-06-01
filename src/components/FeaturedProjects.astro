@@ -1,0 +1,56 @@
+---
+import CurrentlyCard from "./CurrentlyCard.astro";
+import Icon from "./Icon.astro";
+import SectionHeader from "./SectionHeader.astro";
+import type { CurrentItem } from "../data/current";
+import type { Project } from "../data/projects";
+
+interface Props {
+  eyebrow: string;
+  viewAll: string;
+  projects: Project[];
+  currentEyebrow: string;
+  currentViewMore: string;
+  currentItems: CurrentItem[];
+}
+
+const { eyebrow, viewAll, projects, currentEyebrow, currentViewMore, currentItems } = Astro.props;
+---
+
+<section id="work" class="flex items-center bg-white py-12 sm:py-16">
+  <div class="mx-auto grid max-w-site gap-8 px-5 lg:grid-cols-[minmax(0,1fr)_240px] lg:px-8">
+    <div>
+      <SectionHeader eyebrow={eyebrow} action={viewAll} href="#work" />
+
+      <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        {projects.map((project) => (
+          <a
+            href={project.href}
+            class="group overflow-hidden rounded-lg border border-black/10 bg-white/95 shadow-card transition duration-300 hover:-translate-y-1.5 hover:border-black/20 hover:shadow-soft"
+          >
+            <div class="project-visual-frame relative h-40 sm:h-48 overflow-hidden border-b border-black/10 p-3">
+              <img
+                src={project.image}
+                alt={project.imageAlt}
+                width="560"
+                height="360"
+                loading="lazy"
+                class="relative z-10 h-full w-full rounded-md bg-white/70 object-contain shadow-[0_12px_30px_rgba(0,0,0,0.12)] ring-1 ring-black/10 transition duration-500 group-hover:scale-[1.02]"
+              />
+            </div>
+            <div class="p-4 sm:p-4">
+              <p class="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-accent">
+                {project.category}
+              </p>
+              <h3 class="mt-2 text-lg font-semibold leading-6 text-ink">{project.title}</h3>
+              <p class="mt-3 min-h-[56px] text-sm leading-6 text-muted">{project.description}</p>
+              <Icon name="arrow-up-right" class="mt-5 h-4 w-4 text-ink transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <CurrentlyCard eyebrow={currentEyebrow} viewMore={currentViewMore} items={currentItems} />
+  </div>
+</section>

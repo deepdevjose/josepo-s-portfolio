@@ -1,0 +1,113 @@
+---
+import { Image } from "astro:assets";
+import Icon from "./Icon.astro";
+import type { HeroPill } from "../data/site";
+import portrait from "../assets/nobgavatar.png";
+
+interface Props {
+  eyebrow: string;
+  headline: string;
+  subtitle: string;
+  pills: HeroPill[];
+  primaryCta: string;
+  secondaryCta: string;
+  cvHref?: string;
+  portraitAlt: string;
+  focusEyebrow: string;
+  focusTitle: string;
+  focusMeta: string;
+  focusNote: string;
+}
+
+const {
+  eyebrow,
+  headline,
+  subtitle,
+  pills,
+  primaryCta,
+  secondaryCta,
+  cvHref,
+  portraitAlt,
+  focusEyebrow,
+  focusTitle,
+  focusMeta,
+  focusNote
+} = Astro.props;
+
+
+const headlineWords = headline.trim().split(/\s+/);
+const splitIndex = headlineWords.length >= 4 ? 2 : Math.max(1, headlineWords.length - 1);
+const headlineLead = headlineWords.length > 1 ? headlineWords.slice(0, splitIndex).join(" ") : headline;
+const headlineTail = headlineWords.length > 1 ? headlineWords.slice(splitIndex).join(" ") : "";
+---
+
+<section id="top" class="hero-gradient relative flex min-h-svh overflow-hidden border-b border-black/10 pt-28 md:pt-20">
+  <div class="hero-ambient absolute inset-0"></div>
+
+  <div class="relative mx-auto flex w-full max-w-site px-5 lg:px-8">
+    <div class="grid w-full items-center gap-8 lg:min-h-[calc(100svh-5rem)] lg:grid-cols-[0.88fr_1.12fr]">
+      <div class="hero-copy relative z-10 pb-8 lg:pb-0">
+        <p class="text-xs font-semibold uppercase tracking-[0.32em] text-ink">{eyebrow}</p>
+        <h1 class="mt-7 max-w-2xl text-4xl font-semibold leading-[0.96] text-ink sm:text-6xl lg:text-[4.25rem]" aria-label={headline}>
+          <span class="block whitespace-nowrap">{headlineLead}</span>
+          {headlineTail && <span class="block whitespace-nowrap">{headlineTail}</span>}
+        </h1>
+        <div class="mt-7 h-0.5 w-10 bg-accent"></div>
+        <p class="mt-5 max-w-md text-lg leading-8 text-muted">
+          {subtitle}
+        </p>
+
+        <div class="mt-8 grid gap-2 sm:grid-cols-3 lg:max-w-[520px]">
+          {pills.map((pill) => (
+            <div class="flex min-h-14 items-center gap-3 rounded-lg border border-black/10 bg-white/50 px-4 py-3 text-sm font-medium text-ink shadow-sm backdrop-blur">
+              <Icon name={pill.icon} class="h-5 w-5 shrink-0 text-ink" />
+              <span class="leading-4">{pill.label}</span>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-8 flex w-full flex-col gap-3 sm:flex-row sm:items-center">
+          <a
+            href="#work"
+            class="group inline-flex w-full justify-center items-center gap-2 rounded-lg bg-ink px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-black sm:w-auto"
+          >
+            <span>{primaryCta}</span>
+            <Icon name="arrow-up-right" class="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
+          <a
+            href={cvHref ?? "/cv/jose-manuel-cortes-cv(english).pdf"}
+            download
+            class="group inline-flex w-full justify-center items-center gap-2 rounded-lg border border-black/10 bg-white px-5 py-3 text-sm font-semibold text-ink transition hover:bg-black/5 sm:w-auto"
+          >
+            <span>{secondaryCta}</span>
+            <Icon name="download" class="h-4 w-4 transition group-hover:translate-y-0.5" />
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-portrait-wrap hero-portrait-reveal pointer-events-none absolute inset-x-0 bottom-0 z-0 flex h-[40svh] min-h-[260px] items-end justify-end overflow-hidden sm:h-[48svh] lg:pointer-events-auto lg:relative lg:inset-auto lg:z-auto lg:h-auto lg:min-h-[calc(100svh-5rem)] lg:overflow-visible">
+        <Image
+          src={portrait}
+          alt={portraitAlt}
+          loading="eager"
+          decoding="sync"
+          fetchpriority="high"
+          class="hero-portrait hero-portrait-image-reveal relative z-10 h-[300px] w-auto max-w-none translate-x-12 object-contain object-bottom opacity-[0.22] sm:h-[520px] sm:translate-x-16 sm:opacity-[0.24] lg:h-[min(92svh,880px)] lg:translate-x-10 lg:opacity-100"
+        />
+
+        <aside class="hero-focus-card glass-dark absolute bottom-8 right-0 z-20 hidden w-[min(86vw,300px)] overflow-hidden rounded-lg p-5 text-white lg:bottom-14 lg:right-0 lg:block">
+          <div class="flex items-center gap-2">
+            <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+            <p class="text-[0.66rem] font-semibold uppercase tracking-[0.24em] text-white/80">{focusEyebrow}</p>
+          </div>
+          <h2 class="mt-4 text-lg font-semibold">{focusTitle}</h2>
+          <p class="mt-2 text-sm text-white/72">{focusMeta}</p>
+          <div class="mt-6 flex items-end justify-between gap-5">
+            <p class="max-w-[190px] text-sm leading-5 text-white/70">{focusNote}</p>
+            <Icon name="arrow-up-right" class="h-4 w-4 shrink-0 text-white" />
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>

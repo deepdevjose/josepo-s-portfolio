@@ -1,0 +1,56 @@
+---
+import "../styles/global.css";
+import icon from "../assets/icon.png";
+import { languageOptions, localePaths, type Locale } from "../data/site";
+
+interface Props {
+  locale: Locale;
+  lang: string;
+  title: string;
+  description: string;
+}
+
+const { locale, lang, title, description } = Astro.props;
+const siteUrl = Astro.site ?? new URL("https://deepdevjose.com");
+const canonicalUrl = new URL(localePaths[locale], siteUrl).toString();
+const hreflang: Record<Locale, string> = {
+  en: "en-US",
+  es: "es-MX",
+  "zh-cn": "zh-CN"
+};
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f7f7f5" />
+    <link rel="icon" href={icon.src} type="image/png" />
+    <link rel="apple-touch-icon" href={icon.src} />
+    <link rel="canonical" href={canonicalUrl} />
+    {languageOptions.map((option) => (
+      <link
+        rel="alternate"
+        hreflang={hreflang[option.locale]}
+        href={new URL(localePaths[option.locale], siteUrl).toString()}
+      />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={new URL("/", siteUrl).toString()} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={new URL("/images/avatar.png", siteUrl).toString()} />
+    <meta name="twitter:title" content={title} />
+    <meta name="apple-mobile-web-app-title" content={title} />
+    <meta name="application-name" content={title} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body class="antialiased">
+    <slot />
+  </body>
+</html>

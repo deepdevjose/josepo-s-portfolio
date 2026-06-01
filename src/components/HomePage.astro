@@ -1,0 +1,91 @@
+---
+import Ecosystem from "./Ecosystem.astro";
+import CurrentMission from "./CurrentMission.astro";
+import FeaturedProjects from "./FeaturedProjects.astro";
+import Footer from "./Footer.astro";
+import Hero from "./Hero.astro";
+import ResearchInterests from "./ResearchInterests.astro";
+import KnowledgeSection from "./KnowledgeSection.astro";
+import Navbar from "./Navbar.astro";
+import StatsStrip from "./StatsStrip.astro";
+import { currentItems } from "../data/current";
+import { ecosystemCards } from "../data/ecosystem";
+import { projects } from "../data/projects";
+import { publications } from "../data/publications";
+import { affiliations, stats } from "../data/stats";
+import { localeOrder, siteText, type Locale } from "../data/site";
+import { timeline } from "../data/timeline";
+import Layout from "../layouts/Layout.astro";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+type SiteCopy = (typeof siteText)["en"];
+const copy = siteText[locale] as SiteCopy;
+
+if (!localeOrder.includes(locale)) {
+  throw new Error(`Unsupported locale: ${locale}`);
+}
+const pageTitle = `${copy.hero.eyebrow} — ${copy.metaTitle}`;
+const pageDescription = `${copy.hero.subtitle} ${copy.metaDescription}`;
+
+const cvPaths: Record<string, string> = {
+  en: "/cv/jose-manuel-cortes-cv(english).pdf",
+  es: "/cv/jose-manuel-cortes-cv(spanish).pdf",
+  "zh-cn": "/cv/jose-manuel-cortes-cv(cn).pdf"
+};
+
+const cvHref = cvPaths[locale] ?? cvPaths.en;
+---
+
+<Layout
+  locale={locale}
+  lang={copy.langAttr}
+  title={pageTitle}
+  description={pageDescription}
+>
+  <Navbar
+    brand={copy.nav.brand}
+    links={copy.nav.links}
+    connect={copy.nav.connect}
+    languageLabel={copy.nav.languageLabel}
+    locale={locale}
+  />
+  <main>
+    <Hero {...copy.hero} cvHref={cvHref} />
+    <ResearchInterests {...copy.researchInterests} />
+    <CurrentMission {...copy.mission} />
+    <Ecosystem {...copy.ecosystem} cards={ecosystemCards[locale]} />
+    <StatsStrip stats={stats[locale]} affiliations={affiliations} />
+    <FeaturedProjects
+      eyebrow={copy.projects.eyebrow}
+      viewAll={copy.projects.viewAll}
+      projects={projects[locale]}
+      currentEyebrow={copy.currently.eyebrow}
+      currentViewMore={copy.currently.viewMore}
+      currentItems={currentItems[locale]}
+    />
+    <KnowledgeSection
+      publicationsEyebrow={copy.publications.eyebrow}
+      publicationsViewAll={copy.publications.viewAll}
+      publications={publications[locale]}
+      timelineEyebrow={copy.timeline.eyebrow}
+      timelineViewAll={copy.timeline.viewAll}
+      timeline={timeline[locale]}
+    />
+  </main>
+  <Footer
+    brand={copy.footer.brand}
+    tagline={copy.footer.tagline}
+    bridge={copy.footer.bridge}
+    timeLabel={copy.footer.timeLabel}
+    timePlace={copy.footer.timePlace}
+    missionLabel={copy.footer.missionLabel}
+    missionValue={copy.footer.missionValue}
+    bottom={copy.footer.bottom}
+    closing={copy.footer.closing}
+    columns={copy.footer.columns}
+  />
+</Layout>

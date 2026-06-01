@@ -1,0 +1,24 @@
+---
+import Icon from "./Icon.astro";
+
+interface Props {
+  eyebrow: string;
+  action?: string;
+  href?: string;
+}
+
+const { eyebrow, action, href = "#" } = Astro.props;
+---
+
+<div class="mb-5 flex items-center justify-between gap-4">
+  <p class="text-xs font-semibold uppercase tracking-[0.22em] text-ink">{eyebrow}</p>
+  {action && (
+    <a
+      href={href}
+      class="group inline-flex items-center gap-2 text-sm font-medium text-muted transition hover:text-ink"
+    >
+      <span>{action}</span>
+      <Icon name="arrow-up-right" class="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+    </a>
+  )}
+</div>

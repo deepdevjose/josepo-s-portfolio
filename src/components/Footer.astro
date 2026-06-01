@@ -1,0 +1,116 @@
+---
+import Icon from "./Icon.astro";
+import type { FooterColumn } from "../data/site";
+
+interface Props {
+  brand: string;
+  tagline: string;
+  bridge: string;
+  timeLabel: string;
+  timePlace: string;
+  missionLabel: string;
+  missionValue: string;
+  bottom: string;
+  closing: string;
+  columns: FooterColumn[];
+}
+
+const {
+  brand,
+  tagline,
+  bridge,
+  timeLabel,
+  timePlace,
+  missionLabel,
+  missionValue,
+  bottom,
+  closing,
+  columns
+} = Astro.props;
+---
+
+<footer class="relative overflow-hidden bg-ink text-white">
+  <div class="absolute bottom-6 right-4 hidden w-[360px] opacity-25 lg:block" aria-hidden="true">
+    <svg viewBox="0 0 460 180" fill="none">
+      <path d="M27 95c54-43 124-64 205-58 76 6 139 32 198 82" stroke="white" stroke-opacity=".35" />
+      <path d="M88 119c70-18 137-16 203 6" stroke="#2f9f5f" stroke-opacity=".7" />
+      <circle cx="92" cy="118" r="4" fill="#2f9f5f" />
+      <circle cx="300" cy="126" r="4" fill="#2f9f5f" />
+      <path d="M35 75h28l12 13 32-7 18 17 48-10 27 19 58-24 29 18 32-9 48 24 43-12" stroke="white" stroke-opacity=".22" />
+      <path d="M56 134h45l22 14 69-8 44 18 80-22 37 15 49-6" stroke="white" stroke-opacity=".18" />
+    </svg>
+  </div>
+
+  <div class="relative mx-auto grid max-w-site gap-10 px-5 py-10 lg:grid-cols-[1.35fr_2fr] lg:px-8">
+    <div>
+      <a href="#top" class="inline-flex items-center gap-2 text-2xl font-semibold">
+        <span>{brand}</span>
+        <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+      </a>
+      <p class="mt-4 text-sm text-white/72">{tagline}</p>
+      <p class="mt-3 whitespace-pre-line text-sm text-white/72">{bridge}</p>
+      <div class="mt-7 grid gap-3 sm:grid-cols-2">
+        <div class="rounded-lg border border-white/10 bg-white/5 p-4">
+          <p class="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-white/50">{timeLabel}</p>
+          <time data-local-clock datetime="" class="mt-2 block text-2xl font-semibold text-white">--:--</time>
+          <p class="mt-1 text-sm text-white/58">{timePlace}</p>
+        </div>
+        <div class="rounded-lg border border-white/10 bg-white/5 p-4">
+          <p class="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-white/50">{missionLabel}</p>
+          <p class="mt-2 text-lg font-semibold leading-6 text-white">{missionValue}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid gap-8 sm:grid-cols-3">
+      {columns.map((column) => (
+        <div>
+          <h2 class="text-xs font-semibold uppercase tracking-[0.22em] text-white/65">{column.title}</h2>
+          <ul class="mt-4 grid gap-3">
+            {column.links.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="group inline-flex items-center gap-2 text-sm text-white/72 transition hover:text-white"
+                >
+                  {column.title.toLowerCase().includes("connect") || column.title.includes("Conecta") || column.title.includes("联系") ? (
+                    link.label === "GitHub" ? <Icon name="github" class="h-4 w-4" /> : link.label === "LinkedIn" ? <Icon name="linkedin" class="h-4 w-4" /> : <Icon name="email" class="h-4 w-4" />
+                  ) : null}
+                  <span>{link.label}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="relative border-t border-white/10">
+    <div class="mx-auto flex max-w-site flex-col gap-3 px-5 py-5 text-sm text-white/55 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+      <p>{bottom}</p>
+      <p>{closing}</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const clock = document.querySelector("[data-local-clock]");
+
+  if (clock instanceof HTMLTimeElement) {
+    const formatter = new Intl.DateTimeFormat(document.documentElement.lang || "en-US", {
+      timeZone: "America/Mexico_City",
+      hour: "2-digit",
+      minute: "2-digit"
+    });
+
+    const updateClock = () => {
+      const now = new Date();
+      clock.textContent = formatter.format(now);
+      clock.dateTime = now.toISOString();
+    };
+
+    updateClock();
+    window.setInterval(updateClock, 30000);
+  }
+</script>

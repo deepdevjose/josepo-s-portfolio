@@ -1,0 +1,112 @@
+---
+import type { EcosystemVisual as EcosystemVisualName } from "../data/ecosystem";
+
+interface Props {
+  variant: EcosystemVisualName;
+}
+
+const { variant } = Astro.props;
+---
+
+<svg viewBox="0 0 280 150" role="img" aria-hidden="true" class="h-full w-full">
+  <defs>
+    <linearGradient id={`surface-${variant}`} x1="24" y1="0" x2="256" y2="150" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff" />
+      <stop offset="0.52" stop-color="#f1f1ee" />
+      <stop offset="1" stop-color="#d9d9d4" />
+    </linearGradient>
+    <linearGradient id={`dark-${variant}`} x1="58" y1="25" x2="211" y2="122" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1a1a1a" />
+      <stop offset="1" stop-color="#050505" />
+    </linearGradient>
+    <radialGradient id={`glow-${variant}`} cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(198 48) rotate(124) scale(118 91)">
+      <stop stop-color="#2f9f5f" stop-opacity="0.26" />
+      <stop offset="1" stop-color="#2f9f5f" stop-opacity="0" />
+    </radialGradient>
+    <filter id={`shadow-${variant}`} x="-20%" y="-24%" width="140%" height="148%">
+      <feDropShadow dx="0" dy="14" stdDeviation="12" flood-color="#050505" flood-opacity="0.16" />
+    </filter>
+  </defs>
+
+  <rect width="280" height="150" rx="10" fill={`url(#surface-${variant})`} />
+  <rect width="280" height="150" rx="10" fill={`url(#glow-${variant})`} />
+  <path d="M34 117C64 50 139 26 221 53c43 14 59 50 31 82H39c-8-5-10-11-5-18Z" fill="#ffffff" fill-opacity=".45" />
+
+  {variant === "lab" && (
+    <>
+      <g filter={`url(#shadow-${variant})`}>
+        <rect x="36" y="34" width="98" height="84" rx="10" fill={`url(#dark-${variant})`} />
+        <rect x="49" y="48" width="72" height="14" rx="5" fill="#1d1d1d" stroke="#393939" />
+        <rect x="49" y="70" width="72" height="14" rx="5" fill="#1d1d1d" stroke="#393939" />
+        <rect x="49" y="92" width="72" height="14" rx="5" fill="#1d1d1d" stroke="#393939" />
+        <circle cx="108" cy="55" r="3.5" fill="#2f9f5f" />
+        <circle cx="108" cy="77" r="3.5" fill="#2f9f5f" />
+        <circle cx="108" cy="99" r="3.5" fill="#2f9f5f" />
+      </g>
+      <g filter={`url(#shadow-${variant})`}>
+        <rect x="152" y="30" width="84" height="84" rx="12" fill="#ffffff" stroke="#dedede" />
+        <circle cx="194" cy="72" r="25" fill="#f7f7f5" stroke="#dedede" />
+        <path d="M172 78c13-35 31-35 43-4 8 20 17 18 29-27" fill="none" stroke="#2f9f5f" stroke-width="4" stroke-linecap="round" />
+        <circle cx="215" cy="47" r="7" fill="#050505" />
+        <path d="M171 101h48" stroke="#050505" stroke-opacity=".42" stroke-width="6" stroke-linecap="round" />
+      </g>
+      <path d="M134 75h20" stroke="#2f9f5f" stroke-width="3" stroke-linecap="round" stroke-dasharray="5 7" />
+    </>
+  )}
+
+  {variant === "academy" && (
+    <>
+      <g filter={`url(#shadow-${variant})`}>
+        <rect x="36" y="32" width="102" height="84" rx="12" fill="#ffffff" stroke="#dedede" />
+        <path d="M55 54c24-10 48-10 72 0v47c-24-9-48-9-72 0V54Z" fill="#f7f7f5" stroke="#050505" stroke-opacity=".62" />
+        <path d="M91 48v53M64 69h20M99 69h20M65 85h17M101 85h15" stroke="#2f9f5f" stroke-width="3.5" stroke-linecap="round" />
+      </g>
+      <g filter={`url(#shadow-${variant})`}>
+        <rect x="154" y="29" width="86" height="64" rx="10" fill={`url(#dark-${variant})`} />
+        <path d="M172 51h43M172 69h28" stroke="#f7f7f5" stroke-opacity=".7" stroke-width="6" stroke-linecap="round" />
+        <circle cx="224" cy="51" r="5" fill="#2f9f5f" />
+      </g>
+      <path d="M197 93v24M180 117h34" stroke="#050505" stroke-width="5" stroke-linecap="round" />
+      <path d="M222 104h17M230 96v17" stroke="#2f9f5f" stroke-width="4" stroke-linecap="round" />
+    </>
+  )}
+
+  {variant === "community" && (
+    <>
+      <g filter={`url(#shadow-${variant})`}>
+        <path d="M58 91h88l16 26H42l16-26Z" fill="#ffffff" stroke="#dedede" />
+        <path d="M77 55h48l17 36H60l17-36Z" fill="#2f9f5f" fill-opacity=".14" stroke="#2f9f5f" stroke-width="3" />
+        <path d="M85 55V28M118 55V28M85 28h33" stroke="#050505" stroke-width="5" stroke-linecap="round" />
+        <circle cx="73" cy="119" r="10" fill="#050505" />
+        <circle cx="134" cy="119" r="10" fill="#050505" />
+      </g>
+      <g filter={`url(#shadow-${variant})`}>
+        <circle cx="193" cy="50" r="13" fill="#050505" />
+        <circle cx="222" cy="77" r="13" fill="#050505" />
+        <circle cx="183" cy="104" r="13" fill="#050505" />
+        <path d="M202 58 213 68M212 84l-18 13M172 99l-27-4" stroke="#2f9f5f" stroke-width="3.5" stroke-linecap="round" />
+        <circle cx="193" cy="50" r="4" fill="#2f9f5f" />
+        <circle cx="222" cy="77" r="4" fill="#2f9f5f" />
+        <circle cx="183" cy="104" r="4" fill="#2f9f5f" />
+      </g>
+    </>
+  )}
+
+  {variant === "bridge" && (
+    <>
+      <g filter={`url(#shadow-${variant})`}>
+        <rect x="40" y="36" width="76" height="68" rx="12" fill="#ffffff" stroke="#dedede" />
+        <path d="M57 72h42M63 56c14-8 29-8 43 1M60 88c13 8 28 8 43-1" stroke="#050505" stroke-opacity=".42" stroke-width="5" stroke-linecap="round" />
+        <circle cx="78" cy="72" r="7" fill="#050505" />
+      </g>
+      <g filter={`url(#shadow-${variant})`}>
+        <rect x="166" y="36" width="76" height="68" rx="12" fill="#ffffff" stroke="#dedede" />
+        <path d="M183 68h42M188 53c14-8 29-8 43 1M186 84c13 8 28 8 43-1" stroke="#050505" stroke-opacity=".42" stroke-width="5" stroke-linecap="round" />
+        <circle cx="204" cy="68" r="7" fill="#050505" />
+      </g>
+      <path d="M91 48c36-24 79-24 112 0" fill="none" stroke="#2f9f5f" stroke-width="4" stroke-linecap="round" stroke-dasharray="6 9" />
+      <path d="M91 103c38 22 77 20 112-8" fill="none" stroke="#050505" stroke-opacity=".24" stroke-width="4" stroke-linecap="round" stroke-dasharray="6 9" />
+      <path d="M60 119h46M178 119h46" stroke="#2f9f5f" stroke-width="4" stroke-linecap="round" />
+    </>
+  )}
+</svg>

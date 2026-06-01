@@ -1,0 +1,30 @@
+---
+import Icon from "./Icon.astro";
+import SectionHeader from "./SectionHeader.astro";
+import type { Publication } from "../data/publications";
+
+interface Props {
+  eyebrow: string;
+  viewAll: string;
+  items: Publication[];
+}
+
+const { eyebrow, viewAll, items } = Astro.props;
+---
+
+<section id="writing" class="min-w-0">
+  <SectionHeader eyebrow={eyebrow} action={viewAll} href="#writing" />
+
+  <div class="divide-y divide-black/10 border-y border-black/10">
+    {items.map((item) => (
+      <a
+        href={item.href}
+        class="group grid grid-cols-[86px_minmax(0,1fr)_20px] items-center gap-4 py-3 transition hover:bg-black/[0.025]"
+      >
+        <time class="text-xs font-medium uppercase text-muted">{item.date}</time>
+        <h3 class="truncate text-sm font-medium text-ink">{item.title}</h3>
+        <Icon name="arrow-up-right" class="h-4 w-4 text-muted transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-ink" />
+      </a>
+    ))}
+  </div>
+</section>

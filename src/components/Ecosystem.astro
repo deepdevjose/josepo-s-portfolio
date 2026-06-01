@@ -1,0 +1,61 @@
+---
+import EcosystemVisual from "./EcosystemVisual.astro";
+import Icon from "./Icon.astro";
+import type { EcosystemCard } from "../data/ecosystem";
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  description: string;
+  cta: string;
+  cards: EcosystemCard[];
+}
+
+const { eyebrow, title, description, cta, cards } = Astro.props;
+---
+
+<section id="research" class="relative flex items-center bg-white py-12 sm:py-16">
+  <span id="speaking" class="absolute -top-28"></span>
+  <div class="mx-auto grid max-w-site gap-8 px-5 lg:grid-cols-[0.9fr_2.6fr] lg:px-8">
+    <div>
+      <div class="flex items-center gap-3">
+        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-ink">{eyebrow}</p>
+        <span class="h-px w-4 bg-accent"></span>
+      </div>
+      <h2 class="mt-6 max-w-xs text-3xl font-semibold leading-tight text-ink sm:text-4xl">
+        {title}
+      </h2>
+      <p class="mt-5 max-w-sm leading-7 text-muted">{description}</p>
+      <a href="#work" class="group mt-7 inline-flex items-center gap-2 text-sm font-semibold text-ink">
+        <span>{cta}</span>
+        <Icon name="arrow-up-right" class="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+      </a>
+    </div>
+
+    <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+      {cards.map((card) => (
+        <a
+          href={card.href}
+          class="group flex min-h-[350px] flex-col overflow-hidden rounded-lg border border-black/10 bg-white/92 shadow-card backdrop-blur transition duration-300 hover:-translate-y-1.5 hover:border-black/20 hover:shadow-soft"
+        >
+          <div class="ecosystem-visual-frame relative h-40 overflow-hidden border-b border-black/10 p-3">
+            <div class="relative z-10 h-full overflow-hidden rounded-md shadow-[0_16px_36px_rgba(0,0,0,0.12)] ring-1 ring-black/10 transition duration-500 group-hover:scale-[1.035]">
+              <EcosystemVisual variant={card.visual} />
+            </div>
+          </div>
+          <div class="flex flex-1 flex-col p-5">
+            <div class="flex h-9 w-9 items-center justify-center rounded-md border border-black/10 bg-paper text-accent shadow-sm">
+              <Icon name={card.icon} class="h-5 w-5" />
+            </div>
+            <h3 class="mt-5 text-base font-semibold text-ink">{card.title}</h3>
+            <p class="mt-4 flex-1 text-sm leading-6 text-muted">{card.description}</p>
+            <span class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-ink">
+              {card.cta}
+              <Icon name="arrow-up-right" class="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
