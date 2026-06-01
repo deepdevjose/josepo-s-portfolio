@@ -11,7 +11,8 @@ interface Props {
 const { eyebrow, viewAll, items } = Astro.props;
 ---
 
-<section id="about" class="min-w-0">
+<section id="about" class="relative min-w-0">
+  <span id="speaking" class="absolute -top-28"></span>
   <SectionHeader eyebrow={eyebrow} action={viewAll} href="#about" />
 
   <div class="relative mt-8 grid gap-7 sm:grid-cols-4">

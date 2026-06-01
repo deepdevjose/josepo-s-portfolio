@@ -12,13 +12,14 @@ interface Props {
 }
 
 const { eyebrow, title, description, metrics } = Astro.props;
+const metricMarks = ["01", "02", "03"];
 ---
 
-<section id="academy" class="relative flex items-center overflow-hidden bg-paper py-12 sm:py-16">
+<section id="academy" class="relative flex items-center overflow-hidden bg-paper py-10 sm:py-16">
   <div class="mx-auto grid max-w-site items-center gap-8 px-5 lg:grid-cols-[0.9fr_1.35fr] lg:px-8">
     <div class="mission-copy">
       <div class="flex items-center gap-3">
-        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-ink">{eyebrow}</p>
+        <p class="mono-label text-xs font-semibold uppercase text-ink">{eyebrow}</p>
         <span class="h-px w-4 bg-accent"></span>
       </div>
       <h2 class="mt-6 max-w-md text-4xl font-semibold leading-tight text-ink sm:text-5xl">
@@ -26,75 +27,85 @@ const { eyebrow, title, description, metrics } = Astro.props;
       </h2>
       <p class="mt-5 max-w-md text-lg leading-8 text-muted">{description}</p>
 
-      <div class="mt-8 grid gap-3 sm:grid-cols-3 lg:max-w-[520px]">
-        {metrics.map((metric) => (
-          <div class="rounded-lg border border-black/10 bg-white/65 p-4 shadow-sm backdrop-blur">
-            <p class="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-muted">{metric.label}</p>
-            <p class="mt-2 text-sm font-semibold leading-5 text-ink">{metric.value}</p>
+      <div class="scrollbar-none -mx-5 mt-8 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-2 scroll-px-5 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0 sm:pb-0 sm:scroll-px-0 lg:max-w-[520px]">
+        {metrics.map((metric, index) => (
+          <div class="surface-card flex min-w-[76%] snap-start items-center justify-between gap-4 rounded-lg border border-black/10 bg-white/65 p-4 backdrop-blur sm:min-w-0">
+            <div>
+              <p class="mono-label text-[0.68rem] font-semibold uppercase text-muted">{metric.label}</p>
+              <p class="mt-2 text-sm font-semibold leading-5 text-ink">{metric.value}</p>
+            </div>
+            <span class="metric-value inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-black/10 text-[0.66rem] font-bold text-accent" aria-hidden="true">
+              {metricMarks[index] ?? "•"}
+            </span>
           </div>
         ))}
       </div>
     </div>
 
-    <div class="mission-visual rounded-lg border border-black/10 bg-white p-4 shadow-soft">
-      <svg viewBox="0 0 680 430" role="img" aria-labelledby="mission-title mission-desc" class="h-full min-h-[310px] w-full">
+    <div class="mission-visual surface-card rounded-lg border border-black/10 bg-white p-3 sm:p-4">
+      <svg viewBox="0 0 680 430" role="img" aria-labelledby="mission-title mission-desc" class="h-full min-h-[250px] w-full sm:min-h-[310px]">
+        <style>
+          @media (max-width: 520px) {
+            .mission-secondary-label { display: none; }
+          }
+        </style>
         <title id="mission-title">Open engineering infrastructure map</title>
         <desc id="mission-desc">A systems map connecting research, engineering platforms, knowledge infrastructure, and global collaboration between Mexico and China.</desc>
         <rect width="680" height="430" rx="8" fill="#f7f7f5" />
         <path d="M121 96C218 39 401 34 526 103c91 50 102 154 27 214-85 69-260 85-386 32C41 295 25 153 121 96Z" fill="#eeeeeb" />
-        <path class="mission-path" d="M170 242C218 141 306 111 408 142c74 22 102 77 122 151" fill="none" stroke="#2f9f5f" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 13" />
+        <path class="mission-path" d="M170 242C218 141 306 111 408 142c74 22 102 77 122 151" fill="none" stroke="#A74AFF" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 13" />
         <path class="mission-path mission-path-delay" d="M196 287c69 44 197 51 296-9" fill="none" stroke="#050505" stroke-opacity=".18" stroke-width="3" stroke-linecap="round" stroke-dasharray="7 12" />
 
         <g transform="translate(231 118)">
           <rect width="218" height="150" rx="8" fill="#050505" />
           <rect x="17" y="17" width="184" height="28" rx="6" fill="#161616" stroke="#343434" />
-          <circle cx="34" cy="31" r="4" fill="#2f9f5f" />
+          <circle cx="34" cy="31" r="4" fill="#A74AFF" />
           <path d="M52 31h91" stroke="#f7f7f5" stroke-opacity=".76" stroke-width="5" stroke-linecap="round" />
           <path d="M29 73h72M29 96h130M29 119h92" stroke="#f7f7f5" stroke-opacity=".62" stroke-width="8" stroke-linecap="round" />
-          <path d="M123 74h44l18 22-18 22h-44l-18-22 18-22Z" fill="none" stroke="#2f9f5f" stroke-width="4" />
-          <text x="109" y="139" fill="#f7f7f5" font-family="ui-sans-serif, system-ui" font-size="13" font-weight="700" text-anchor="middle">Open Infrastructure</text>
+          <path d="M123 74h44l18 22-18 22h-44l-18-22 18-22Z" fill="none" stroke="#A74AFF" stroke-width="4" />
+          <text class="mission-secondary-label" x="109" y="139" fill="#f7f7f5" font-family="ui-sans-serif, system-ui" font-size="13" font-weight="700" text-anchor="middle">Open Infrastructure</text>
         </g>
 
         <g transform="translate(87 108)">
           <rect width="120" height="96" rx="8" fill="#ffffff" stroke="#dedede" />
           <path d="M22 31h76M22 52h58M22 73h69" stroke="#050505" stroke-opacity=".55" stroke-width="7" stroke-linecap="round" />
-          <path d="M82 28h14v52H82zM59 40h14v40H59zM36 52h14v28H36z" fill="#2f9f5f" fill-opacity=".18" stroke="#2f9f5f" />
-          <text x="60" y="116" fill="#050505" font-family="ui-sans-serif, system-ui" font-size="13" font-weight="700" text-anchor="middle">Research</text>
+          <path d="M82 28h14v52H82zM59 40h14v40H59zM36 52h14v28H36z" fill="#A74AFF" fill-opacity=".18" stroke="#A74AFF" />
+          <text class="mission-secondary-label" x="60" y="116" fill="#050505" font-family="ui-sans-serif, system-ui" font-size="13" font-weight="700" text-anchor="middle">Research</text>
         </g>
 
         <g transform="translate(492 105)">
           <rect width="116" height="100" rx="8" fill="#ffffff" stroke="#dedede" />
           <path d="M30 63h50l14 22H17l13-22Z" fill="#eeeeeb" stroke="#050505" stroke-opacity=".72" />
-          <path d="M43 42h31l11 21H31l12-21Z" fill="#2f9f5f" fill-opacity=".16" stroke="#2f9f5f" />
+          <path d="M43 42h31l11 21H31l12-21Z" fill="#A74AFF" fill-opacity=".16" stroke="#A74AFF" />
           <path d="M47 42V25M71 42V25M47 25h24" stroke="#050505" stroke-width="4" stroke-linecap="round" />
           <circle cx="36" cy="87" r="8" fill="#050505" />
           <circle cx="78" cy="87" r="8" fill="#050505" />
-          <text x="58" y="120" fill="#050505" font-family="ui-sans-serif, system-ui" font-size="13" font-weight="700" text-anchor="middle">VEX Robotics</text>
+          <text class="mission-secondary-label" x="58" y="120" fill="#050505" font-family="ui-sans-serif, system-ui" font-size="13" font-weight="700" text-anchor="middle">VEX Robotics</text>
         </g>
 
         <g transform="translate(77 274)">
           <rect width="142" height="78" rx="8" fill="#ffffff" stroke="#dedede" />
           <path d="M28 24c26-13 58-13 86 0v38c-28-12-60-12-86 0V24Z" fill="#f7f7f5" stroke="#050505" stroke-opacity=".72" />
-          <path d="M71 20v42M39 35h24M79 35h24" stroke="#2f9f5f" stroke-width="3" stroke-linecap="round" />
-          <text x="71" y="99" fill="#050505" font-family="ui-sans-serif, system-ui" font-size="13" font-weight="700" text-anchor="middle">Knowledge Systems</text>
+          <path d="M71 20v42M39 35h24M79 35h24" stroke="#A74AFF" stroke-width="3" stroke-linecap="round" />
+          <text class="mission-secondary-label" x="71" y="99" fill="#050505" font-family="ui-sans-serif, system-ui" font-size="13" font-weight="700" text-anchor="middle">Knowledge Systems</text>
         </g>
 
         <g transform="translate(461 277)">
           <rect width="145" height="78" rx="8" fill="#ffffff" stroke="#dedede" />
-          <path d="M31 48c18-32 55-41 84-19" fill="none" stroke="#2f9f5f" stroke-width="4" stroke-linecap="round" />
+          <path d="M31 48c18-32 55-41 84-19" fill="none" stroke="#A74AFF" stroke-width="4" stroke-linecap="round" />
           <circle cx="30" cy="49" r="7" fill="#050505" />
           <circle cx="116" cy="30" r="7" fill="#050505" />
           <path d="M18 61h43M90 49h39" stroke="#050505" stroke-opacity=".5" stroke-width="5" stroke-linecap="round" />
-          <text x="72" y="99" fill="#050505" font-family="ui-sans-serif, system-ui" font-size="13" font-weight="700" text-anchor="middle">Mexico - China</text>
+          <text class="mission-secondary-label" x="72" y="99" fill="#050505" font-family="ui-sans-serif, system-ui" font-size="13" font-weight="700" text-anchor="middle">Mexico - China</text>
         </g>
 
         <g class="mission-node" transform="translate(290 274)">
           <rect x="0" y="0" width="112" height="64" rx="8" fill="#050505" />
-          <circle cx="25" cy="23" r="6" fill="#2f9f5f" />
+          <circle cx="25" cy="23" r="6" fill="#A74AFF" />
           <circle cx="57" cy="23" r="6" fill="#f7f7f5" />
           <circle cx="88" cy="23" r="6" fill="#f7f7f5" />
-          <path d="M31 24h20M63 24h19M25 29v18M57 29v18M88 29v18M25 47h63" stroke="#2f9f5f" stroke-width="3" stroke-linecap="round" />
-          <text x="56" y="88" fill="#050505" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="13" font-weight="700" text-anchor="middle">Engineers</text>
+          <path d="M31 24h20M63 24h19M25 29v18M57 29v18M88 29v18M25 47h63" stroke="#A74AFF" stroke-width="3" stroke-linecap="round" />
+          <text class="mission-secondary-label" x="56" y="88" fill="#050505" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="13" font-weight="700" text-anchor="middle">Engineers</text>
         </g>
       </svg>
     </div>

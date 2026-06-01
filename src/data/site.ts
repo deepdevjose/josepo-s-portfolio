@@ -2,6 +2,7 @@ export type Locale = "en" | "es" | "zh-cn";
 
 export type IconName =
   | "arrow-up-right"
+  | "arrow-down"
   | "download"
   | "location"
   | "university"
@@ -116,9 +117,6 @@ export const siteText: Record<
       tagline: string;
       bridge: string;
       timeLabel: string;
-      timePlace: string;
-      missionLabel: string;
-      missionValue: string;
       bottom: string;
       closing: string;
       columns: FooterColumn[];
@@ -127,45 +125,43 @@ export const siteText: Record<
 > = {
   en: {
     langAttr: "en-US",
-    metaTitle: "Jose Manuel Cortes Ceron | deepdevjose",
+    metaTitle: "José Manuel Cortés Cerón | deepdevjose",
     metaDescription:
-      "Premium personal portfolio for Jose Manuel Cortes Ceron, an engineer, researcher, and builder working across AI, software, education, Mexico, and China.",
+      "Premium personal portfolio for José Manuel Cortés Cerón, an engineer, researcher, and builder working across AI, software, education, Mexico, and China.",
     nav: {
       brand: "deepdevjose",
       connect: "Let's connect",
       languageLabel: "Language",
       links: [
-        { label: "Work", href: "#work" },
+        { label: "Projects", href: "#projects" },
         { label: "Research", href: "#research" },
-        { label: "Writing", href: "#writing" },
-        { label: "Speaking", href: "#speaking" },
         { label: "About", href: "#about" }
       ]
     },
     hero: {
-      eyebrow: "Software Engineer | AI Full-Stack Development",
-      headline: "Jose Manuel Cortes Ceron",
+      eyebrow: "Software Engineer & AI Researcher",
+      headline: "José Manuel Cortés Cerón",
       subtitle:
-        "I build low-latency AI systems across browser-native inference, robotics telemetry, and interactive computing, with research collaboration at XJTLU.",
+        "Architecting low-latency AI systems. Specializing in browser-native inference, robotics telemetry, and high-performance interactive computing.",
       pills: [
-        { icon: "location", label: "Suzhou, China" },
-        { icon: "university", label: "XJTLU" },
-        { icon: "code", label: "Computer Science" }
+        { icon: "code", label: "Information Technology" },
+        { icon: "university", label: "XJTLU Research" },
+        { icon: "location", label: "Hidalgo / Suzhou" }
       ],
       primaryCta: "Selected Projects",
       secondaryCta: "CV",
-      portraitAlt: "Grayscale portrait of Jose Manuel Cortes Ceron",
+      portraitAlt: "Grayscale portrait of José Manuel Cortés Cerón",
       focusEyebrow: "Current Research",
-      focusTitle: "Browser-Native AI Systems",
-      focusMeta: "WebGPU · telemetry · interactive computing",
-      focusNote: "Shipping measurable gains in speed, memory, and scale for applied AI systems."
+      focusTitle: "VISION-LANGUAGE RUNTIME",
+      focusMeta: "WebGPU Inference",
+      focusNote: "50ms latency with 60% memory footprint reduction via kernel fusion and quantisation."
     },
     ecosystem: {
       eyebrow: "Research Ecosystem",
-      title: "Systems, research, and infrastructure.",
+      title: "Engineering for scale and impact.",
       description:
-        "Research systems, engineering platforms, knowledge infrastructure, and global collaboration. One mission: build durable technical impact.",
-      cta: "Explore everything"
+        "Integrating browser AI, robotics telemetry, edge devices, and knowledge platforms into systems that can be measured, shipped, and improved.",
+      cta: "View Selected Projects"
     },
     mission: {
       eyebrow: "Current Mission",
@@ -173,7 +169,7 @@ export const siteText: Record<
       description:
         "Research, tools, and open systems that turn multimodal models, telemetry, and interactive interfaces into usable products.",
       metrics: [
-        { label: "Core", value: "AI systems" },
+        { label: "Core", value: "Edge Computing & IoT" },
         { label: "Bridge", value: "XJTLU research" },
         { label: "Method", value: "Execution with metrics" }
       ]
@@ -211,36 +207,32 @@ export const siteText: Record<
     footer: {
       brand: "deepdevjose",
       tagline: "Research Engineer",
-      bridge: "Artificial Intelligence\nSystems Engineering\nInteractive Computing",
-      timeLabel: "Current local time",
-      timePlace: "Actopan, Hidalgo",
-      missionLabel: "Current mission",
-      missionValue: "Open engineering infrastructure",
-      bottom: "© 2026 deepdevjose",
+      bridge: "Artificial Intelligence\nInformation Technology Engineering\nInteractive Computing",
+      timeLabel: "Distributed local time",
+      bottom: "© 2026 José Manuel Cortés Cerón",
       closing: "Researching, designing and building the next generation of computing systems.",
       columns: [
         {
           title: "Explore",
           links: [
-            { label: "Work", href: "#work" },
+            { label: "Projects", href: "#projects" },
             { label: "Research", href: "#research" },
-            { label: "Writing", href: "#writing" }
+            { label: "Articles & Publications", href: "#writing" }
           ]
         },
         {
           title: "Research",
           links: [
-            { label: "Publications", href: "#writing" },
-            { label: "GitHub", href: "https://github.com/deepdevjose" },
-            { label: "Speaking", href: "#speaking" }
+            { label: "BitByBit Academy", href: "https://nexus-aax.pages.dev/es/" },
+            { label: "Articles & Publications", href: "#writing" }
           ]
         },
         {
           title: "Contact",
           links: [
             { label: "GitHub", href: "https://github.com/deepdevjose" },
-            { label: "LinkedIn", href: "https://www.linkedin.com/" },
-            { label: "Email", href: "mailto:hello@deepdevjose.com" }
+            { label: "LinkedIn", href: "https://www.linkedin.com/in/deepdevjose/" },
+            { label: "Email", href: "mailto:deepdevjose@itsoeh.edu.mx?subject=Engineering%20Opportunity%20-%20%5BCompany%20Name%5D" }
           ]
         }
       ]
@@ -248,45 +240,43 @@ export const siteText: Record<
   },
   es: {
     langAttr: "es-MX",
-    metaTitle: "Jose Manuel Cortes Ceron | deepdevjose",
+    metaTitle: "José Manuel Cortés Cerón | deepdevjose",
     metaDescription:
-      "Portafolio personal de Jose Manuel Cortes Ceron, ingeniero, investigador y creador que trabaja en IA, software, educación, México y China.",
+      "Portafolio personal de José Manuel Cortés Cerón, ingeniero, investigador y creador que trabaja en IA, software, educación, México y China.",
     nav: {
       brand: "deepdevjose",
       connect: "Conectemos",
       languageLabel: "Idioma",
       links: [
-        { label: "Trabajo", href: "#work" },
+        { label: "Proyectos", href: "#projects" },
         { label: "Investigación", href: "#research" },
-        { label: "Textos", href: "#writing" },
-        { label: "Charlas", href: "#speaking" },
         { label: "Acerca", href: "#about" }
       ]
     },
     hero: {
-      eyebrow: "Ingeniero de software | Desarrollo Full-Stack en IA",
-      headline: "Jose Manuel Cortes Ceron",
+      eyebrow: "Ingeniero de software e investigador en IA",
+      headline: "José Manuel Cortés Cerón",
       subtitle:
-        "Construyo sistemas de IA de baja latencia en inferencia nativa del navegador, telemetría robótica y computación interactiva, con investigación en XJTLU.",
+        "Diseño y construyo sistemas de IA de baja latencia. Me especializo en inferencia nativa en navegador, telemetría robótica y computación interactiva de alto rendimiento.",
       pills: [
-        { icon: "location", label: "Suzhou, China" },
-        { icon: "university", label: "XJTLU" },
-        { icon: "code", label: "Ciencias de la Computación" }
+        { icon: "code", label: "Tecnologías de la Información" },
+        { icon: "university", label: "Investigación en XJTLU" },
+        { icon: "location", label: "Hidalgo / Suzhou" }
       ],
       primaryCta: "Proyectos seleccionados",
       secondaryCta: "CV",
-      portraitAlt: "Retrato en escala de grises de Jose Manuel Cortes Ceron",
+      portraitAlt: "Retrato en escala de grises de José Manuel Cortés Cerón",
       focusEyebrow: "Investigación actual",
-      focusTitle: "Sistemas de IA nativos del navegador",
-      focusMeta: "WebGPU · telemetría · computación interactiva",
-      focusNote: "Entregando mejoras medibles en velocidad, memoria y escala para sistemas de IA aplicados."
+      focusTitle: "RUNTIME VISION-LANGUAGE",
+      focusMeta: "Inferencia con WebGPU",
+      focusNote: "50 ms de latencia y 60% menos huella de memoria mediante fusión de kernels y cuantización."
     },
     ecosystem: {
       eyebrow: "Ecosistema de investigación",
-      title: "Sistemas, investigación e infraestructura.",
+      title: "Ingeniería para escala e impacto.",
       description:
-        "Sistemas de investigación, plataformas de ingeniería, infraestructura de conocimiento y colaboración global. Una misión: generar impacto técnico duradero.",
-      cta: "Explorar todo"
+        "Integro IA en navegador, telemetría robótica, dispositivos edge y plataformas de conocimiento en sistemas medibles, entregables y mejorables.",
+      cta: "Ver proyectos seleccionados"
     },
     mission: {
       eyebrow: "Misión actual",
@@ -294,7 +284,7 @@ export const siteText: Record<
       description:
         "Investigación, herramientas y sistemas abiertos que convierten modelos multimodales, telemetría e interfaces interactivas en productos útiles.",
       metrics: [
-        { label: "Centro", value: "Sistemas de IA" },
+        { label: "Centro", value: "Edge Computing e IoT" },
         { label: "Puente", value: "Investigación en XJTLU" },
         { label: "Método", value: "Ejecución con métricas" }
       ]
@@ -332,36 +322,32 @@ export const siteText: Record<
     footer: {
       brand: "deepdevjose",
       tagline: "Ingeniero de investigación",
-      bridge: "Inteligencia artificial\nIngeniería de sistemas\nComputación interactiva",
-      timeLabel: "Hora local actual",
-      timePlace: "Actopan, Hidalgo",
-      missionLabel: "Misión actual",
-      missionValue: "Infraestructura de ingeniería abierta",
-      bottom: "© 2026 deepdevjose",
+      bridge: "Inteligencia artificial\nIngeniería en Tecnologías de la Información\nComputación interactiva",
+      timeLabel: "Hora local distribuida",
+      bottom: "© 2026 José Manuel Cortés Cerón",
       closing: "Investigando, diseñando y construyendo la próxima generación de sistemas de cómputo.",
       columns: [
         {
           title: "Explorar",
           links: [
-            { label: "Trabajo", href: "#work" },
+            { label: "Proyectos", href: "#projects" },
             { label: "Investigación", href: "#research" },
-            { label: "Textos", href: "#writing" }
+            { label: "Artículos y publicaciones", href: "#writing" }
           ]
         },
         {
           title: "Investigación",
           links: [
-            { label: "Publicaciones", href: "#writing" },
-            { label: "GitHub", href: "https://github.com/deepdevjose" },
-            { label: "Charlas", href: "#speaking" }
+            { label: "BitByBit Academy", href: "https://nexus-aax.pages.dev/es/" },
+            { label: "Artículos y publicaciones", href: "#writing" }
           ]
         },
         {
           title: "Contacto",
           links: [
             { label: "GitHub", href: "https://github.com/deepdevjose" },
-            { label: "LinkedIn", href: "https://www.linkedin.com/" },
-            { label: "Correo", href: "mailto:hello@deepdevjose.com" }
+            { label: "LinkedIn", href: "https://www.linkedin.com/in/deepdevjose/" },
+            { label: "Correo", href: "mailto:deepdevjose@itsoeh.edu.mx?subject=Engineering%20Opportunity%20-%20%5BCompany%20Name%5D" }
           ]
         }
       ]
@@ -369,52 +355,50 @@ export const siteText: Record<
   },
   "zh-cn": {
     langAttr: "zh-CN",
-    metaTitle: "Jose Manuel Cortes Ceron | deepdevjose",
+    metaTitle: "José Manuel Cortés Cerón | deepdevjose",
     metaDescription:
-      "Jose Manuel Cortes Ceron 的个人作品集：工程师、研究者、创造者，专注 AI、软件、教育，以及墨西哥与中国之间的技术连接。",
+      "José Manuel Cortés Cerón 的个人作品集：工程师、研究者、创造者，专注 AI、软件、教育，以及墨西哥与中国之间的技术连接。",
     nav: {
       brand: "deepdevjose",
       connect: "联系一下",
       languageLabel: "语言",
       links: [
-        { label: "项目", href: "#work" },
+        { label: "项目", href: "#projects" },
         { label: "研究", href: "#research" },
-        { label: "写作", href: "#writing" },
-        { label: "演讲", href: "#speaking" },
         { label: "关于", href: "#about" }
       ]
     },
     hero: {
-      eyebrow: "软件工程师 | AI 全栈开发",
-      headline: "Jose Manuel Cortes Ceron",
+      eyebrow: "软件工程师 & AI 研究者",
+      headline: "José Manuel Cortés Cerón",
       subtitle:
-        "我专注于浏览器原生推理、机器人遥测与交互式计算中的低延迟 AI 系统，并在 XJTLU 开展研究协作。",
+        "构建低延迟 AI 系统架构。专注浏览器原生推理、机器人遥测与高性能交互式计算。",
       pills: [
-        { icon: "location", label: "中国苏州" },
-        { icon: "university", label: "西交利物浦大学" },
-        { icon: "code", label: "计算机科学" }
+        { icon: "code", label: "信息技术" },
+        { icon: "university", label: "XJTLU 研究" },
+        { icon: "location", label: "Hidalgo / Suzhou" }
       ],
       primaryCta: "精选项目",
       secondaryCta: "简历",
-      portraitAlt: "Jose Manuel Cortes Ceron 的黑白肖像",
+      portraitAlt: "José Manuel Cortés Cerón 的黑白肖像",
       focusEyebrow: "当前研究",
-      focusTitle: "浏览器原生 AI 系统",
-      focusMeta: "WebGPU · 遥测 · 交互式计算",
-      focusNote: "为应用型 AI 系统交付可衡量的速度、内存和规模提升。"
+      focusTitle: "VISION-LANGUAGE RUNTIME",
+      focusMeta: "WebGPU 推理",
+      focusNote: "通过内核融合与量化实现 50ms 延迟，并降低 60% 内存占用。"
     },
     ecosystem: {
       eyebrow: "研究生态",
-      title: "系统、研究与基础设施。",
+      title: "面向规模与影响力的工程。",
       description:
-        "研究系统、工程平台、知识基础设施与全球协作。目标一致：创造持久的技术影响。",
-      cta: "探索全貌"
+        "将浏览器 AI、机器人遥测、边缘设备与知识平台整合为可衡量、可交付、可持续改进的系统。",
+      cta: "查看精选项目"
     },
     mission: {
       eyebrow: "当前使命",
       title: "构建应用型 AI 系统。",
       description: "研究、工具与开放系统，将多模态模型、遥测和交互界面转化为可用产品。",
       metrics: [
-        { label: "核心", value: "AI 系统" },
+        { label: "核心", value: "边缘计算与 IoT" },
         { label: "桥梁", value: "XJTLU 研究" },
         { label: "方法", value: "以指标驱动执行" }
       ]
@@ -452,36 +436,32 @@ export const siteText: Record<
     footer: {
       brand: "deepdevjose",
       tagline: "研究工程师",
-      bridge: "人工智能\n系统工程\n交互式计算",
-      timeLabel: "当前本地时间",
-      timePlace: "Actopan, Hidalgo",
-      missionLabel: "当前使命",
-      missionValue: "开放工程基础设施",
-      bottom: "© 2026 deepdevjose",
+      bridge: "人工智能\n信息技术工程\n交互式计算",
+      timeLabel: "分布式本地时间",
+      bottom: "© 2026 José Manuel Cortés Cerón",
       closing: "研究、设计并构建下一代计算系统。",
       columns: [
         {
           title: "浏览",
           links: [
-            { label: "项目", href: "#work" },
+            { label: "项目", href: "#projects" },
             { label: "研究", href: "#research" },
-            { label: "写作", href: "#writing" }
+            { label: "文章与发表", href: "#writing" }
           ]
         },
         {
           title: "研究",
           links: [
-            { label: "发表", href: "#writing" },
-            { label: "GitHub", href: "https://github.com/deepdevjose" },
-            { label: "演讲", href: "#speaking" }
+            { label: "BitByBit Academy", href: "https://nexus-aax.pages.dev/es/" },
+            { label: "文章与发表", href: "#writing" }
           ]
         },
         {
           title: "联系",
           links: [
             { label: "GitHub", href: "https://github.com/deepdevjose" },
-            { label: "LinkedIn", href: "https://www.linkedin.com/" },
-            { label: "邮箱", href: "mailto:hello@deepdevjose.com" }
+            { label: "LinkedIn", href: "https://www.linkedin.com/in/deepdevjose/" },
+            { label: "邮箱", href: "mailto:deepdevjose@itsoeh.edu.mx?subject=Engineering%20Opportunity%20-%20%5BCompany%20Name%5D" }
           ]
         }
       ]

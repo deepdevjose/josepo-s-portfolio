@@ -25,5 +25,3 @@ export const stats: Record<Locale, StatItem[]> = {
     { value: "15+", label: "工作坊与主题演讲" }
   ]
 };
-
-export const affiliations = ["XJTLU", "VEX Robotics", "Mexico ↔ China"];

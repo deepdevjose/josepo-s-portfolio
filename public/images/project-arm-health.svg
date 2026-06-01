@@ -1,0 +1,28 @@
+<svg width="560" height="360" viewBox="0 0 560 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Arm Health AI</title>
+  <desc id="desc">Robotic arm telemetry dashboard with MQTT event streams and remaining useful life prediction.</desc>
+  <rect width="560" height="360" rx="18" fill="#f7f7f5"/>
+  <rect x="38" y="42" width="484" height="276" rx="16" fill="#050505"/>
+  <rect x="62" y="66" width="204" height="64" rx="10" fill="#161616" stroke="#343434"/>
+  <circle cx="84" cy="88" r="6" fill="#A74AFF"/>
+  <path d="M102 88h112M82 108h154" stroke="#f7f7f5" stroke-opacity=".62" stroke-width="8" stroke-linecap="round"/>
+  <rect x="294" y="66" width="166" height="64" rx="10" fill="#161616" stroke="#343434"/>
+  <path d="M319 105c16-35 44-35 60 0s44 35 60 0" stroke="#A74AFF" stroke-width="5" stroke-linecap="round"/>
+  <g transform="translate(92 166)">
+    <path d="M40 84h76" stroke="#f7f7f5" stroke-opacity=".72" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="40" cy="84" r="22" fill="#A74AFF"/>
+    <circle cx="116" cy="84" r="18" fill="#eeeeeb"/>
+    <path d="M116 84l52-52" stroke="#eeeeeb" stroke-width="14" stroke-linecap="round"/>
+    <circle cx="168" cy="32" r="18" fill="#A74AFF"/>
+    <path d="M177 24l37-24M181 39l44 12" stroke="#eeeeeb" stroke-width="10" stroke-linecap="round"/>
+    <path d="M18 119h124" stroke="#f7f7f5" stroke-opacity=".32" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(336 168)">
+    <rect width="126" height="92" rx="10" fill="#161616" stroke="#343434"/>
+    <path d="M20 63h16l12-27 18 43 16-31 12 15h14" stroke="#A74AFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M20 22h76M20 78h88" stroke="#f7f7f5" stroke-opacity=".38" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <path d="M64 284h70M154 284h124M298 284h74M392 284h86" stroke="#A74AFF" stroke-width="7" stroke-linecap="round" stroke-dasharray="1 15"/>
+  <text x="62" y="304" fill="#f7f7f5" font-family="ui-sans-serif, system-ui" font-size="13" font-weight="700">MQTT TELEMETRY</text>
+  <text x="336" y="304" fill="#f7f7f5" font-family="ui-sans-serif, system-ui" font-size="13" font-weight="700">RUL MODEL</text>
+</svg>

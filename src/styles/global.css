@@ -26,7 +26,7 @@
   }
 
   ::selection {
-    background: rgba(47, 159, 95, 0.18);
+    background: rgba(167, 74, 255, 0.18);
   }
 
   a {
@@ -39,8 +39,16 @@
   }
 
   :focus-visible {
-    outline: 2px solid #2f9f5f;
+    outline: 2px solid #A74AFF;
     outline-offset: 4px;
+  }
+
+  .site-brand:focus-visible {
+    outline: 0;
+    text-decoration: underline;
+    text-decoration-color: #A74AFF;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 6px;
   }
 
   section {
@@ -58,7 +66,7 @@
 
   .hero-ambient {
     background:
-      radial-gradient(circle at 68% 64%, rgba(47, 159, 95, 0.16), transparent 23%),
+      radial-gradient(circle at 68% 64%, rgba(167, 74, 255, 0.16), transparent 23%),
       radial-gradient(circle at 92% 22%, rgba(5, 5, 5, 0.15), transparent 30%),
       linear-gradient(to right, rgba(255, 255, 255, 0.72), transparent 44%, rgba(5, 5, 5, 0.1));
     pointer-events: none;
@@ -101,7 +109,7 @@
   .ecosystem-visual-frame,
   .project-visual-frame {
     background:
-      radial-gradient(circle at 78% 14%, rgba(47, 159, 95, 0.18), transparent 32%),
+      radial-gradient(circle at 78% 14%, rgba(167, 74, 255, 0.18), transparent 32%),
       linear-gradient(135deg, #ffffff 0%, #f3f3ef 48%, #deded8 100%);
   }
 
@@ -122,10 +130,50 @@
   }
 
   .glass-dark {
-    background: rgba(5, 5, 5, 0.68);
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
-    backdrop-filter: blur(18px);
+    background: rgba(20, 20, 20, 0.62);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.4),
+      0 36px 100px rgba(0, 0, 0, 0.34),
+      0 1px 0 rgba(255, 255, 255, 0.08) inset;
+    backdrop-filter: blur(24px) saturate(1.12);
+    -webkit-backdrop-filter: blur(24px) saturate(1.12);
+  }
+
+  .surface-card {
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.15),
+      0 4px 24px rgba(0, 0, 0, 0.05);
+  }
+
+  .surface-card-dark {
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
+      0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .mono-label {
+    font-family: ui-monospace, "SFMono-Regular", "IBM Plex Mono", "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.12em;
+  }
+
+  .metric-value {
+    font-family: ui-monospace, "SFMono-Regular", "IBM Plex Mono", "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+
+  @media (max-width: 639px) {
+    .glass-dark {
+      background: rgba(10, 10, 10, 0.82);
+      border-color: rgba(255, 255, 255, 0.12);
+      box-shadow:
+        0 18px 36px rgba(0, 0, 0, 0.42),
+        0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+      backdrop-filter: blur(16px) saturate(1.08);
+      -webkit-backdrop-filter: blur(16px) saturate(1.08);
+    }
   }
 
   .scrollbar-none {
@@ -136,8 +184,6 @@
     display: none;
   }
 
-  .hero-copy,
-  .hero-portrait-wrap,
   .mission-copy,
   .mission-visual {
     animation: portfolio-rise 760ms cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -148,13 +194,6 @@
     min-height: 44px;
     padding-top: 0.6rem;
     padding-bottom: 0.6rem;
-  }
-
-  /* Slightly larger tap targets in the header */
-  header a,
-  header button {
-    padding: 0.6rem 0.9rem;
-    border-radius: 0.5rem;
   }
 
   /* Mobile menu overlay styling */
@@ -170,7 +209,7 @@
   }
 
   .hero-portrait-wrap {
-    animation-delay: 120ms;
+    animation: none;
   }
 
   .hero-portrait-reveal {
@@ -179,8 +218,7 @@
   }
 
   .hero-portrait-image-reveal {
-    animation: hero-portrait-image-reveal 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-delay: 120ms;
+    animation: none;
   }
 
   .mission-copy,
@@ -287,5 +325,10 @@
     .mission-node {
       animation: none;
     }
+  }
+
+  main > section:not(:first-of-type) {
+    content-visibility: auto;
+    contain-intrinsic-size: 900px;
   }
 }

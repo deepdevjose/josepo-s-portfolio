@@ -11,22 +11,22 @@
   </style>
   <rect width="560" height="360" fill="#f7f7f5"/>
   <path d="M0 299h560v61H0z" fill="#e7e7e2"/>
-  <circle class="sun-core" cx="437" cy="83" r="38" fill="#2f9f5f" fill-opacity=".18" stroke="#2f9f5f" stroke-width="5"/>
-  <path d="M437 25v-18M437 159v-18M379 83h-18M513 83h-18M396 42l-13-13M491 137l-13-13M396 124l-13 13M491 29l-13 13" stroke="#2f9f5f" stroke-width="4" stroke-linecap="round"/>
+  <circle class="sun-core" cx="437" cy="83" r="38" fill="#A74AFF" fill-opacity=".18" stroke="#A74AFF" stroke-width="5"/>
+  <path d="M437 25v-18M437 159v-18M379 83h-18M513 83h-18M396 42l-13-13M491 137l-13-13M396 124l-13 13M491 29l-13 13" stroke="#A74AFF" stroke-width="4" stroke-linecap="round"/>
 
   <g transform="translate(53 91)">
     <path d="M57 183h238l76-132H135L57 183Z" fill="#050505"/>
-    <path d="M82 166h198l58-100H142L82 166Z" fill="#101010" stroke="#2f9f5f" stroke-width="3"/>
+    <path d="M82 166h198l58-100H142L82 166Z" fill="#101010" stroke="#A74AFF" stroke-width="3"/>
     <path d="M124 166 183 66M166 166l48-100M209 166l38-100M252 166l27-100M105 142h191M121 115h190M137 88h189" stroke="#f7f7f5" stroke-opacity=".24" stroke-width="2"/>
     <path d="M182 184v54M246 184v54M148 238h134" stroke="#050505" stroke-width="8" stroke-linecap="round"/>
     <path d="M82 166h198l58-100" fill="none" stroke="#f7f7f5" stroke-opacity=".16" stroke-width="6"/>
   </g>
 
-  <path class="energy-flow" d="M323 222c63-17 104-42 129-76" fill="none" stroke="#2f9f5f" stroke-width="4" stroke-linecap="round" stroke-dasharray="9 12"/>
+  <path class="energy-flow" d="M323 222c63-17 104-42 129-76" fill="none" stroke="#A74AFF" stroke-width="4" stroke-linecap="round" stroke-dasharray="9 12"/>
   <rect x="365" y="190" width="139" height="91" rx="8" fill="#050505"/>
   <text x="386" y="219" fill="#f7f7f5" font-family="ui-sans-serif, system-ui" font-size="13" font-weight="700">HelioSync</text>
-  <text x="386" y="254" fill="#2f9f5f" font-family="ui-sans-serif, system-ui" font-size="36" font-weight="800">98%</text>
+  <text x="386" y="254" fill="#A74AFF" font-family="ui-sans-serif, system-ui" font-size="36" font-weight="800">98%</text>
   <path d="M386 270h92" stroke="#f7f7f5" stroke-opacity=".35" stroke-width="7" stroke-linecap="round"/>
   <path d="M386 238h42" stroke="#f7f7f5" stroke-opacity=".6" stroke-width="5" stroke-linecap="round"/>
-  <circle cx="474" cy="213" r="7" fill="#2f9f5f"/>
+  <circle cx="474" cy="213" r="7" fill="#A74AFF"/>
 </svg>

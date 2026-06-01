@@ -14,24 +14,24 @@
   <rect x="28" y="26" width="504" height="44" rx="10" fill="#161616"/>
   <circle cx="55" cy="48" r="5" fill="#f7f7f5"/>
   <circle cx="74" cy="48" r="5" fill="#7a7a7a"/>
-  <circle cx="93" cy="48" r="5" fill="#2f9f5f"/>
+  <circle cx="93" cy="48" r="5" fill="#A74AFF"/>
   <text x="121" y="53" fill="#f7f7f5" fill-opacity=".65" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13">ghost-engineer terminal</text>
 
   <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15">
-    <text x="55" y="108" fill="#2f9f5f">$ ghost plan runtime</text>
+    <text x="55" y="108" fill="#A74AFF">$ ghost plan runtime</text>
     <text x="55" y="139" fill="#f7f7f5" fill-opacity=".82">read codebase -> map constraints -> propose patch</text>
-    <text x="55" y="177" fill="#2f9f5f">$ ghost apply --careful</text>
+    <text x="55" y="177" fill="#A74AFF">$ ghost apply --careful</text>
     <text x="55" y="208" fill="#f7f7f5" fill-opacity=".82">+ tests for edge behavior</text>
     <text x="55" y="237" fill="#f7f7f5" fill-opacity=".82">+ typed integration points</text>
-    <text x="55" y="275" fill="#2f9f5f">$ npm test</text>
+    <text x="55" y="275" fill="#A74AFF">$ npm test</text>
     <text x="55" y="305" fill="#f7f7f5" fill-opacity=".82">passed: 42 suites</text>
-    <rect class="cursor" x="198" y="292" width="10" height="18" fill="#2f9f5f"/>
+    <rect class="cursor" x="198" y="292" width="10" height="18" fill="#A74AFF"/>
   </g>
 
   <g class="ghost-mark" transform="translate(374 112)">
-    <path d="M53 0c37 0 63 27 63 66v90l-17-13-18 13-18-13-18 13-18-13-18 13V66C9 27 17 0 53 0Z" fill="#f7f7f5" fill-opacity=".08" stroke="#2f9f5f" stroke-width="4"/>
+    <path d="M53 0c37 0 63 27 63 66v90l-17-13-18 13-18-13-18 13-18-13-18 13V66C9 27 17 0 53 0Z" fill="#f7f7f5" fill-opacity=".08" stroke="#A74AFF" stroke-width="4"/>
     <circle cx="43" cy="58" r="7" fill="#f7f7f5"/>
     <circle cx="75" cy="58" r="7" fill="#f7f7f5"/>
-    <path d="M42 91c16 9 34 8 49-3" stroke="#2f9f5f" stroke-width="5" stroke-linecap="round" fill="none"/>
+    <path d="M42 91c16 9 34 8 49-3" stroke="#A74AFF" stroke-width="5" stroke-linecap="round" fill="none"/>
   </g>
 </svg>

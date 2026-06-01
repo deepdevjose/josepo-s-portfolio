@@ -13,31 +13,31 @@
   <rect x="26" y="25" width="508" height="310" rx="10" fill="#111" stroke="#2a2a2a"/>
   <rect x="46" y="48" width="144" height="114" rx="8" fill="#0a0a0a" stroke="#3a3a3a"/>
   <rect x="71" y="74" width="94" height="63" rx="8" fill="#171717" stroke="#f7f7f5" stroke-opacity=".24"/>
-  <circle cx="118" cy="106" r="24" fill="none" stroke="#2f9f5f" stroke-width="7"/>
+  <circle cx="118" cy="106" r="24" fill="none" stroke="#A74AFF" stroke-width="7"/>
   <circle cx="118" cy="106" r="8" fill="#f7f7f5"/>
-  <path class="scan-line" d="M62 69h112" stroke="#2f9f5f" stroke-width="3" stroke-linecap="round"/>
+  <path class="scan-line" d="M62 69h112" stroke="#A74AFF" stroke-width="3" stroke-linecap="round"/>
   <text x="118" y="184" fill="#f7f7f5" font-family="ui-sans-serif, system-ui" font-size="13" font-weight="700" text-anchor="middle">camera input</text>
 
-  <path d="M194 104h50" stroke="#2f9f5f" stroke-width="3" stroke-linecap="round"/>
-  <path d="m238 94 12 10-12 10" fill="none" stroke="#2f9f5f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M194 104h50" stroke="#A74AFF" stroke-width="3" stroke-linecap="round"/>
+  <path d="m238 94 12 10-12 10" fill="none" stroke="#A74AFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 
   <rect x="259" y="50" width="130" height="112" rx="8" fill="#f7f7f5"/>
   <path d="M282 78h76M282 101h88M282 124h58" stroke="#050505" stroke-opacity=".74" stroke-width="8" stroke-linecap="round"/>
-  <path d="M355 124h13" stroke="#2f9f5f" stroke-width="8" stroke-linecap="round"/>
+  <path d="M355 124h13" stroke="#A74AFF" stroke-width="8" stroke-linecap="round"/>
   <text x="324" y="184" fill="#f7f7f5" font-family="ui-sans-serif, system-ui" font-size="13" font-weight="700" text-anchor="middle">generated text</text>
 
-  <path d="M389 104h50" stroke="#2f9f5f" stroke-width="3" stroke-linecap="round"/>
-  <path d="m433 94 12 10-12 10" fill="none" stroke="#2f9f5f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M389 104h50" stroke="#A74AFF" stroke-width="3" stroke-linecap="round"/>
+  <path d="m433 94 12 10-12 10" fill="none" stroke="#A74AFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 
   <rect x="445" y="50" width="66" height="112" rx="8" fill="#0a0a0a" stroke="#3a3a3a"/>
-  <circle class="node-live" cx="478" cy="83" r="10" fill="#2f9f5f"/>
+  <circle class="node-live" cx="478" cy="83" r="10" fill="#A74AFF"/>
   <circle cx="464" cy="126" r="7" fill="#f7f7f5"/>
   <circle cx="495" cy="128" r="7" fill="#f7f7f5"/>
-  <path d="M478 93v20M469 123l-18 18M488 124l19 18" stroke="#2f9f5f" stroke-width="3" stroke-linecap="round"/>
+  <path d="M478 93v20M469 123l-18 18M488 124l19 18" stroke="#A74AFF" stroke-width="3" stroke-linecap="round"/>
   <text x="478" y="184" fill="#f7f7f5" font-family="ui-sans-serif, system-ui" font-size="13" font-weight="700" text-anchor="middle">reasoning</text>
 
   <rect x="47" y="226" width="466" height="73" rx="8" fill="#0b0b0b" stroke="#2a2a2a"/>
-  <path d="M75 260c31-28 62-28 93 0s64 28 99 0 66-29 100-1 65 29 104-4" fill="none" stroke="#2f9f5f" stroke-width="4" stroke-linecap="round"/>
+  <path d="M75 260c31-28 62-28 93 0s64 28 99 0 66-29 100-1 65 29 104-4" fill="none" stroke="#A74AFF" stroke-width="4" stroke-linecap="round"/>
   <path d="M75 281h117M220 281h78M327 281h145" stroke="#f7f7f5" stroke-opacity=".52" stroke-width="8" stroke-linecap="round"/>
   <text x="75" y="244" fill="#f7f7f5" fill-opacity=".68" font-family="ui-sans-serif, system-ui" font-size="12" font-weight="700">runtime trace</text>
 </svg>

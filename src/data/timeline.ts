@@ -10,8 +10,8 @@ export const timeline: Record<Locale, TimelineItem[]> = {
   en: [
     {
       year: "2019",
-      title: "ITSOEH",
-      description: "Foundation in software engineering, computer systems, and applied technology."
+      title: "CETis 26",
+      description: "Technical foundation in programming, software logic, and applied computing."
     },
     {
       year: "2021",
@@ -19,21 +19,21 @@ export const timeline: Record<Locale, TimelineItem[]> = {
       description: "Competitive robotics, embedded systems, and technical leadership."
     },
     {
-      year: "2023",
-      title: "XJTLU",
-      description: "Research collaboration in computer science, multimodal systems, and AI."
+      year: "2023 - Now",
+      title: "ITSOEH",
+      description: "Information Technology Engineering across software systems, networks, and applied technology."
     },
     {
-      year: "2024 - Now",
-      title: "Research Engineering",
-      description: "Building intelligent systems, interactive technologies, and open infrastructure."
+      year: "2025 - Now",
+      title: "XJTLU",
+      description: "Collaborative research in multimodal systems, telemetry, and AI-assisted engineering."
     }
   ],
   es: [
     {
       year: "2019",
-      title: "ITSOEH",
-      description: "Base en ingeniería de software, sistemas computacionales y tecnología aplicada."
+      title: "CETis 26",
+      description: "Base técnica en programación, lógica de software y computación aplicada."
     },
     {
       year: "2021",
@@ -41,21 +41,21 @@ export const timeline: Record<Locale, TimelineItem[]> = {
       description: "Robótica competitiva, sistemas embebidos y liderazgo técnico."
     },
     {
-      year: "2023",
-      title: "XJTLU",
-      description: "Colaboración en investigación de ciencias de la computación, sistemas multimodales e IA."
+      year: "2023 - Hoy",
+      title: "ITSOEH",
+      description: "Ingeniería en Tecnologías de la Información: software, redes y tecnología aplicada."
     },
     {
-      year: "2024 - Hoy",
-      title: "Research Engineering",
-      description: "Construyendo sistemas inteligentes, tecnologías interactivas e infraestructura abierta."
+      year: "2025 - Hoy",
+      title: "XJTLU",
+      description: "Investigación colaborativa en sistemas multimodales, telemetría e ingeniería asistida por IA."
     }
   ],
   "zh-cn": [
     {
       year: "2019",
-      title: "ITSOEH",
-      description: "软件工程、计算机系统与应用技术基础。"
+      title: "CETis 26",
+      description: "编程、软件逻辑与应用计算的技术基础。"
     },
     {
       year: "2021",
@@ -63,14 +63,14 @@ export const timeline: Record<Locale, TimelineItem[]> = {
       description: "竞技机器人、嵌入式系统与技术领导力。"
     },
     {
-      year: "2023",
-      title: "XJTLU",
-      description: "计算机科学、多模态系统与 AI 研究协作。"
+      year: "2023 - 至今",
+      title: "ITSOEH",
+      description: "信息技术工程：软件系统、网络与应用技术。"
     },
     {
-      year: "2024 - 至今",
-      title: "研究工程",
-      description: "构建智能系统、交互技术与开放基础设施。"
+      year: "2025 - 至今",
+      title: "XJTLU",
+      description: "多模态系统、遥测与 AI 辅助工程方向的协作研究。"
     }
   ]
 };

@@ -12,7 +12,7 @@ export default {
         line: "#dedede",
         paper: "#f7f7f5",
         soft: "#eeeeeb",
-        accent: "#2f9f5f"
+        accent: "#A74AFF"
       },
       fontFamily: {
         sans: [
@@ -23,11 +23,22 @@ export default {
           "Helvetica Neue",
           "Arial",
           ...defaultTheme.fontFamily.sans
+        ],
+        mono: [
+          "SFMono-Regular",
+          "IBM Plex Mono",
+          "JetBrains Mono",
+          "ui-monospace",
+          "SFMono-Regular",
+          "Menlo",
+          "Monaco",
+          "Consolas",
+          ...defaultTheme.fontFamily.mono
         ]
       },
       boxShadow: {
-        soft: "0 18px 45px rgba(0, 0, 0, 0.08)",
-        card: "0 12px 30px rgba(0, 0, 0, 0.06)"
+        soft: "inset 0 1px 0 0 rgba(255, 255, 255, 0.2), 0 18px 45px rgba(0, 0, 0, 0.08)",
+        card: "inset 0 1px 0 0 rgba(255, 255, 255, 0.15), 0 4px 24px rgba(0, 0, 0, 0.05)"
       },
       maxWidth: {
         site: "1120px"

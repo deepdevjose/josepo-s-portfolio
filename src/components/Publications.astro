@@ -19,11 +19,13 @@ const { eyebrow, viewAll, items } = Astro.props;
     {items.map((item) => (
       <a
         href={item.href}
-        class="group grid grid-cols-[86px_minmax(0,1fr)_20px] items-center gap-4 py-3 transition hover:bg-black/[0.025]"
+        target={item.href.startsWith("http") ? "_blank" : undefined}
+        rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+        class="group grid grid-cols-[86px_minmax(0,1fr)_20px] items-start gap-4 py-4 transition hover:bg-black/[0.025]"
       >
         <time class="text-xs font-medium uppercase text-muted">{item.date}</time>
-        <h3 class="truncate text-sm font-medium text-ink">{item.title}</h3>
-        <Icon name="arrow-up-right" class="h-4 w-4 text-muted transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-ink" />
+        <h3 class="text-sm font-medium leading-6 text-ink">{item.title}</h3>
+        <Icon name="arrow-up-right" class="mt-1 h-4 w-4 text-muted transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-ink" />
       </a>
     ))}
   </div>

@@ -7,9 +7,6 @@ interface Props {
   tagline: string;
   bridge: string;
   timeLabel: string;
-  timePlace: string;
-  missionLabel: string;
-  missionValue: string;
   bottom: string;
   closing: string;
   columns: FooterColumn[];
@@ -20,22 +17,19 @@ const {
   tagline,
   bridge,
   timeLabel,
-  timePlace,
-  missionLabel,
-  missionValue,
   bottom,
   closing,
   columns
 } = Astro.props;
 ---
 
-<footer class="relative overflow-hidden bg-ink text-white">
+<footer id="contact" class="relative overflow-hidden bg-ink text-white">
   <div class="absolute bottom-6 right-4 hidden w-[360px] opacity-25 lg:block" aria-hidden="true">
     <svg viewBox="0 0 460 180" fill="none">
       <path d="M27 95c54-43 124-64 205-58 76 6 139 32 198 82" stroke="white" stroke-opacity=".35" />
-      <path d="M88 119c70-18 137-16 203 6" stroke="#2f9f5f" stroke-opacity=".7" />
-      <circle cx="92" cy="118" r="4" fill="#2f9f5f" />
-      <circle cx="300" cy="126" r="4" fill="#2f9f5f" />
+      <path d="M88 119c70-18 137-16 203 6" stroke="#A74AFF" stroke-opacity=".7" />
+      <circle cx="92" cy="118" r="4" fill="#A74AFF" />
+      <circle cx="300" cy="126" r="4" fill="#A74AFF" />
       <path d="M35 75h28l12 13 32-7 18 17 48-10 27 19 58-24 29 18 32-9 48 24 43-12" stroke="white" stroke-opacity=".22" />
       <path d="M56 134h45l22 14 69-8 44 18 80-22 37 15 49-6" stroke="white" stroke-opacity=".18" />
     </svg>
@@ -49,15 +43,19 @@ const {
       </a>
       <p class="mt-4 text-sm text-white/72">{tagline}</p>
       <p class="mt-3 whitespace-pre-line text-sm text-white/72">{bridge}</p>
-      <div class="mt-7 grid gap-3 sm:grid-cols-2">
-        <div class="rounded-lg border border-white/10 bg-white/5 p-4">
-          <p class="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-white/50">{timeLabel}</p>
-          <time data-local-clock datetime="" class="mt-2 block text-2xl font-semibold text-white">--:--</time>
-          <p class="mt-1 text-sm text-white/58">{timePlace}</p>
-        </div>
-        <div class="rounded-lg border border-white/10 bg-white/5 p-4">
-          <p class="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-white/50">{missionLabel}</p>
-          <p class="mt-2 text-lg font-semibold leading-6 text-white">{missionValue}</p>
+      <div class="mt-7">
+        <div class="surface-card-dark rounded-lg border border-white/10 bg-white/5 p-4 sm:p-5">
+          <p class="mono-label text-[0.68rem] font-semibold uppercase text-white/50">{timeLabel}</p>
+          <div class="mt-4 grid gap-3 sm:grid-cols-2">
+            <div class="rounded-md border border-white/10 bg-black/10 p-3">
+              <span class="mono-label text-[0.68rem] font-semibold uppercase text-white/50">Hidalgo, MX</span>
+              <time data-zone-clock data-time-zone="America/Mexico_City" datetime="" class="metric-value mt-2 block text-2xl font-semibold text-white">--:--</time>
+            </div>
+            <div class="rounded-md border border-white/10 bg-black/10 p-3">
+              <span class="mono-label text-[0.68rem] font-semibold uppercase text-white/50">Suzhou, CN</span>
+              <time data-zone-clock data-time-zone="Asia/Shanghai" datetime="" class="metric-value mt-2 block text-2xl font-semibold text-white">--:--</time>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -65,7 +63,7 @@ const {
     <div class="grid gap-8 sm:grid-cols-3">
       {columns.map((column) => (
         <div>
-          <h2 class="text-xs font-semibold uppercase tracking-[0.22em] text-white/65">{column.title}</h2>
+          <h2 class="mono-label text-xs font-semibold uppercase text-white/65">{column.title}</h2>
           <ul class="mt-4 grid gap-3">
             {column.links.map((link) => (
               <li>
@@ -95,19 +93,30 @@ const {
 </footer>
 
 <script>
-  const clock = document.querySelector("[data-local-clock]");
+  const clocks = document.querySelectorAll("[data-zone-clock]");
 
-  if (clock instanceof HTMLTimeElement) {
-    const formatter = new Intl.DateTimeFormat(document.documentElement.lang || "en-US", {
-      timeZone: "America/Mexico_City",
-      hour: "2-digit",
-      minute: "2-digit"
-    });
+  const formatters = new Map();
 
+  if (clocks.length > 0) {
     const updateClock = () => {
       const now = new Date();
-      clock.textContent = formatter.format(now);
-      clock.dateTime = now.toISOString();
+
+      clocks.forEach((clock) => {
+        if (!(clock instanceof HTMLTimeElement)) return;
+        const timeZone = clock.dataset.timeZone;
+        if (!timeZone) return;
+
+        if (!formatters.has(timeZone)) {
+          formatters.set(timeZone, new Intl.DateTimeFormat(document.documentElement.lang || "en-US", {
+            timeZone,
+            hour: "2-digit",
+            minute: "2-digit"
+          }));
+        }
+
+        clock.textContent = formatters.get(timeZone).format(now);
+        clock.dateTime = now.toISOString();
+      });
     };
 
     updateClock();

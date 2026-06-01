@@ -11,30 +11,30 @@
   <path d="M0 360h560L430 103H130L0 360Z" fill="#d8d8d3"/>
   <path d="M130 103h300v257H130z" fill="#ededeb"/>
   <path d="M280 103v257M130 103 52 360M430 103l78 257" stroke="#9e9e98"/>
-  <path class="spotlight" d="M280 103 195 360h170L280 103Z" fill="#2f9f5f" fill-opacity=".22"/>
+  <path class="spotlight" d="M280 103 195 360h170L280 103Z" fill="#A74AFF" fill-opacity=".22"/>
 
   <g transform="translate(161 137)">
     <rect width="86" height="118" rx="4" fill="#050505"/>
     <rect x="13" y="14" width="60" height="90" rx="3" fill="#242424"/>
-    <path d="M43 34c17 0 27 13 25 30-1 19-12 31-25 31S19 83 18 64c-1-17 9-30 25-30Z" fill="#f7f7f5" fill-opacity=".2" stroke="#2f9f5f" stroke-width="3"/>
+    <path d="M43 34c17 0 27 13 25 30-1 19-12 31-25 31S19 83 18 64c-1-17 9-30 25-30Z" fill="#f7f7f5" fill-opacity=".2" stroke="#A74AFF" stroke-width="3"/>
   </g>
 
   <g transform="translate(314 143)">
     <rect width="82" height="70" rx="4" fill="#050505"/>
     <rect x="12" y="12" width="58" height="46" rx="3" fill="#242424"/>
-    <path d="M22 48c21-29 37-29 50 0" stroke="#2f9f5f" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M22 48c21-29 37-29 50 0" stroke="#A74AFF" stroke-width="4" fill="none" stroke-linecap="round"/>
   </g>
 
   <g transform="translate(237 207)">
     <path d="M43 0c24 0 37 17 32 38-4 16-17 26-32 26S15 54 11 38C6 17 19 0 43 0Z" fill="#050505"/>
     <path d="M24 76h38l12 44H12l12-44Z" fill="#050505"/>
-    <path d="M22 120h42" stroke="#2f9f5f" stroke-width="5" stroke-linecap="round"/>
+    <path d="M22 120h42" stroke="#A74AFF" stroke-width="5" stroke-linecap="round"/>
     <circle cx="34" cy="29" r="4" fill="#f7f7f5"/>
     <circle cx="52" cy="29" r="4" fill="#f7f7f5"/>
   </g>
 
-  <path d="M212 278c44 26 92 26 136 0" stroke="#2f9f5f" stroke-width="4" fill="none" stroke-linecap="round"/>
-  <circle cx="214" cy="278" r="5" fill="#2f9f5f"/>
-  <circle cx="346" cy="278" r="5" fill="#2f9f5f"/>
+  <path d="M212 278c44 26 92 26 136 0" stroke="#A74AFF" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <circle cx="214" cy="278" r="5" fill="#A74AFF"/>
+  <circle cx="346" cy="278" r="5" fill="#A74AFF"/>
   <text x="280" y="327" fill="#050505" font-family="ui-sans-serif, system-ui" font-size="15" font-weight="800" text-anchor="middle">BYRON VIRTUAL MUSEUM</text>
 </svg>

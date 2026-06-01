@@ -9,11 +9,11 @@ interface Props {
 const { eyebrow, title, description, interests } = Astro.props;
 ---
 
-<section class="bg-white py-12 sm:py-16">
+<section class="bg-white py-10 sm:py-16">
   <div class="mx-auto max-w-site px-5 lg:px-8">
-    <div class="grid gap-8 rounded-lg border border-black/10 bg-white p-6 shadow-soft lg:grid-cols-[0.85fr_1.15fr] lg:p-8">
+    <div class="surface-card grid gap-7 rounded-lg border border-black/10 bg-white p-6 lg:grid-cols-[0.85fr_1.15fr] lg:gap-10 lg:p-8">
       <div>
-        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-ink">{eyebrow}</p>
+        <p class="mono-label text-xs font-semibold uppercase text-ink">{eyebrow}</p>
         <h2 class="mt-5 max-w-md text-3xl font-semibold leading-tight text-ink sm:text-4xl">
           {title}
         </h2>
@@ -22,13 +22,14 @@ const { eyebrow, title, description, interests } = Astro.props;
         </p>
       </div>
 
-      <div class="grid gap-3 sm:grid-cols-2">
+      <ul class="flex flex-wrap content-start gap-2.5 sm:gap-3" aria-label={eyebrow}>
         {interests.map((interest) => (
-          <div class="rounded-lg border border-black/10 bg-paper px-4 py-4 text-sm font-medium text-ink shadow-sm">
-            {interest}
-          </div>
+          <li class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-transparent px-4 py-2 text-sm font-semibold leading-none text-ink">
+            <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
+            <span>{interest}</span>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   </div>
 </section>

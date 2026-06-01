@@ -12,7 +12,7 @@ import { currentItems } from "../data/current";
 import { ecosystemCards } from "../data/ecosystem";
 import { projects } from "../data/projects";
 import { publications } from "../data/publications";
-import { affiliations, stats } from "../data/stats";
+import { stats } from "../data/stats";
 import { localeOrder, siteText, type Locale } from "../data/site";
 import { timeline } from "../data/timeline";
 import Layout from "../layouts/Layout.astro";
@@ -58,7 +58,7 @@ const cvHref = cvPaths[locale] ?? cvPaths.en;
     <ResearchInterests {...copy.researchInterests} />
     <CurrentMission {...copy.mission} />
     <Ecosystem {...copy.ecosystem} cards={ecosystemCards[locale]} />
-    <StatsStrip stats={stats[locale]} affiliations={affiliations} />
+    <StatsStrip stats={stats[locale]} />
     <FeaturedProjects
       eyebrow={copy.projects.eyebrow}
       viewAll={copy.projects.viewAll}
@@ -81,9 +81,6 @@ const cvHref = cvPaths[locale] ?? cvPaths.en;
     tagline={copy.footer.tagline}
     bridge={copy.footer.bridge}
     timeLabel={copy.footer.timeLabel}
-    timePlace={copy.footer.timePlace}
-    missionLabel={copy.footer.missionLabel}
-    missionValue={copy.footer.missionValue}
     bottom={copy.footer.bottom}
     closing={copy.footer.closing}
     columns={copy.footer.columns}

@@ -9,17 +9,17 @@ export interface CurrentItem {
 export const currentItems: Record<Locale, CurrentItem[]> = {
   en: [
     { icon: "flask", label: "Research", value: "Vision Language Runtime" },
-    { icon: "code", label: "Engineering", value: "Arm Health AI" },
+    { icon: "code", label: "Experience", value: "Byron Museum" },
     { icon: "book", label: "Learning", value: "WebGPU · Digital Twins · HCI" }
   ],
   es: [
     { icon: "flask", label: "Investigación", value: "Vision Language Runtime" },
-    { icon: "code", label: "Ingeniería", value: "Arm Health AI" },
+    { icon: "code", label: "Experiencia", value: "Byron Museum" },
     { icon: "book", label: "Aprendizaje", value: "WebGPU · Gemelos digitales · HCI" }
   ],
   "zh-cn": [
     { icon: "flask", label: "研究", value: "Vision Language Runtime" },
-    { icon: "code", label: "工程", value: "Arm Health AI" },
+    { icon: "code", label: "体验", value: "Byron Museum" },
     { icon: "book", label: "学习", value: "WebGPU · 数字孪生 · HCI" }
   ]
 };
