@@ -7,25 +7,29 @@ import type { TimelineItem } from "../data/timeline";
 interface Props {
   publicationsEyebrow: string;
   publicationsViewAll: string;
+  publicationsViewAllHref: string;
   publications: Publication[];
   timelineEyebrow: string;
   timelineViewAll: string;
+  timelineViewAllHref: string;
   timeline: TimelineItem[];
 }
 
 const {
   publicationsEyebrow,
   publicationsViewAll,
+  publicationsViewAllHref,
   publications,
   timelineEyebrow,
   timelineViewAll,
+  timelineViewAllHref,
   timeline
 } = Astro.props;
 ---
 
 <section class="flex items-center bg-white py-12 sm:py-16">
   <div class="mx-auto grid max-w-site gap-10 px-5 lg:grid-cols-[0.95fr_1.15fr] lg:px-8">
-    <Publications eyebrow={publicationsEyebrow} viewAll={publicationsViewAll} items={publications} />
-    <Timeline eyebrow={timelineEyebrow} viewAll={timelineViewAll} items={timeline} />
+    <Publications eyebrow={publicationsEyebrow} viewAll={publicationsViewAll} href={publicationsViewAllHref} items={publications} />
+    <Timeline eyebrow={timelineEyebrow} viewAll={timelineViewAll} href={timelineViewAllHref} items={timeline} />
   </div>
 </section>

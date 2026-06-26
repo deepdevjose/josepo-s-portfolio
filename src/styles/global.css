@@ -9,7 +9,7 @@
   }
 
   html {
-    --nav-height: 5rem;
+    --nav-height: 5.5rem;
     scroll-behavior: smooth;
     scroll-padding-top: var(--nav-height);
     text-rendering: optimizeLegibility;
@@ -20,6 +20,7 @@
   body {
     min-width: 320px;
     margin: 0;
+    overflow-x: hidden;
     background: #f7f7f5;
     color: #050505;
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
@@ -158,10 +159,97 @@
     letter-spacing: 0.12em;
   }
 
+  @media (max-width: 639px) {
+    .mono-label {
+      letter-spacing: 0.1em;
+    }
+  }
+
   .metric-value {
     font-family: ui-monospace, "SFMono-Regular", "IBM Plex Mono", "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
     font-variant-numeric: tabular-nums;
     letter-spacing: -0.01em;
+  }
+
+  .article-body {
+    color: #222;
+  }
+
+  .article-body > * + * {
+    margin-top: 1.15rem;
+  }
+
+  .article-body h2 {
+    margin-top: 2.25rem;
+    color: #050505;
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    font-weight: 700;
+    line-height: 1.16;
+  }
+
+  .article-body h3 {
+    margin-top: 1.75rem;
+    color: #050505;
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .article-body p,
+  .article-body li {
+    color: #55514d;
+    font-size: 1rem;
+    line-height: 1.85;
+  }
+
+  .article-body ul {
+    display: grid;
+    gap: 0.55rem;
+    padding-left: 1.2rem;
+    list-style: disc;
+  }
+
+  .article-body strong {
+    color: #050505;
+    font-weight: 700;
+  }
+
+  .article-body code {
+    border-radius: 0.35rem;
+    background: rgba(5, 5, 5, 0.06);
+    padding: 0.15rem 0.35rem;
+    color: #050505;
+    font-family: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+    font-size: 0.9em;
+  }
+
+  .article-body a {
+    color: #050505;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(167, 74, 255, 0.45);
+    text-underline-offset: 4px;
+  }
+
+  .article-body figure {
+    margin-top: 2rem;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(5, 5, 5, 0.1);
+    background: #f7f7f5;
+  }
+
+  .article-body figure img {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .article-body figcaption {
+    padding: 0.8rem 1rem;
+    color: #6f6a65;
+    font-size: 0.85rem;
+    line-height: 1.5;
   }
 
   @media (max-width: 639px) {
@@ -173,6 +261,25 @@
         0 0 0 1px rgba(255, 255, 255, 0.05) inset;
       backdrop-filter: blur(16px) saturate(1.08);
       -webkit-backdrop-filter: blur(16px) saturate(1.08);
+    }
+
+    .hero-portrait {
+      max-height: 320px;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stats-grid > div {
+      border-right-width: 0;
+      border-bottom-width: 1px;
+    }
+
+    .stats-grid > div:last-child {
+      border-bottom-width: 0;
     }
   }
 

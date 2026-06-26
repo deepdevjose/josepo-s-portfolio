@@ -1,0 +1,64 @@
+---
+import Footer from "./Footer.astro";
+import Icon from "./Icon.astro";
+import Navbar from "./Navbar.astro";
+import { blogPosts } from "../data/blog";
+import { localizedPath, pageText, siteText, type Locale } from "../data/site";
+import Layout from "../layouts/Layout.astro";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const copy = siteText[locale];
+const page = pageText[locale];
+const title = `${page.blog.title} - ${copy.metaTitle}`;
+---
+
+<Layout locale={locale} lang={copy.langAttr} title={title} description={page.blog.description}>
+  <Navbar {...copy.nav} locale={locale} />
+  <main id="top" class="min-h-screen bg-paper pt-24">
+    <section class="mx-auto max-w-site px-5 pb-10 pt-8 lg:px-8">
+      <a href={localizedPath(locale)} class="inline-flex items-center gap-2 text-sm font-semibold text-muted transition hover:text-ink">
+        <Icon name="arrow-down" class="h-4 w-4 rotate-90" />
+        {page.backHome}
+      </a>
+      <p class="mono-label mt-10 text-xs font-semibold uppercase text-accent">{page.blog.eyebrow}</p>
+      <h1 class="mt-4 max-w-4xl text-4xl font-bold leading-tight text-ink sm:text-6xl">{page.blog.title}</h1>
+      <p class="mt-5 max-w-2xl text-base leading-7 text-muted sm:text-lg">{page.blog.description}</p>
+    </section>
+
+    <section class="mx-auto grid max-w-site gap-4 px-5 pb-16 sm:grid-cols-2 lg:grid-cols-3 lg:px-8">
+      {blogPosts[locale].map((post) => (
+        <a
+          href={localizedPath(locale, `blog/${post.slug}/`)}
+          class="surface-card group flex min-h-[300px] flex-col rounded-lg border border-black/10 bg-white p-5 transition hover:-translate-y-1 hover:border-black/20 hover:shadow-soft"
+        >
+          <div class="flex items-center justify-between gap-3">
+            <p class="mono-label text-[0.68rem] font-semibold uppercase text-accent">{post.category}</p>
+            {post.featured && <span class="rounded-full border border-black/10 px-2 py-1 text-[0.68rem] font-semibold uppercase text-muted">{page.blog.featured}</span>}
+          </div>
+          <div class="mt-4 overflow-hidden rounded-md border border-black/10 bg-paper">
+            <img src={post.coverImage} alt="" class="aspect-[16/9] w-full object-cover transition duration-500 group-hover:scale-[1.02]" loading="lazy" />
+          </div>
+          <h2 class="mt-4 text-xl font-semibold leading-7 text-ink">{post.title}</h2>
+          <p class="mt-3 text-sm leading-6 text-muted">{post.description}</p>
+          <div class="mt-5 flex flex-wrap gap-2">
+            {post.tags.map((tag) => (
+              <span class="rounded-md bg-black/[0.04] px-2 py-1 text-xs font-medium text-muted">{tag}</span>
+            ))}
+          </div>
+          <div class="mt-auto flex items-center justify-between gap-4 pt-6">
+            <p class="text-xs font-medium text-muted">{post.date} · {post.readTime}</p>
+            <span class="inline-flex items-center gap-2 text-sm font-semibold text-ink">
+              {page.blog.read}
+              <Icon name="arrow-up-right" class="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </span>
+          </div>
+        </a>
+      ))}
+    </section>
+  </main>
+  <Footer {...copy.footer} locale={locale} />
+</Layout>

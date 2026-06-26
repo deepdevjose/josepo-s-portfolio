@@ -10,11 +10,11 @@ const { stats } = Astro.props;
 
 <section id="stats" class="flex items-center bg-white py-8 sm:py-12">
   <div class="mx-auto max-w-site px-5 lg:px-8">
-    <div class="surface-card grid grid-cols-2 overflow-hidden rounded-lg border border-black/10 bg-white lg:grid-cols-4">
+    <div class="stats-grid surface-card grid grid-cols-2 overflow-hidden rounded-lg border border-black/10 bg-white lg:grid-cols-4">
       {stats.map((stat) => (
-        <div class="flex min-h-[118px] flex-col items-center justify-center border-black/10 px-4 py-5 text-center odd:border-r [&:nth-child(-n+2)]:border-b lg:min-h-[140px] lg:border-b-0 lg:border-r lg:py-6 lg:last:border-r-0">
+        <div class="flex min-h-[104px] flex-col items-center justify-center border-black/10 px-3 py-4 text-center odd:border-r [&:nth-child(-n+2)]:border-b sm:min-h-[118px] sm:px-4 sm:py-5 lg:min-h-[140px] lg:border-b-0 lg:border-r lg:py-6 lg:last:border-r-0">
           <strong class="metric-value text-3xl font-semibold text-ink sm:text-4xl">{stat.value}</strong>
-          <span class="mt-2 max-w-[160px] text-sm leading-5 text-muted">{stat.label}</span>
+          <span class="mt-2 max-w-[150px] text-xs leading-5 text-muted sm:text-sm">{stat.label}</span>
         </div>
       ))}
     </div>

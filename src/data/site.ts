@@ -47,6 +47,11 @@ export const localePaths: Record<Locale, string> = {
   "zh-cn": "/zh-cn/"
 };
 
+export function localizedPath(locale: Locale, path = "") {
+  const suffix = path.replace(/^\/+/, "");
+  return `${localePaths[locale]}${suffix}`;
+}
+
 export const languageOptions: Array<{ locale: Locale; label: string; name: string }> = [
   { locale: "en", label: "EN", name: "American English" },
   { locale: "es", label: "ES", name: "Español de México" },
@@ -135,43 +140,46 @@ export const siteText: Record<
       links: [
         { label: "Projects", href: "#projects" },
         { label: "Research", href: "#research" },
+        { label: "Case Studies", href: "#blog" },
         { label: "About", href: "#about" }
       ]
     },
     hero: {
-      eyebrow: "Software Engineer & AI Researcher",
+      eyebrow: "Software & AI Engineer",
       headline: "José Manuel Cortés Cerón",
       subtitle:
-        "Architecting low-latency AI systems. Specializing in browser-native inference, robotics telemetry, and high-performance interactive computing.",
+        "I build applied AI systems that run in the browser, connect to real-world devices, and turn research prototypes into usable products.",
       pills: [
-        { icon: "code", label: "Information Technology" },
-        { icon: "university", label: "XJTLU Research" },
-        { icon: "location", label: "Hidalgo / Suzhou" }
+        { icon: "code", label: "Full-Stack AI Systems" },
+        { icon: "flask", label: "WebGPU Inference" },
+        { icon: "bridge", label: "IoT & Robotics Telemetry" },
+        { icon: "university", label: "XJTLU Research Collaboration" },
+        { icon: "location", label: "Mexico - China" }
       ],
       primaryCta: "Selected Projects",
-      secondaryCta: "CV",
+      secondaryCta: "Download CV",
       portraitAlt: "Grayscale portrait of José Manuel Cortés Cerón",
       focusEyebrow: "Current Research",
       focusTitle: "VISION-LANGUAGE RUNTIME",
-      focusMeta: "WebGPU Inference",
-      focusNote: "50ms latency with 60% memory footprint reduction via kernel fusion and quantisation."
+      focusMeta: "Browser-native multimodal inference",
+      focusNote: "Target: 50ms interaction latency with optimized memory footprint via quantization and kernel fusion."
     },
     ecosystem: {
       eyebrow: "Research Ecosystem",
-      title: "Engineering for scale and impact.",
+      title: "Engineering systems from prototype to impact.",
       description:
-        "Integrating browser AI, robotics telemetry, edge devices, and knowledge platforms into systems that can be measured, shipped, and improved.",
+        "Connecting AI runtimes, robotics telemetry, learning platforms, and research collaboration into systems that can be tested and shipped.",
       cta: "View Selected Projects"
     },
     mission: {
       eyebrow: "Current Mission",
       title: "Building Applied AI Systems.",
       description:
-        "Research, tools, and open systems that turn multimodal models, telemetry, and interactive interfaces into usable products.",
+        "I design and build software systems where AI models, real-time data, and user interfaces work together as complete products.",
       metrics: [
-        { label: "Core", value: "Edge Computing & IoT" },
-        { label: "Bridge", value: "XJTLU research" },
-        { label: "Method", value: "Execution with metrics" }
+        { label: "Edge AI & IoT", value: "From embedded telemetry to browser-based AI inference." },
+        { label: "Research to Product", value: "Turning academic ideas into usable software prototypes." },
+        { label: "Measured Execution", value: "Tracking latency, memory, accuracy, and system reliability." }
       ]
     },
     projects: {
@@ -183,21 +191,21 @@ export const siteText: Record<
       viewMore: "See more updates"
     },
     researchInterests: {
-      eyebrow: "Research Interests",
-      title: "Areas of focus shaping the work.",
+      eyebrow: "Engineering Focus",
+      title: "Systems I build and study.",
       description:
-        "The through-line is research engineering: building systems that connect multimodal AI, robotics telemetry, browser-native inference, and interactive computing.",
+        "My work connects AI models, edge devices, telemetry pipelines, and interfaces into systems that can be measured, tested, and improved.",
       interests: [
-        "Browser-Native Inference",
-        "Robotics Telemetry",
+        "Browser-Native AI",
+        "Edge Computing",
+        "IoT Telemetry",
         "Digital Twins",
-        "Multimodal AI",
-        "Interactive Computing",
-        "Human-Centered Systems"
+        "Robotics Systems",
+        "Human-Centered Interfaces"
       ]
     },
     publications: {
-      eyebrow: "Selected Publications",
+      eyebrow: "Working Papers",
       viewAll: "View all"
     },
     timeline: {
@@ -250,43 +258,46 @@ export const siteText: Record<
       links: [
         { label: "Proyectos", href: "#projects" },
         { label: "Investigación", href: "#research" },
+        { label: "Case studies", href: "#blog" },
         { label: "Acerca", href: "#about" }
       ]
     },
     hero: {
-      eyebrow: "Ingeniero de software e investigador en IA",
+      eyebrow: "Ingeniero de software e IA",
       headline: "José Manuel Cortés Cerón",
       subtitle:
-        "Diseño y construyo sistemas de IA de baja latencia. Me especializo en inferencia nativa en navegador, telemetría robótica y computación interactiva de alto rendimiento.",
+        "Construyo sistemas de IA aplicada que corren en el navegador, se conectan con dispositivos reales y convierten prototipos de investigación en productos usables.",
       pills: [
-        { icon: "code", label: "Tecnologías de la Información" },
-        { icon: "university", label: "Investigación en XJTLU" },
-        { icon: "location", label: "Hidalgo / Suzhou" }
+        { icon: "code", label: "Sistemas full-stack de IA" },
+        { icon: "flask", label: "Inferencia WebGPU" },
+        { icon: "bridge", label: "IoT y telemetría robótica" },
+        { icon: "university", label: "Colaboración de investigación XJTLU" },
+        { icon: "location", label: "México - China" }
       ],
       primaryCta: "Proyectos seleccionados",
-      secondaryCta: "CV",
+      secondaryCta: "Descargar CV",
       portraitAlt: "Retrato en escala de grises de José Manuel Cortés Cerón",
       focusEyebrow: "Investigación actual",
       focusTitle: "RUNTIME VISION-LANGUAGE",
-      focusMeta: "Inferencia con WebGPU",
-      focusNote: "50 ms de latencia y 60% menos huella de memoria mediante fusión de kernels y cuantización."
+      focusMeta: "Inferencia multimodal nativa en navegador",
+      focusNote: "Objetivo: 50 ms de latencia de interacción con memoria optimizada vía cuantización y fusión de kernels."
     },
     ecosystem: {
       eyebrow: "Ecosistema de investigación",
-      title: "Ingeniería para escala e impacto.",
+      title: "Sistemas de ingeniería del prototipo al impacto.",
       description:
-        "Integro IA en navegador, telemetría robótica, dispositivos edge y plataformas de conocimiento en sistemas medibles, entregables y mejorables.",
+        "Conecto runtimes de IA, telemetría robótica, plataformas educativas y colaboración académica en sistemas probables y entregables.",
       cta: "Ver proyectos seleccionados"
     },
     mission: {
       eyebrow: "Misión actual",
       title: "Construyendo sistemas de IA aplicados.",
       description:
-        "Investigación, herramientas y sistemas abiertos que convierten modelos multimodales, telemetría e interfaces interactivas en productos útiles.",
+        "Diseño y construyo sistemas de software donde modelos de IA, datos en tiempo real e interfaces trabajan como productos completos.",
       metrics: [
-        { label: "Centro", value: "Edge Computing e IoT" },
-        { label: "Puente", value: "Investigación en XJTLU" },
-        { label: "Método", value: "Ejecución con métricas" }
+        { label: "Edge AI e IoT", value: "De telemetría embebida a inferencia de IA en navegador." },
+        { label: "Research to Product", value: "Convertir ideas académicas en prototipos de software usables." },
+        { label: "Ejecución medible", value: "Medir latencia, memoria, precisión y confiabilidad del sistema." }
       ]
     },
     projects: {
@@ -298,21 +309,21 @@ export const siteText: Record<
       viewMore: "Ver más actualizaciones"
     },
     researchInterests: {
-      eyebrow: "Intereses de investigación",
-      title: "Áreas de enfoque que dan forma al trabajo.",
+      eyebrow: "Enfoque de ingeniería",
+      title: "Sistemas que construyo y estudio.",
       description:
-        "La línea principal es research engineering: construir sistemas que conecten IA multimodal, telemetría robótica, inferencia nativa en navegador y computación interactiva.",
+        "Mi trabajo conecta modelos de IA, dispositivos edge, pipelines de telemetría e interfaces en sistemas que se pueden medir, probar y mejorar.",
       interests: [
-        "Inferencia nativa en navegador",
-        "Telemetría robótica",
+        "IA nativa en navegador",
+        "Edge Computing",
+        "Telemetría IoT",
         "Gemelos digitales",
-        "IA multimodal",
-        "Computación interactiva",
-        "Sistemas centrados en las personas"
+        "Sistemas robóticos",
+        "Interfaces centradas en personas"
       ]
     },
     publications: {
-      eyebrow: "Publicaciones seleccionadas",
+      eyebrow: "Working papers",
       viewAll: "Ver todas"
     },
     timeline: {
@@ -365,42 +376,45 @@ export const siteText: Record<
       links: [
         { label: "项目", href: "#projects" },
         { label: "研究", href: "#research" },
+        { label: "案例", href: "#blog" },
         { label: "关于", href: "#about" }
       ]
     },
     hero: {
-      eyebrow: "软件工程师 & AI 研究者",
+      eyebrow: "软件与 AI 工程师",
       headline: "José Manuel Cortés Cerón",
       subtitle:
-        "构建低延迟 AI 系统架构。专注浏览器原生推理、机器人遥测与高性能交互式计算。",
+        "构建应用型 AI 系统：在浏览器运行、连接真实设备，并把研究原型转化为可用产品。",
       pills: [
-        { icon: "code", label: "信息技术" },
-        { icon: "university", label: "XJTLU 研究" },
-        { icon: "location", label: "Hidalgo / Suzhou" }
+        { icon: "code", label: "全栈 AI 系统" },
+        { icon: "flask", label: "WebGPU 推理" },
+        { icon: "bridge", label: "IoT 与机器人遥测" },
+        { icon: "university", label: "XJTLU 研究合作" },
+        { icon: "location", label: "墨西哥 - 中国" }
       ],
       primaryCta: "精选项目",
-      secondaryCta: "简历",
+      secondaryCta: "下载简历",
       portraitAlt: "José Manuel Cortés Cerón 的黑白肖像",
       focusEyebrow: "当前研究",
       focusTitle: "VISION-LANGUAGE RUNTIME",
-      focusMeta: "WebGPU 推理",
-      focusNote: "通过内核融合与量化实现 50ms 延迟，并降低 60% 内存占用。"
+      focusMeta: "浏览器原生多模态推理",
+      focusNote: "目标：50ms 交互延迟，并通过量化与内核融合优化内存占用。"
     },
     ecosystem: {
       eyebrow: "研究生态",
-      title: "面向规模与影响力的工程。",
+      title: "从原型到影响力的工程系统。",
       description:
-        "将浏览器 AI、机器人遥测、边缘设备与知识平台整合为可衡量、可交付、可持续改进的系统。",
+        "连接 AI 运行时、机器人遥测、学习平台和研究合作，形成可测试、可交付的系统。",
       cta: "查看精选项目"
     },
     mission: {
       eyebrow: "当前使命",
       title: "构建应用型 AI 系统。",
-      description: "研究、工具与开放系统，将多模态模型、遥测和交互界面转化为可用产品。",
+      description: "设计并构建让 AI 模型、实时数据和用户界面协同工作的完整软件产品。",
       metrics: [
-        { label: "核心", value: "边缘计算与 IoT" },
-        { label: "桥梁", value: "XJTLU 研究" },
-        { label: "方法", value: "以指标驱动执行" }
+        { label: "Edge AI 与 IoT", value: "从嵌入式遥测到浏览器 AI 推理。" },
+        { label: "Research to Product", value: "把学术想法转化为可用软件原型。" },
+        { label: "可衡量执行", value: "跟踪延迟、内存、准确率与系统可靠性。" }
       ]
     },
     projects: {
@@ -412,21 +426,21 @@ export const siteText: Record<
       viewMore: "查看更多更新"
     },
     researchInterests: {
-      eyebrow: "研究方向",
-      title: "正在塑造工作的重点领域。",
+      eyebrow: "工程重点",
+      title: "我构建和研究的系统。",
       description:
-        "主线是 research engineering：构建连接多模态 AI、机器人遥测、浏览器原生推理与交互式计算的系统。",
+        "我的工作连接 AI 模型、边缘设备、遥测管线与界面，形成可衡量、可测试、可改进的系统。",
       interests: [
-        "浏览器原生推理",
-        "机器人遥测",
+        "浏览器原生 AI",
+        "边缘计算",
+        "IoT 遥测",
         "数字孪生",
-        "多模态 AI",
-        "交互式计算",
-        "以人为中心的系统"
+        "机器人系统",
+        "以人为中心的界面"
       ]
     },
     publications: {
-      eyebrow: "精选出版物",
+      eyebrow: "研究手稿",
       viewAll: "查看全部"
     },
     timeline: {
@@ -465,6 +479,115 @@ export const siteText: Record<
           ]
         }
       ]
+    }
+  }
+};
+
+export const pageText: Record<
+  Locale,
+  {
+    backHome: string;
+    openRepo: string;
+    openLive: string;
+    projects: { eyebrow: string; title: string; description: string; problem: string; metrics: string; stack: string };
+    timeline: { eyebrow: string; title: string; description: string };
+    publications: { eyebrow: string; title: string; description: string };
+    blog: { eyebrow: string; title: string; description: string; read: string; featured: string; viewAll: string };
+  }
+> = {
+  en: {
+    backHome: "Back home",
+    openRepo: "Repository",
+    openLive: "Live",
+    projects: {
+      eyebrow: "All Projects",
+      title: "Systems with a measurable reason to exist.",
+      description:
+        "A fuller map of the engineering portfolio: what each project solves, how it is measured, and where the working artifact lives.",
+      problem: "Problem solved",
+      metrics: "Measured signals",
+      stack: "Stack"
+    },
+    timeline: {
+      eyebrow: "Full Timeline",
+      title: "Research, engineering, education, and applied systems.",
+      description: "A chronological view of the moments that shaped the current work."
+    },
+    publications: {
+      eyebrow: "Articles & Publications",
+      title: "Research notes, technical articles, and public write-ups.",
+      description: "Selected writing across AI systems, robotics, cultural computing, STEM education, and software engineering."
+    },
+    blog: {
+      eyebrow: "Case Studies",
+      title: "Engineering Case Studies",
+      description: "Technical case studies, research notes, and build logs with implementation context, constraints, and outcomes.",
+      read: "Read case study",
+      featured: "Featured",
+      viewAll: "View case studies"
+    }
+  },
+  es: {
+    backHome: "Volver al inicio",
+    openRepo: "Repositorio",
+    openLive: "Demo",
+    projects: {
+      eyebrow: "Todos los proyectos",
+      title: "Sistemas con una razón medible de existir.",
+      description:
+        "Mapa completo del portfolio de ingeniería: qué problema resuelve cada proyecto, cómo se mide y dónde vive el artefacto funcionando.",
+      problem: "Problema que resuelve",
+      metrics: "Señales medibles",
+      stack: "Stack"
+    },
+    timeline: {
+      eyebrow: "Trayectoria completa",
+      title: "Investigación, ingeniería, educación y sistemas aplicados.",
+      description: "Una vista cronológica de los momentos que dieron forma al trabajo actual."
+    },
+    publications: {
+      eyebrow: "Artículos y publicaciones",
+      title: "Notas de investigación, artículos técnicos y escritura pública.",
+      description: "Escritura seleccionada sobre IA, robótica, computación cultural, educación STEM e ingeniería de software."
+    },
+    blog: {
+      eyebrow: "Case studies",
+      title: "Case studies de ingeniería",
+      description: "Casos técnicos, notas de investigación y bitácoras con contexto de implementación, restricciones y resultados.",
+      read: "Leer case study",
+      featured: "Destacado",
+      viewAll: "Ver case studies"
+    }
+  },
+  "zh-cn": {
+    backHome: "返回首页",
+    openRepo: "仓库",
+    openLive: "在线演示",
+    projects: {
+      eyebrow: "全部项目",
+      title: "每个系统都有可衡量的存在理由。",
+      description: "完整的工程作品地图：解决什么问题、如何衡量，以及可运行成果在哪里。",
+      problem: "解决的问题",
+      metrics: "可衡量信号",
+      stack: "技术栈"
+    },
+    timeline: {
+      eyebrow: "完整经历",
+      title: "研究、工程、教育与应用系统。",
+      description: "按时间展示塑造当前工作的关键节点。"
+    },
+    publications: {
+      eyebrow: "文章与发表",
+      title: "研究笔记、技术文章与公开写作。",
+      description: "围绕 AI 系统、机器人、文化计算、STEM 教育和软件工程的精选写作。"
+    },
+    blog: {
+      eyebrow: "案例研究",
+      title: "工程案例研究",
+      description: "包含实现背景、约束和结果的技术案例、研究笔记与构建日志。",
+      read: "阅读案例",
+      featured: "精选",
+      viewAll: "查看案例"
     }
   }
 };

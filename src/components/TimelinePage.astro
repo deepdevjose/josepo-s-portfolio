@@ -1,0 +1,47 @@
+---
+import Footer from "./Footer.astro";
+import Icon from "./Icon.astro";
+import Navbar from "./Navbar.astro";
+import { localizedPath, pageText, siteText, type Locale } from "../data/site";
+import { timeline } from "../data/timeline";
+import Layout from "../layouts/Layout.astro";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const copy = siteText[locale];
+const page = pageText[locale];
+const title = `${page.timeline.eyebrow} - ${copy.metaTitle}`;
+---
+
+<Layout locale={locale} lang={copy.langAttr} title={title} description={page.timeline.description}>
+  <Navbar {...copy.nav} locale={locale} />
+  <main id="top" class="min-h-screen bg-paper pt-24">
+    <section class="mx-auto max-w-site px-5 pb-10 pt-8 lg:px-8">
+      <a href={localizedPath(locale)} class="inline-flex items-center gap-2 text-sm font-semibold text-muted transition hover:text-ink">
+        <Icon name="arrow-down" class="h-4 w-4 rotate-90" />
+        {page.backHome}
+      </a>
+      <p class="mono-label mt-10 text-xs font-semibold uppercase text-accent">{page.timeline.eyebrow}</p>
+      <h1 class="mt-4 max-w-4xl text-4xl font-bold leading-tight text-ink sm:text-6xl">{page.timeline.title}</h1>
+      <p class="mt-5 max-w-2xl text-base leading-7 text-muted sm:text-lg">{page.timeline.description}</p>
+    </section>
+
+    <section class="mx-auto max-w-site px-5 pb-16 lg:px-8">
+      <div class="divide-y divide-black/10 rounded-lg border border-black/10 bg-white">
+        {timeline[locale].map((item) => (
+          <article class="grid gap-4 p-5 sm:grid-cols-[140px_minmax(0,1fr)] lg:p-7">
+            <time class="metric-value text-sm font-semibold text-accent">{item.year}</time>
+            <div>
+              <h2 class="text-xl font-semibold text-ink">{item.title}</h2>
+              <p class="mt-2 max-w-3xl text-sm leading-6 text-muted">{item.description}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+  <Footer {...copy.footer} locale={locale} />
+</Layout>

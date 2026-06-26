@@ -6,14 +6,15 @@ import type { Publication } from "../data/publications";
 interface Props {
   eyebrow: string;
   viewAll: string;
+  href?: string;
   items: Publication[];
 }
 
-const { eyebrow, viewAll, items } = Astro.props;
+const { eyebrow, viewAll, href = "#writing", items } = Astro.props;
 ---
 
 <section id="writing" class="min-w-0">
-  <SectionHeader eyebrow={eyebrow} action={viewAll} href="#writing" />
+  <SectionHeader eyebrow={eyebrow} action={viewAll} href={href} />
 
   <div class="divide-y divide-black/10 border-y border-black/10">
     {items.map((item) => (

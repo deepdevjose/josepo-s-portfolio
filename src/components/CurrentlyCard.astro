@@ -5,16 +5,17 @@ import type { CurrentItem } from "../data/current";
 interface Props {
   eyebrow: string;
   viewMore: string;
+  viewMoreHref?: string;
   items: CurrentItem[];
 }
 
-const { eyebrow, viewMore, items } = Astro.props;
+const { eyebrow, viewMore, viewMoreHref = "#about", items } = Astro.props;
 ---
 
-<aside class="rounded-lg border border-black/10 bg-white p-6 shadow-sm">
+<aside class="rounded-lg border border-black/10 bg-white p-5 shadow-sm sm:p-6">
   <p class="text-xs font-semibold uppercase tracking-[0.22em] text-ink">{eyebrow}</p>
 
-  <div class="mt-7 grid gap-6">
+  <div class="mt-5 grid gap-4 sm:mt-7 sm:gap-6">
     {items.map((item) => (
       <div class="flex gap-4">
         <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-black/15 text-ink">
@@ -28,7 +29,7 @@ const { eyebrow, viewMore, items } = Astro.props;
     ))}
   </div>
 
-  <a href="#about" class="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-ink">
+  <a href={viewMoreHref} class="group mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-ink sm:mt-8">
     <span>{viewMore}</span>
     <Icon name="arrow-up-right" class="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
   </a>

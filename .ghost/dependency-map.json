@@ -1,0 +1,64 @@
+{
+  "projectName": "deepdevjose-portfolio",
+  "packageManifests": [
+    {
+      "path": "package.json",
+      "name": "deepdevjose-portfolio",
+      "version": "0.1.0",
+      "private": true,
+      "scripts": {
+        "dev": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview",
+        "astro": "astro"
+      },
+      "workspaces": []
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "@astrojs/mdx",
+      "version": "^6.0.1",
+      "scope": "production",
+      "manifestPath": "package.json"
+    },
+    {
+      "name": "astro",
+      "version": "^6.4.2",
+      "scope": "production",
+      "manifestPath": "package.json"
+    },
+    {
+      "name": "autoprefixer",
+      "version": "^10.4.20",
+      "scope": "development",
+      "manifestPath": "package.json"
+    },
+    {
+      "name": "tailwindcss",
+      "version": "^3.4.17",
+      "scope": "production",
+      "manifestPath": "package.json"
+    },
+    {
+      "name": "typescript",
+      "version": "^5.8.3",
+      "scope": "production",
+      "manifestPath": "package.json"
+    }
+  ],
+  "scripts": {
+    "astro": [
+      "package.json: astro"
+    ],
+    "build": [
+      "package.json: astro build"
+    ],
+    "dev": [
+      "package.json: astro dev"
+    ],
+    "preview": [
+      "package.json: astro preview"
+    ]
+  }
+}

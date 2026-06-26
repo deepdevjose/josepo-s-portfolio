@@ -1,6 +1,6 @@
 ---
 import Icon from "./Icon.astro";
-import type { FooterColumn } from "../data/site";
+import { localizedPath, type FooterColumn, type Locale } from "../data/site";
 
 interface Props {
   brand: string;
@@ -10,6 +10,7 @@ interface Props {
   bottom: string;
   closing: string;
   columns: FooterColumn[];
+  locale?: Locale;
 }
 
 const {
@@ -19,8 +20,11 @@ const {
   timeLabel,
   bottom,
   closing,
-  columns
+  columns,
+  locale = "en"
 } = Astro.props;
+
+const resolveHref = (href: string) => href.startsWith("#") ? `${localizedPath(locale)}${href}` : href;
 ---
 
 <footer id="contact" class="relative overflow-hidden bg-ink text-white">
@@ -37,7 +41,7 @@ const {
 
   <div class="relative mx-auto grid max-w-site gap-10 px-5 py-10 lg:grid-cols-[1.35fr_2fr] lg:px-8">
     <div>
-      <a href="#top" class="inline-flex items-center gap-2 text-2xl font-semibold">
+      <a href={localizedPath(locale)} class="inline-flex items-center gap-2 text-2xl font-semibold">
         <span>{brand}</span>
         <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
       </a>
@@ -52,7 +56,7 @@ const {
               <time data-zone-clock data-time-zone="America/Mexico_City" datetime="" class="metric-value mt-2 block text-2xl font-semibold text-white">--:--</time>
             </div>
             <div class="rounded-md border border-white/10 bg-black/10 p-3">
-              <span class="mono-label text-[0.68rem] font-semibold uppercase text-white/50">Suzhou, CN</span>
+              <span class="mono-label text-[0.68rem] font-semibold uppercase text-white/50">Suzhou, CN · XJTLU</span>
               <time data-zone-clock data-time-zone="Asia/Shanghai" datetime="" class="metric-value mt-2 block text-2xl font-semibold text-white">--:--</time>
             </div>
           </div>
@@ -68,7 +72,7 @@ const {
             {column.links.map((link) => (
               <li>
                 <a
-                  href={link.href}
+                  href={resolveHref(link.href)}
                   class="group inline-flex items-center gap-2 text-sm text-white/72 transition hover:text-white"
                 >
                   {column.title.toLowerCase().includes("connect") || column.title.includes("Conecta") || column.title.includes("联系") ? (

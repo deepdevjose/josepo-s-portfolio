@@ -1,5 +1,6 @@
 ---
 import Ecosystem from "./Ecosystem.astro";
+import BlogPreview from "./BlogPreview.astro";
 import CurrentMission from "./CurrentMission.astro";
 import FeaturedProjects from "./FeaturedProjects.astro";
 import Footer from "./Footer.astro";
@@ -8,12 +9,13 @@ import ResearchInterests from "./ResearchInterests.astro";
 import KnowledgeSection from "./KnowledgeSection.astro";
 import Navbar from "./Navbar.astro";
 import StatsStrip from "./StatsStrip.astro";
+import { blogPosts } from "../data/blog";
 import { currentItems } from "../data/current";
 import { ecosystemCards } from "../data/ecosystem";
 import { projects } from "../data/projects";
 import { publications } from "../data/publications";
 import { stats } from "../data/stats";
-import { localeOrder, siteText, type Locale } from "../data/site";
+import { localizedPath, localeOrder, pageText, siteText, type Locale } from "../data/site";
 import { timeline } from "../data/timeline";
 import Layout from "../layouts/Layout.astro";
 
@@ -24,6 +26,7 @@ interface Props {
 const { locale } = Astro.props;
 type SiteCopy = (typeof siteText)["en"];
 const copy = siteText[locale] as SiteCopy;
+const pages = pageText[locale];
 
 if (!localeOrder.includes(locale)) {
   throw new Error(`Unsupported locale: ${locale}`);
@@ -55,28 +58,41 @@ const cvHref = cvPaths[locale] ?? cvPaths.en;
   />
   <main>
     <Hero {...copy.hero} cvHref={cvHref} />
-    <ResearchInterests {...copy.researchInterests} />
-    <CurrentMission {...copy.mission} />
-    <Ecosystem {...copy.ecosystem} cards={ecosystemCards[locale]} />
-    <StatsStrip stats={stats[locale]} />
     <FeaturedProjects
       eyebrow={copy.projects.eyebrow}
       viewAll={copy.projects.viewAll}
-      projects={projects[locale]}
+      viewAllHref={localizedPath(locale, "projects/")}
+      projects={projects[locale].slice(0, 4)}
       currentEyebrow={copy.currently.eyebrow}
       currentViewMore={copy.currently.viewMore}
+      currentViewMoreHref={localizedPath(locale, "timeline/")}
       currentItems={currentItems[locale]}
+    />
+    <StatsStrip stats={stats[locale]} />
+    <ResearchInterests {...copy.researchInterests} />
+    <CurrentMission {...copy.mission} />
+    <Ecosystem {...copy.ecosystem} cards={ecosystemCards[locale]} />
+    <BlogPreview
+      eyebrow={pages.blog.eyebrow}
+      viewAll={pages.blog.viewAll}
+      viewAllHref={localizedPath(locale, "blog/")}
+      readLabel={pages.blog.read}
+      featuredLabel={pages.blog.featured}
+      posts={blogPosts[locale]}
     />
     <KnowledgeSection
       publicationsEyebrow={copy.publications.eyebrow}
       publicationsViewAll={copy.publications.viewAll}
+      publicationsViewAllHref={localizedPath(locale, "publications/")}
       publications={publications[locale]}
       timelineEyebrow={copy.timeline.eyebrow}
       timelineViewAll={copy.timeline.viewAll}
+      timelineViewAllHref={localizedPath(locale, "timeline/")}
       timeline={timeline[locale]}
     />
   </main>
   <Footer
+    locale={locale}
     brand={copy.footer.brand}
     tagline={copy.footer.tagline}
     bridge={copy.footer.bridge}

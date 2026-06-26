@@ -21,12 +21,12 @@ export const timeline: Record<Locale, TimelineItem[]> = {
     {
       year: "2023 - Now",
       title: "ITSOEH",
-      description: "Information Technology Engineering across software systems, networks, and applied technology."
+      description: "ICT Engineering focused on software systems, networks, databases, IoT, and applied AI."
     },
     {
       year: "2025 - Now",
       title: "XJTLU",
-      description: "Collaborative research in multimodal systems, telemetry, and AI-assisted engineering."
+      description: "Research collaboration in multimodal AI, telemetry systems, and AI-assisted engineering."
     }
   ],
   es: [
@@ -43,12 +43,12 @@ export const timeline: Record<Locale, TimelineItem[]> = {
     {
       year: "2023 - Hoy",
       title: "ITSOEH",
-      description: "Ingeniería en Tecnologías de la Información: software, redes y tecnología aplicada."
+      description: "Ingeniería TIC enfocada en sistemas de software, redes, bases de datos, IoT e IA aplicada."
     },
     {
       year: "2025 - Hoy",
       title: "XJTLU",
-      description: "Investigación colaborativa en sistemas multimodales, telemetría e ingeniería asistida por IA."
+      description: "Colaboración de investigación en IA multimodal, sistemas de telemetría e ingeniería asistida por IA."
     }
   ],
   "zh-cn": [

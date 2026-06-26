@@ -5,15 +5,16 @@ import type { TimelineItem } from "../data/timeline";
 interface Props {
   eyebrow: string;
   viewAll: string;
+  href?: string;
   items: TimelineItem[];
 }
 
-const { eyebrow, viewAll, items } = Astro.props;
+const { eyebrow, viewAll, href = "#about", items } = Astro.props;
 ---
 
 <section id="about" class="relative min-w-0">
   <span id="speaking" class="absolute -top-28"></span>
-  <SectionHeader eyebrow={eyebrow} action={viewAll} href="#about" />
+  <SectionHeader eyebrow={eyebrow} action={viewAll} href={href} />
 
   <div class="relative mt-8 grid gap-7 sm:grid-cols-4">
     <div class="absolute left-0 right-0 top-[9px] hidden h-px bg-black/35 sm:block"></div>

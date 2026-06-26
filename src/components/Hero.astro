@@ -1,14 +1,12 @@
 ---
 import { Image } from "astro:assets";
 import Icon from "./Icon.astro";
-import type { HeroPill } from "../data/site";
 import portrait from "../assets/nobgavatar.png";
 
 interface Props {
   eyebrow: string;
   headline: string;
   subtitle: string;
-  pills: HeroPill[];
   primaryCta: string;
   secondaryCta: string;
   cvHref?: string;
@@ -23,7 +21,6 @@ const {
   eyebrow,
   headline,
   subtitle,
-  pills,
   primaryCta,
   secondaryCta,
   cvHref,
@@ -40,32 +37,31 @@ const splitIndex = headlineWords.length >= 4 ? 2 : Math.max(1, headlineWords.len
 const headlineLead = headlineWords.length > 1 ? headlineWords.slice(0, splitIndex).join(" ") : headline;
 const headlineTail = headlineWords.length > 1 ? headlineWords.slice(splitIndex).join(" ") : "";
 const focusHref = "https://github.com/deepdevjose/Vision-Language-Runtime";
+const compactSubtitle = {
+  en: "I build browser-native AI systems connected to real-world devices, telemetry, and human-centered interfaces.",
+  es: "Construyo IA nativa en navegador conectada a dispositivos reales, telemetría e interfaces centradas en personas.",
+  "zh-cn": "我构建连接真实设备、遥测与人本界面的浏览器原生 AI 系统。"
+};
+const mobileSubtitle =
+  subtitle.includes("Construyo") ? compactSubtitle.es : subtitle.includes("构建") ? compactSubtitle["zh-cn"] : compactSubtitle.en;
 ---
 
-<section id="top" class="hero-gradient relative flex min-h-svh overflow-hidden border-b border-black/10 pt-20">
+<section id="top" class="hero-gradient relative flex overflow-hidden border-b border-black/10 pt-16 lg:min-h-svh lg:pt-20">
   <div class="hero-ambient absolute inset-0"></div>
 
   <div class="relative mx-auto flex w-full max-w-site px-5 lg:px-8">
-    <div class="grid w-full items-center gap-8 pb-10 lg:min-h-[calc(100svh-5rem)] lg:grid-cols-[0.88fr_1.12fr] lg:pb-0">
+    <div class="grid w-full items-center gap-5 pb-8 pt-8 sm:gap-8 sm:pb-10 sm:pt-10 lg:min-h-[calc(100svh-5rem)] lg:grid-cols-[0.88fr_1.12fr] lg:pb-0 lg:pt-0">
       <div class="hero-copy relative z-10 flex flex-col items-start lg:pb-0">
         <p class="mono-label text-xs font-semibold uppercase text-ink">{eyebrow}</p>
-        <h1 class="mt-5 max-w-2xl text-4xl font-bold leading-[0.96] text-ink sm:mt-7 sm:text-6xl lg:text-[4.25rem]" aria-label={headline}>
+        <h1 class="mt-4 max-w-2xl text-[clamp(2.6rem,12vw,4.5rem)] font-bold leading-[0.95] text-ink sm:mt-7 sm:text-6xl lg:text-[4.25rem]" aria-label={headline}>
           <span class="block whitespace-nowrap">{headlineLead}</span>
           {headlineTail && <span class="block whitespace-nowrap">{headlineTail}</span>}
         </h1>
         <div class="mt-5 h-0.5 w-10 bg-accent sm:mt-7"></div>
         <p class="mt-4 max-w-md text-base font-medium leading-7 text-graphite sm:mt-5 sm:text-lg sm:leading-8">
-          {subtitle}
+          <span class="sm:hidden">{mobileSubtitle}</span>
+          <span class="hidden sm:inline">{subtitle}</span>
         </p>
-
-        <div class="mt-5 flex max-w-[520px] flex-wrap gap-2 sm:mt-8">
-          {pills.map((pill) => (
-            <div class="flex items-center gap-2 rounded-full border border-black/10 bg-white/55 px-3.5 py-1.5 text-xs font-semibold text-ink shadow-sm backdrop-blur sm:px-[1.125rem] sm:py-2 sm:text-sm">
-              <Icon name={pill.icon} class="h-3.5 w-3.5 shrink-0 text-ink sm:h-4 sm:w-4" />
-              <span class="leading-4">{pill.label}</span>
-            </div>
-          ))}
-        </div>
 
         <div class="mt-6 flex w-full flex-col items-start gap-3 sm:mt-8 sm:flex-row sm:items-center">
           <a
@@ -84,10 +80,32 @@ const focusHref = "https://github.com/deepdevjose/Vision-Language-Runtime";
             <Icon name="download" class="h-4 w-4 transition group-hover:translate-y-0.5" />
           </a>
         </div>
+
+        <div class="mt-4 flex w-full max-w-[520px] flex-wrap items-center gap-2.5 sm:mt-6 sm:gap-3">
+          <a
+            href="https://nexus-aax.pages.dev/es/next/"
+            target="_blank"
+            rel="noreferrer"
+            class="inline-flex h-11 items-center rounded-lg border border-black/10 bg-white/70 px-3 shadow-sm transition hover:-translate-y-0.5 hover:bg-white"
+            aria-label="Next.js"
+          >
+            <img src="/assets/next_letters.png" alt="Next.js" class="h-4 w-auto max-w-[94px] object-contain" loading="eager" />
+          </a>
+          <a
+            href="https://nexus-aax.pages.dev/es/"
+            target="_blank"
+            rel="noreferrer"
+            class="inline-flex h-11 items-center gap-2 rounded-lg border border-black/10 bg-white/70 px-3 text-sm font-semibold text-ink shadow-sm transition hover:-translate-y-0.5 hover:bg-white"
+            aria-label="BitByBit Academy"
+          >
+            <img src="/assets/icon.png" alt="" class="h-6 w-6 rounded-md object-contain" loading="eager" />
+            <span>BitByBit Academy</span>
+          </a>
+        </div>
       </div>
 
-      <div class="hero-portrait-wrap hero-portrait-reveal pointer-events-none relative z-10 mt-6 flex flex-col items-center overflow-visible sm:mt-8 lg:mt-0 lg:pointer-events-auto lg:min-h-[calc(100svh-5rem)] lg:items-end lg:justify-end">
-        <div class="relative flex h-56 w-full items-end justify-center overflow-hidden rounded-lg bg-white/35 ring-1 ring-black/5 sm:h-72 lg:h-auto lg:w-auto lg:overflow-visible lg:rounded-none lg:bg-transparent lg:ring-0">
+      <div class="hero-portrait-wrap hero-portrait-reveal pointer-events-none relative z-10 mt-4 flex flex-col items-center overflow-visible sm:mt-8 lg:mt-0 lg:pointer-events-auto lg:min-h-[calc(100svh-5rem)] lg:items-end lg:justify-end">
+        <div class="relative flex h-[280px] w-full items-end justify-center overflow-hidden rounded-lg bg-white/35 ring-1 ring-black/5 sm:h-72 lg:h-auto lg:w-auto lg:overflow-visible lg:rounded-none lg:bg-transparent lg:ring-0">
           <Image
             src={portrait}
             alt={portraitAlt}
@@ -98,26 +116,27 @@ const focusHref = "https://github.com/deepdevjose/Vision-Language-Runtime";
             quality={78}
             widths={[420, 640, 860, 1120, 1360]}
             sizes="(min-width: 1024px) 48vw, (min-width: 640px) 72vw, 86vw"
-            class="hero-portrait relative z-10 h-[260px] w-auto max-w-none object-contain object-bottom opacity-100 sm:h-[360px] lg:h-[min(92svh,880px)] lg:translate-x-10"
+            class="hero-portrait relative z-10 h-[300px] w-auto max-w-none object-contain object-bottom opacity-100 sm:h-[360px] lg:h-[min(92svh,880px)] lg:translate-x-10"
           />
         </div>
 
-        <aside class="hero-focus-card glass-dark surface-card-dark pointer-events-auto relative z-20 mt-6 w-full overflow-hidden rounded-lg p-4 text-white sm:mt-8 lg:absolute lg:bottom-14 lg:right-0 lg:mt-0 lg:w-[340px] lg:p-5">
+        <aside class="hero-focus-card glass-dark surface-card-dark pointer-events-auto relative z-20 mt-4 w-full overflow-hidden rounded-lg p-3.5 text-white sm:mt-8 sm:p-4 lg:absolute lg:bottom-14 lg:right-0 lg:mt-0 lg:w-[340px] lg:p-5">
           <div class="flex items-center gap-2">
             <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
             <p class="mono-label text-[0.66rem] font-semibold uppercase text-white/80">{focusEyebrow}</p>
           </div>
-          <h2 class="mt-3 text-base font-semibold sm:mt-4 sm:text-lg">{focusTitle}</h2>
-          <p class="mt-2 text-sm text-white/72">{focusMeta}</p>
-          <div class="mt-4 flex items-end justify-between gap-4 sm:mt-6">
-            <p class="max-w-[26ch] text-xs leading-5 text-white/80 sm:text-sm">{focusNote}</p>
+          <h2 class="mt-2 text-base font-semibold sm:mt-4 sm:text-lg">{focusTitle}</h2>
+          <p class="mt-1.5 text-sm text-white/72">{focusMeta}</p>
+          <div class="mt-3 flex items-end justify-between gap-4 sm:mt-6">
+            <p class="max-w-[28ch] text-xs leading-5 text-white/80 sm:text-sm">{focusNote}</p>
             <a
               href={focusHref}
               target="_blank"
               rel="noreferrer"
-              class="group/repo inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-white/10 text-white transition hover:border-white/24 hover:bg-white/10"
+              class="group/repo inline-flex min-h-8 shrink-0 items-center justify-center gap-2 rounded-md border border-white/10 px-2.5 text-white transition hover:border-white/24 hover:bg-white/10 sm:h-8 sm:w-8 sm:px-0"
               aria-label="Open Vision-Language Runtime repository"
             >
+              <span class="text-xs font-semibold sm:sr-only">View project</span>
               <Icon name="arrow-up-right" class="h-4 w-4 transition group-hover/repo:translate-x-0.5 group-hover/repo:-translate-y-0.5" />
             </a>
           </div>

@@ -16,37 +16,37 @@ export const ecosystemCards: Record<Locale, EcosystemCard[]> = {
     {
       icon: "flask",
       visual: "lab",
-      title: "Research Systems",
+      title: "AI Runtime Systems",
       description:
-        "Multimodal AI, WebGPU, real-time inference, and HCI.",
+        "Browser-native inference, model optimization, and interactive multimodal interfaces.",
       cta: "View Vision-Language Runtime",
       href: "https://github.com/deepdevjose/Vision-Language-Runtime"
     },
     {
       icon: "academy",
       visual: "academy",
-      title: "Knowledge Infrastructure",
+      title: "Robotics & Telemetry",
       description:
-        "Open technical education, documentation, and learning systems.",
-      cta: "Visit BitByBit Academy",
-      href: "https://online.bitbybitacademy.com/"
+        "MQTT pipelines, sensor data, digital twins, and real-time monitoring.",
+      cta: "View Arm Health AI",
+      href: "https://github.com/deepdevjose/Arm-SaaS"
     },
     {
       icon: "community",
       visual: "community",
-      title: "Technical Leadership",
+      title: "Educational Infrastructure",
       description:
-        "Scalable software systems, developer tooling, and infrastructure.",
-      cta: "View Speaking & Workshops",
-      href: "#speaking"
+        "Open learning platforms, documentation systems, and technical workshops.",
+      cta: "Visit BitByBit Academy",
+      href: "https://nexus-aax.pages.dev/es/"
     },
     {
       icon: "bridge",
       visual: "bridge",
-      title: "Global Collaboration",
+      title: "Research Collaboration",
       description:
-        "Technology, research, and education between Mexico and China.",
-      cta: "Read XJTLU Research",
+        "Applied AI projects across Mexico and China with academic validation.",
+      cta: "Read working papers",
       href: "#writing"
     }
   ],
@@ -54,37 +54,37 @@ export const ecosystemCards: Record<Locale, EcosystemCard[]> = {
     {
       icon: "flask",
       visual: "lab",
-      title: "Sistemas de investigación",
+      title: "Sistemas runtime de IA",
       description:
-        "IA multimodal, WebGPU, inferencia en tiempo real e HCI.",
+        "Inferencia nativa en navegador, optimización de modelos e interfaces multimodales interactivas.",
       cta: "Ver Vision-Language Runtime",
       href: "https://github.com/deepdevjose/Vision-Language-Runtime"
     },
     {
       icon: "academy",
       visual: "academy",
-      title: "Infraestructura de conocimiento",
+      title: "Robótica y telemetría",
       description:
-        "Educación técnica abierta, documentación y sistemas de aprendizaje.",
-      cta: "Visitar BitByBit Academy",
-      href: "https://online.bitbybitacademy.com/"
+        "Pipelines MQTT, datos de sensores, gemelos digitales y monitoreo en tiempo real.",
+      cta: "Ver Arm Health AI",
+      href: "https://github.com/deepdevjose/Arm-SaaS"
     },
     {
       icon: "community",
       visual: "community",
-      title: "Liderazgo técnico",
+      title: "Infraestructura educativa",
       description:
-        "Sistemas de software escalables, tooling para desarrolladores e infraestructura.",
-      cta: "Ver charlas y talleres",
-      href: "#speaking"
+        "Plataformas abiertas de aprendizaje, documentación y talleres técnicos.",
+      cta: "Visitar BitByBit Academy",
+      href: "https://nexus-aax.pages.dev/es/"
     },
     {
       icon: "bridge",
       visual: "bridge",
-      title: "Colaboración global",
+      title: "Colaboración de investigación",
       description:
-        "Tecnología, investigación y educación entre México y China.",
-      cta: "Leer investigación XJTLU",
+        "Proyectos de IA aplicada entre México y China con validación académica.",
+      cta: "Leer working papers",
       href: "#writing"
     }
   ],
@@ -92,33 +92,33 @@ export const ecosystemCards: Record<Locale, EcosystemCard[]> = {
     {
       icon: "flask",
       visual: "lab",
-      title: "研究系统",
-      description: "多模态 AI、WebGPU、实时推理与人机交互。",
+      title: "AI 运行时系统",
+      description: "浏览器原生推理、模型优化与交互式多模态界面。",
       cta: "查看 Vision-Language Runtime",
       href: "https://github.com/deepdevjose/Vision-Language-Runtime"
     },
     {
       icon: "academy",
       visual: "academy",
-      title: "知识基础设施",
-      description: "开放技术教育、文档与学习系统。",
-      cta: "访问 BitByBit Academy",
-      href: "https://online.bitbybitacademy.com/"
+      title: "机器人与遥测",
+      description: "MQTT 管线、传感器数据、数字孪生与实时监控。",
+      cta: "查看 Arm Health AI",
+      href: "https://github.com/deepdevjose/Arm-SaaS"
     },
     {
       icon: "community",
       visual: "community",
-      title: "技术领导力",
-      description: "可扩展的软件系统、开发者工具与基础设施。",
-      cta: "查看演讲与工作坊",
-      href: "#speaking"
+      title: "教育基础设施",
+      description: "开放学习平台、文档系统与技术工作坊。",
+      cta: "访问 BitByBit Academy",
+      href: "https://nexus-aax.pages.dev/es/"
     },
     {
       icon: "bridge",
       visual: "bridge",
-      title: "全球协作",
-      description: "在墨西哥与中国之间连接技术、研究与教育。",
-      cta: "阅读 XJTLU 研究",
+      title: "研究合作",
+      description: "墨西哥与中国之间经过学术验证的应用 AI 项目。",
+      cta: "阅读研究手稿",
       href: "#writing"
     }
   ]

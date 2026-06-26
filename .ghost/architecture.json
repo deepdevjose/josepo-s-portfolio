@@ -1,0 +1,145 @@
+{
+  "projectName": "deepdevjose-portfolio",
+  "projectType": "Node.js package",
+  "analyzedAt": "2026-06-22T02:17:54.635Z",
+  "packageManager": "npm",
+  "totals": {
+    "files": 52,
+    "directories": 15,
+    "bytes": 3433102,
+    "packageManifests": 1
+  },
+  "languages": [
+    {
+      "language": "Other",
+      "extensions": [
+        ".astro",
+        ".pdf",
+        ".png",
+        ".svg"
+      ],
+      "files": 32,
+      "bytes": 3152669
+    },
+    {
+      "language": "TypeScript",
+      "extensions": [
+        ".ts"
+      ],
+      "files": 9,
+      "bytes": 35026
+    },
+    {
+      "language": "JavaScript",
+      "extensions": [
+        ".mjs"
+      ],
+      "files": 5,
+      "bytes": 1614
+    },
+    {
+      "language": "JSON",
+      "extensions": [
+        ".json"
+      ],
+      "files": 4,
+      "bytes": 236237
+    },
+    {
+      "language": "CSS",
+      "extensions": [
+        ".css"
+      ],
+      "files": 1,
+      "bytes": 7505
+    },
+    {
+      "language": "Markdown",
+      "extensions": [
+        ".md"
+      ],
+      "files": 1,
+      "bytes": 51
+    }
+  ],
+  "frameworks": [
+    {
+      "name": "TypeScript",
+      "confidence": "high",
+      "evidence": [
+        "TypeScript configuration detected"
+      ]
+    }
+  ],
+  "entryPoints": [
+    {
+      "kind": "script",
+      "path": "astro dev",
+      "source": "package.json#scripts.dev"
+    },
+    {
+      "kind": "script",
+      "path": "astro build",
+      "source": "package.json#scripts.build"
+    }
+  ],
+  "directories": [
+    {
+      "path": "src",
+      "files": 31,
+      "directories": 9
+    },
+    {
+      "path": "public",
+      "files": 8,
+      "directories": 2
+    },
+    {
+      "path": ".astro",
+      "files": 5,
+      "directories": 1
+    }
+  ],
+  "risks": [
+    {
+      "id": "missing-tests",
+      "severity": "medium",
+      "title": "No test files found",
+      "description": "The repository does not contain obvious unit, integration, or smoke test files.",
+      "evidence": [
+        "No files matched __tests__, tests/, *.test.*, or *.spec.* patterns"
+      ],
+      "recommendation": "Add focused smoke tests around the CLI commands and analyzer output before expanding AI workflows."
+    },
+    {
+      "id": "thin-readme",
+      "severity": "low",
+      "title": "README is too thin for onboarding",
+      "description": "The root README does not yet explain installation, commands, artifacts, or release scope.",
+      "evidence": [
+        "README.md is 51 bytes"
+      ],
+      "recommendation": "Document the MVP command workflow and make clear which AI features are planned."
+    },
+    {
+      "id": "missing-ci",
+      "severity": "low",
+      "title": "No CI workflow detected",
+      "description": "The repository has no obvious GitHub Actions workflow for build or test verification.",
+      "evidence": [
+        "No .github/workflows/ci.yml or .github/workflows/ci.yaml file found"
+      ],
+      "recommendation": "Add CI once the MVP command behavior has tests, so releases stay reproducible."
+    },
+    {
+      "id": "missing-license",
+      "severity": "low",
+      "title": "No license file detected",
+      "description": "The repository does not contain a root LICENSE file.",
+      "evidence": [
+        "LICENSE not found"
+      ],
+      "recommendation": "Add a license before publishing packages or distributing an installer."
+    }
+  ]
+}
