@@ -1,0 +1,403 @@
+---
+import SupportModal from "./SupportModal.astro";
+
+interface Props {
+  ringText: string;
+  ariaLabel: string;
+  tooltipLabel: string;
+  modalTitle: string;
+  modalDescription: string;
+  buyCoffeeLabel: string;
+  bankTitle: string;
+  nameLabel: string;
+  clabeLabel: string;
+  copyLabel: string;
+  copiedLabel: string;
+  closeLabel: string;
+}
+
+const {
+  ringText,
+  ariaLabel,
+  tooltipLabel,
+  ...supportModal
+} = Astro.props;
+---
+
+<button
+  type="button"
+  class="coffee-badge group pointer-events-auto relative z-20 mt-4 block h-[86px] w-[86px] shrink-0 sm:mt-6 sm:h-[96px] sm:w-[96px] lg:absolute lg:bottom-24 lg:-right-2 lg:mt-0 lg:h-[112px] lg:w-[112px] xl:-right-8 xl:h-[118px] xl:w-[118px]"
+  aria-label={ariaLabel}
+  aria-haspopup="dialog"
+  data-support-trigger
+>
+  <span class="coffee-badge__glow" aria-hidden="true"></span>
+  <span class="coffee-badge__disc" aria-hidden="true">
+    <svg class="coffee-badge__ring" viewBox="0 0 220 220" aria-hidden="true">
+      <defs>
+        <path id="coffee-ring-path" d="M 36 112 A 74 74 0 1 1 184 112" />
+      </defs>
+      <circle cx="110" cy="110" r="92" />
+      <text>
+        <textPath href="#coffee-ring-path" startOffset="50%" text-anchor="middle">{ringText}</textPath>
+      </text>
+      <circle class="coffee-badge__dot coffee-badge__dot--left" cx="39" cy="116" r="3.7" />
+      <circle class="coffee-badge__dot coffee-badge__dot--right" cx="181" cy="116" r="3.7" />
+    </svg>
+
+    <span class="coffee-badge__scene">
+      <span class="coffee-badge__steam coffee-badge__steam--one"></span>
+      <span class="coffee-badge__steam coffee-badge__steam--two"></span>
+      <span class="coffee-badge__steam coffee-badge__steam--three"></span>
+      <span class="coffee-badge__cup">
+        <span class="coffee-badge__rim"></span>
+        <span class="coffee-badge__coffee"></span>
+        <span class="coffee-badge__handle"></span>
+        <span class="coffee-badge__ticket">
+          <span class="coffee-badge__heart"></span>
+        </span>
+      </span>
+      <span class="coffee-badge__shadow"></span>
+    </span>
+  </span>
+  <span class="coffee-badge__label" aria-hidden="true">{tooltipLabel}</span>
+</button>
+
+<SupportModal {...supportModal} />
+
+<style>
+  .coffee-badge {
+    cursor: pointer;
+    perspective: 900px;
+    filter: drop-shadow(0 14px 26px rgba(5, 5, 5, 0.12));
+    transform: translate3d(0, 0, 0);
+    transition: filter 240ms ease, transform 240ms ease;
+    -webkit-tap-highlight-color: transparent;
+    appearance: none;
+    border: 0;
+    padding: 0;
+  }
+
+  .coffee-badge:focus-visible {
+    border-radius: 999px;
+    outline: 2px solid rgba(128, 76, 255, 0.64);
+    outline-offset: 5px;
+  }
+
+  .coffee-badge__glow {
+    position: absolute;
+    inset: 7%;
+    border-radius: 999px;
+    background:
+      radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.9), transparent 48%),
+      radial-gradient(circle at 50% 72%, rgba(150, 94, 255, 0.18), transparent 62%);
+    filter: blur(16px);
+    opacity: 0.72;
+    transform: translate3d(0, 10px, -40px);
+    transition: opacity 240ms ease, transform 240ms ease;
+  }
+
+  .coffee-badge__disc {
+    position: absolute;
+    inset: 0;
+    display: block;
+    overflow: hidden;
+    border-radius: 999px;
+    border: 1px solid rgba(5, 5, 5, 0.12);
+    background:
+      radial-gradient(circle at 42% 34%, rgba(255, 255, 255, 0.98), rgba(251, 250, 246, 0.97) 48%, rgba(239, 235, 225, 0.98) 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.94),
+      inset 0 -12px 24px rgba(80, 63, 34, 0.07),
+      0 1px 0 rgba(255, 255, 255, 0.9),
+      0 16px 36px rgba(5, 5, 5, 0.13);
+    transform: rotateX(6deg) rotateY(-6deg) translateZ(0);
+    transform-style: preserve-3d;
+    transition: box-shadow 240ms ease, transform 240ms ease;
+  }
+
+  .coffee-badge__ring {
+    position: absolute;
+    inset: 6%;
+    overflow: visible;
+  }
+
+  .coffee-badge__ring circle:first-of-type {
+    fill: none;
+    stroke: rgba(5, 5, 5, 0.76);
+    stroke-width: 1.9;
+  }
+
+  .coffee-badge__ring text {
+    fill: #15171a;
+    font-family: ui-monospace, "SFMono-Regular", "IBM Plex Mono", "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.31em;
+  }
+
+  .coffee-badge__dot {
+    fill: rgba(21, 23, 26, 0.82);
+  }
+
+  .coffee-badge__scene {
+    position: absolute;
+    left: 50%;
+    top: 53%;
+    width: 62%;
+    height: 44%;
+    transform: translate(-48%, -34%) rotateX(8deg) rotateZ(-1deg);
+    transform-style: preserve-3d;
+  }
+
+  .coffee-badge__cup {
+    position: absolute;
+    left: 19%;
+    bottom: 13%;
+    width: 57%;
+    height: 47%;
+    border: 2.6px solid #15171a;
+    border-top: 0;
+    border-radius: 0 0 34% 38% / 0 0 48% 48%;
+    background:
+      linear-gradient(92deg, rgba(255, 255, 255, 0.96), rgba(241, 238, 228, 0.98) 55%, rgba(255, 255, 255, 0.92));
+    box-shadow:
+      inset 10px -5px 18px rgba(255, 255, 255, 0.8),
+      inset -13px -10px 22px rgba(5, 5, 5, 0.08),
+      0 10px 18px rgba(5, 5, 5, 0.1);
+    transform: translateZ(28px);
+  }
+
+  .coffee-badge__rim,
+  .coffee-badge__coffee {
+    position: absolute;
+    left: -4%;
+    top: -20%;
+    width: 108%;
+    height: 36%;
+    border-radius: 50%;
+  }
+
+  .coffee-badge__rim {
+    z-index: 2;
+    border: 2.6px solid #15171a;
+    background: linear-gradient(180deg, #ffffff, #eeeae0);
+  }
+
+  .coffee-badge__coffee {
+    z-index: 3;
+    left: 8%;
+    top: -10%;
+    width: 84%;
+    height: 18%;
+    background:
+      radial-gradient(circle at 52% 0%, rgba(255, 255, 255, 0.26), transparent 35%),
+      linear-gradient(90deg, #191915, #3a3023 50%, #161511);
+    box-shadow: inset 0 3px 8px rgba(255, 255, 255, 0.16);
+  }
+
+  .coffee-badge__handle {
+    position: absolute;
+    right: -30%;
+    top: 10%;
+    width: 34%;
+    height: 54%;
+    border: 2.6px solid #15171a;
+    border-left: 0;
+    border-radius: 0 999px 999px 0;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.62));
+  }
+
+  .coffee-badge__ticket {
+    position: absolute;
+    left: -22%;
+    bottom: -27%;
+    z-index: 5;
+    width: 84%;
+    height: 42%;
+    border: 2.2px solid #15171a;
+    border-radius: 4px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 240, 230, 0.98));
+    box-shadow: 0 8px 12px rgba(5, 5, 5, 0.12);
+    transform: rotateZ(5deg) translateZ(18px);
+  }
+
+  .coffee-badge__heart {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    background: #15171a;
+    transform: translate(-50%, -50%);
+  }
+
+  .coffee-badge__heart::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 49%;
+    width: 10px;
+    height: 10px;
+    background: #ffffff;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  .coffee-badge__heart::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 41%;
+    width: 12px;
+    height: 8px;
+    border-radius: 999px 999px 0 0;
+    background:
+      radial-gradient(circle at 27% 52%, #ffffff 0 44%, transparent 46%),
+      radial-gradient(circle at 73% 52%, #ffffff 0 44%, transparent 46%);
+    transform: translateX(-50%);
+  }
+
+  .coffee-badge__steam {
+    position: absolute;
+    bottom: 58%;
+    width: 10px;
+    height: 58px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(128, 76, 255, 0.38), rgba(255, 255, 255, 0));
+    filter: blur(0.7px);
+    opacity: 0.42;
+    transform-origin: 50% 100%;
+    animation: coffee-steam 3.8s ease-in-out infinite;
+  }
+
+  .coffee-badge__steam--one {
+    left: 41%;
+    animation-delay: -0.4s;
+  }
+
+  .coffee-badge__steam--two {
+    left: 50%;
+    height: 72px;
+    animation-delay: -1.15s;
+  }
+
+  .coffee-badge__steam--three {
+    left: 57%;
+    height: 54px;
+    animation-delay: -1.9s;
+  }
+
+  .coffee-badge__shadow {
+    position: absolute;
+    left: 18%;
+    bottom: 1%;
+    width: 72%;
+    height: 12%;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(128, 76, 255, 0.22), rgba(5, 5, 5, 0.09) 46%, transparent 72%);
+    filter: blur(3px);
+    transform: translateZ(-20px);
+  }
+
+  .coffee-badge__label {
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 0.55rem);
+    display: block;
+    width: max-content;
+    max-width: 9.5rem;
+    border: 1px solid rgba(5, 5, 5, 0.08);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 10px 26px rgba(5, 5, 5, 0.1);
+    color: #15171a;
+    font-size: 0.68rem;
+    font-weight: 700;
+    line-height: 1;
+    opacity: 0;
+    padding: 0.42rem 0.62rem;
+    pointer-events: none;
+    text-align: center;
+    transform: translateX(-50%) translateY(-3px);
+    transition: opacity 180ms ease, transform 180ms ease;
+    white-space: nowrap;
+  }
+
+  @supports (backdrop-filter: blur(12px)) {
+    .coffee-badge__label {
+      backdrop-filter: blur(12px);
+    }
+  }
+
+  .coffee-badge:hover,
+  .coffee-badge:focus-visible {
+    filter: drop-shadow(0 18px 32px rgba(5, 5, 5, 0.15));
+    transform: translateY(-3px) scale(1.04);
+  }
+
+  .coffee-badge:active {
+    filter: drop-shadow(0 12px 22px rgba(5, 5, 5, 0.13));
+    transform: translateY(-1px) scale(0.985);
+  }
+
+  :global(html.support-modal-open) .coffee-badge {
+    opacity: 0.28;
+  }
+
+  .coffee-badge:hover .coffee-badge__disc,
+  .coffee-badge:focus-visible .coffee-badge__disc {
+    transform: rotateX(4deg) rotateY(-2deg) translateZ(14px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.94),
+      inset 0 -12px 24px rgba(80, 63, 34, 0.07),
+      0 1px 0 rgba(255, 255, 255, 0.9),
+      0 20px 46px rgba(5, 5, 5, 0.16);
+  }
+
+  .coffee-badge:hover .coffee-badge__glow,
+  .coffee-badge:focus-visible .coffee-badge__glow {
+    opacity: 1;
+    transform: translate3d(0, 8px, -40px) scale(1.05);
+  }
+
+  .coffee-badge:hover .coffee-badge__label,
+  .coffee-badge:focus-visible .coffee-badge__label {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  @keyframes coffee-steam {
+    0% {
+      opacity: 0;
+      transform: translateY(8px) translateX(-2px) rotate(-11deg) scaleY(0.72);
+    }
+    34% {
+      opacity: 0.44;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-12px) translateX(5px) rotate(14deg) scaleY(1.1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .coffee-badge__steam {
+      animation: none;
+      opacity: 0.58;
+    }
+
+    .coffee-badge__disc,
+    .coffee-badge__glow,
+    .coffee-badge__label,
+    .coffee-badge {
+      transition: none;
+    }
+
+    .coffee-badge:hover,
+    .coffee-badge:focus-visible,
+    .coffee-badge:active {
+      transform: none;
+    }
+  }
+</style>

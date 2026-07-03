@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import BuyMeCoffeeBadge from "./BuyMeCoffeeBadge.astro";
 import Icon from "./Icon.astro";
 import portrait from "../assets/nobgavatar.png";
 
@@ -11,10 +12,20 @@ interface Props {
   secondaryCta: string;
   cvHref?: string;
   portraitAlt: string;
-  focusEyebrow: string;
-  focusTitle: string;
-  focusMeta: string;
-  focusNote: string;
+  coffeeSupport: {
+    ringText: string;
+    ariaLabel: string;
+    tooltipLabel: string;
+    modalTitle: string;
+    modalDescription: string;
+    buyCoffeeLabel: string;
+    bankTitle: string;
+    nameLabel: string;
+    clabeLabel: string;
+    copyLabel: string;
+    copiedLabel: string;
+    closeLabel: string;
+  };
 }
 
 const {
@@ -25,10 +36,7 @@ const {
   secondaryCta,
   cvHref,
   portraitAlt,
-  focusEyebrow,
-  focusTitle,
-  focusMeta,
-  focusNote
+  coffeeSupport
 } = Astro.props;
 
 
@@ -36,7 +44,6 @@ const headlineWords = headline.trim().split(/\s+/);
 const splitIndex = headlineWords.length >= 4 ? 2 : Math.max(1, headlineWords.length - 1);
 const headlineLead = headlineWords.length > 1 ? headlineWords.slice(0, splitIndex).join(" ") : headline;
 const headlineTail = headlineWords.length > 1 ? headlineWords.slice(splitIndex).join(" ") : "";
-const focusHref = "https://github.com/deepdevjose/Vision-Language-Runtime";
 const compactSubtitle = {
   en: "I build browser-native AI systems connected to real-world devices, telemetry, and human-centered interfaces.",
   es: "Construyo IA nativa en navegador conectada a dispositivos reales, telemetría e interfaces centradas en personas.",
@@ -120,27 +127,7 @@ const mobileSubtitle =
           />
         </div>
 
-        <aside class="hero-focus-card glass-dark surface-card-dark pointer-events-auto relative z-20 mt-4 w-full overflow-hidden rounded-lg p-3.5 text-white sm:mt-8 sm:p-4 lg:absolute lg:bottom-14 lg:right-0 lg:mt-0 lg:w-[340px] lg:p-5">
-          <div class="flex items-center gap-2">
-            <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
-            <p class="mono-label text-[0.66rem] font-semibold uppercase text-white/80">{focusEyebrow}</p>
-          </div>
-          <h2 class="mt-2 text-base font-semibold sm:mt-4 sm:text-lg">{focusTitle}</h2>
-          <p class="mt-1.5 text-sm text-white/72">{focusMeta}</p>
-          <div class="mt-3 flex items-end justify-between gap-4 sm:mt-6">
-            <p class="max-w-[28ch] text-xs leading-5 text-white/80 sm:text-sm">{focusNote}</p>
-            <a
-              href={focusHref}
-              target="_blank"
-              rel="noreferrer"
-              class="group/repo inline-flex min-h-8 shrink-0 items-center justify-center gap-2 rounded-md border border-white/10 px-2.5 text-white transition hover:border-white/24 hover:bg-white/10 sm:h-8 sm:w-8 sm:px-0"
-              aria-label="Open Vision-Language Runtime repository"
-            >
-              <span class="text-xs font-semibold sm:sr-only">View project</span>
-              <Icon name="arrow-up-right" class="h-4 w-4 transition group-hover/repo:translate-x-0.5 group-hover/repo:-translate-y-0.5" />
-            </a>
-          </div>
-        </aside>
+        <BuyMeCoffeeBadge {...coffeeSupport} />
       </div>
     </div>
   </div>

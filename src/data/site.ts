@@ -78,10 +78,20 @@ export const siteText: Record<
       primaryCta: string;
       secondaryCta: string;
       portraitAlt: string;
-      focusEyebrow: string;
-      focusTitle: string;
-      focusMeta: string;
-      focusNote: string;
+      coffeeSupport: {
+        ringText: string;
+        ariaLabel: string;
+        tooltipLabel: string;
+        modalTitle: string;
+        modalDescription: string;
+        buyCoffeeLabel: string;
+        bankTitle: string;
+        nameLabel: string;
+        clabeLabel: string;
+        copyLabel: string;
+        copiedLabel: string;
+        closeLabel: string;
+      };
     };
     ecosystem: {
       eyebrow: string;
@@ -159,10 +169,21 @@ export const siteText: Record<
       primaryCta: "Selected Projects",
       secondaryCta: "Download CV",
       portraitAlt: "Grayscale portrait of José Manuel Cortés Cerón",
-      focusEyebrow: "Current Research",
-      focusTitle: "VISION-LANGUAGE RUNTIME",
-      focusMeta: "Browser-native multimodal inference",
-      focusNote: "Target: 50ms interaction latency with optimized memory footprint via quantization and kernel fusion."
+      coffeeSupport: {
+        ringText: "BUY ME A COFFEE",
+        ariaLabel: "Open support options",
+        tooltipLabel: "Support my work",
+        modalTitle: "Support my work",
+        modalDescription:
+          "Your support helps me continue building, researching, and sharing AI, software, and cultural technology projects from Mexico.",
+        buyCoffeeLabel: "Buy me a coffee ↗",
+        bankTitle: "Bank transfer — BBVA",
+        nameLabel: "Name",
+        clabeLabel: "CLABE",
+        copyLabel: "Copy CLABE",
+        copiedLabel: "Copied",
+        closeLabel: "Close support options"
+      }
     },
     ecosystem: {
       eyebrow: "Research Ecosystem",
@@ -277,10 +298,21 @@ export const siteText: Record<
       primaryCta: "Proyectos seleccionados",
       secondaryCta: "Descargar CV",
       portraitAlt: "Retrato en escala de grises de José Manuel Cortés Cerón",
-      focusEyebrow: "Investigación actual",
-      focusTitle: "RUNTIME VISION-LANGUAGE",
-      focusMeta: "Inferencia multimodal nativa en navegador",
-      focusNote: "Objetivo: 50 ms de latencia de interacción con memoria optimizada vía cuantización y fusión de kernels."
+      coffeeSupport: {
+        ringText: "INVÍTAME UN CAFÉ",
+        ariaLabel: "Abrir opciones de apoyo",
+        tooltipLabel: "Apoya mi trabajo",
+        modalTitle: "Apoya mi trabajo",
+        modalDescription:
+          "Tu apoyo me ayuda a seguir construyendo, investigando y compartiendo proyectos de IA, software y tecnología cultural desde México.",
+        buyCoffeeLabel: "Invítame un café ↗",
+        bankTitle: "Transferencia bancaria — BBVA",
+        nameLabel: "Nombre",
+        clabeLabel: "CLABE",
+        copyLabel: "Copiar CLABE",
+        copiedLabel: "Copiado",
+        closeLabel: "Cerrar modal"
+      }
     },
     ecosystem: {
       eyebrow: "Ecosistema de investigación",
@@ -395,10 +427,20 @@ export const siteText: Record<
       primaryCta: "精选项目",
       secondaryCta: "下载简历",
       portraitAlt: "José Manuel Cortés Cerón 的黑白肖像",
-      focusEyebrow: "当前研究",
-      focusTitle: "VISION-LANGUAGE RUNTIME",
-      focusMeta: "浏览器原生多模态推理",
-      focusNote: "目标：50ms 交互延迟，并通过量化与内核融合优化内存占用。"
+      coffeeSupport: {
+        ringText: "BUY ME A COFFEE",
+        ariaLabel: "打开支持选项",
+        tooltipLabel: "支持我的工作",
+        modalTitle: "支持我的工作",
+        modalDescription: "你的支持帮助我继续在墨西哥构建、研究和分享人工智能、软件与文化科技项目。",
+        buyCoffeeLabel: "请我喝杯咖啡 ↗",
+        bankTitle: "银行转账 — BBVA",
+        nameLabel: "姓名",
+        clabeLabel: "CLABE",
+        copyLabel: "复制 CLABE",
+        copiedLabel: "已复制",
+        closeLabel: "关闭支持选项"
+      }
     },
     ecosystem: {
       eyebrow: "研究生态",
