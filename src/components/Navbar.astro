@@ -1,9 +1,11 @@
 ---
 import Icon from "./Icon.astro";
+import SupportModal from "./SupportModal.astro";
 import {
   languageOptions,
   localizedPath,
   localePaths,
+  type CoffeeSupport,
   type Locale,
   type NavItem
 } from "../data/site";
@@ -16,6 +18,7 @@ interface Props {
   openMenuLabel: string;
   closeMenuLabel: string;
   locale: Locale;
+  coffeeSupport: CoffeeSupport;
 }
 
 const {
@@ -25,7 +28,8 @@ const {
   languageLabel,
   openMenuLabel,
   closeMenuLabel,
-  locale
+  locale,
+  coffeeSupport
 } = Astro.props;
 const resolveHref = (href: string) => href.startsWith("#") ? `${localizedPath(locale)}${href}` : href;
 const cvPaths: Record<Locale, string> = {
