@@ -41,13 +41,14 @@ const compactSubtitle = {
 };
 const mobileSubtitle =
   subtitle.includes("Construyo") ? compactSubtitle.es : subtitle.includes("构建") ? compactSubtitle["zh-cn"] : compactSubtitle.en;
+const featuredLabel = subtitle.includes("Construyo") ? "Destacado en" : subtitle.includes("构建") ? "精选" : "Featured in";
 ---
 
-<section id="top" class="hero-gradient relative flex overflow-hidden border-b border-black/10 pt-16 lg:min-h-svh lg:pt-20">
+<section id="top" class="hero-gradient relative flex overflow-hidden border-b border-black/10 pt-16 lg:min-h-svh">
   <div class="hero-ambient absolute inset-0"></div>
 
   <div class="relative mx-auto flex w-full max-w-site px-5 lg:px-8">
-    <div class="grid w-full items-center gap-5 pb-8 pt-8 sm:gap-8 sm:pb-10 sm:pt-10 lg:min-h-[calc(100svh-5rem)] lg:grid-cols-[0.88fr_1.12fr] lg:pb-0 lg:pt-0">
+    <div class="grid w-full items-center gap-5 pb-8 pt-8 sm:gap-8 sm:pb-10 sm:pt-10 lg:h-[calc(100svh-4rem)] lg:min-h-0 lg:grid-cols-[0.88fr_1.12fr] lg:pb-0 lg:pt-0">
       <div class="hero-copy relative z-10 flex flex-col items-start lg:pb-0">
         <p class="mono-label text-xs font-semibold uppercase text-ink">{eyebrow}</p>
         <h1 class="mt-4 max-w-2xl text-[clamp(2.6rem,12vw,4.5rem)] font-bold leading-[0.95] text-ink sm:mt-7 sm:text-6xl lg:text-[4.25rem]" aria-label={headline}>
@@ -55,7 +56,7 @@ const mobileSubtitle =
           {headlineTail && <span class="block whitespace-nowrap">{headlineTail}</span>}
         </h1>
         <div class="mt-5 h-0.5 w-10 bg-accent sm:mt-7"></div>
-        <p class="mt-4 max-w-md text-base font-medium leading-7 text-graphite sm:mt-5 sm:text-lg sm:leading-8">
+        <p class="mt-4 max-w-md text-base font-medium leading-7 text-[#333333] sm:mt-5 sm:text-lg sm:leading-8">
           <span class="sm:hidden">{mobileSubtitle}</span>
           <span class="hidden sm:inline">{subtitle}</span>
         </p>
@@ -78,50 +79,53 @@ const mobileSubtitle =
           </a>
         </div>
 
-        <div class="mt-4 flex w-full max-w-[520px] flex-wrap items-center gap-2.5 sm:mt-6 sm:gap-3">
-          <a
-            href="https://nexus-aax.pages.dev/es/next/"
-            target="_blank"
-            rel="noreferrer"
-            class="inline-flex h-11 items-center rounded-lg border border-black/10 bg-white/70 px-3 shadow-sm transition hover:-translate-y-0.5 hover:bg-white"
-            aria-label="Next.js"
-          >
-            <Image
-              src={nextLetters}
-              alt="Next.js"
-              loading="eager"
-              decoding="async"
-              format="webp"
-              quality={82}
-              widths={[94, 188, 282]}
-              sizes="94px"
-              class="h-4 w-auto max-w-[94px] object-contain"
-            />
-          </a>
-          <a
-            href="https://nexus-aax.pages.dev/es/"
-            target="_blank"
-            rel="noreferrer"
-            class="inline-flex h-11 items-center gap-2 rounded-lg border border-black/10 bg-white/70 px-3 text-sm font-semibold text-ink shadow-sm transition hover:-translate-y-0.5 hover:bg-white"
-            aria-label="BitByBit Academy"
-          >
-            <Image
-              src={academyIcon}
-              alt=""
-              loading="eager"
-              decoding="async"
-              format="webp"
-              quality={82}
-              widths={[24, 48, 72]}
-              sizes="24px"
-              class="h-6 w-6 rounded-md object-contain"
-            />
-            <span>BitByBit Academy</span>
-          </a>
+        <div class="mt-5 w-full max-w-[520px] sm:mt-7">
+          <p class="mono-label text-[0.65rem] font-semibold uppercase text-ink/55">{featuredLabel}</p>
+          <div class="mt-2 flex flex-wrap items-center gap-2.5 sm:gap-3">
+            <a
+              href="https://nexus-aax.pages.dev/es/next/"
+              target="_blank"
+              rel="noreferrer"
+              class="inline-flex h-11 items-center rounded-lg border border-black/10 bg-white/70 px-3 shadow-sm transition hover:-translate-y-0.5 hover:bg-white"
+              aria-label="Next.js"
+            >
+              <Image
+                src={nextLetters}
+                alt="Next.js"
+                loading="eager"
+                decoding="async"
+                format="webp"
+                quality={82}
+                widths={[94, 188, 282]}
+                sizes="94px"
+                class="h-4 w-auto max-w-[94px] object-contain"
+              />
+            </a>
+            <a
+              href="https://nexus-aax.pages.dev/es/"
+              target="_blank"
+              rel="noreferrer"
+              class="inline-flex h-11 items-center gap-2 rounded-lg border border-black/10 bg-white/70 px-3 text-sm font-semibold text-ink shadow-sm transition hover:-translate-y-0.5 hover:bg-white"
+              aria-label="BitByBit Academy"
+            >
+              <Image
+                src={academyIcon}
+                alt=""
+                loading="eager"
+                decoding="async"
+                format="webp"
+                quality={82}
+                widths={[24, 48, 72]}
+                sizes="24px"
+                class="h-6 w-6 rounded-md object-contain"
+              />
+              <span>BitByBit Academy</span>
+            </a>
+          </div>
         </div>
       </div>
 
-      <div class="hero-portrait-wrap hero-portrait-reveal pointer-events-none relative z-10 mt-4 flex flex-col items-center overflow-visible sm:mt-8 lg:mt-0 lg:pointer-events-auto lg:min-h-[calc(100svh-5rem)] lg:items-end lg:justify-end">
+      <div class="hero-portrait-wrap hero-portrait-reveal pointer-events-none relative z-10 mt-4 flex flex-col items-center overflow-visible sm:mt-8 lg:mt-0 lg:h-full lg:min-h-0 lg:pointer-events-auto lg:items-end lg:justify-end">
         <div class="relative flex h-[280px] w-full items-end justify-center overflow-hidden rounded-lg bg-white/35 ring-1 ring-black/5 sm:h-72 lg:h-auto lg:w-auto lg:overflow-visible lg:rounded-none lg:bg-transparent lg:ring-0">
           <Image
             src={portrait}
@@ -132,8 +136,8 @@ const mobileSubtitle =
             format="webp"
             quality={78}
             widths={[420, 640, 860, 1120, 1360]}
-            sizes="(min-width: 1024px) 48vw, (min-width: 640px) 72vw, 86vw"
-            class="hero-portrait relative z-10 h-[300px] w-auto max-w-none object-contain object-bottom opacity-100 sm:h-[360px] lg:h-[min(92svh,880px)] lg:translate-x-10"
+            sizes="(min-width: 1024px) 36vw, (min-width: 640px) 54vw, 65vw"
+            class="hero-portrait relative z-10 h-[225px] w-auto max-w-none object-contain object-bottom opacity-100 sm:h-[270px] lg:h-[min(81svh,780px)] lg:translate-x-6"
           />
         </div>
 
