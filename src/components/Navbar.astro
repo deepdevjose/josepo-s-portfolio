@@ -1,11 +1,9 @@
 ---
 import Icon from "./Icon.astro";
-import SupportModal from "./SupportModal.astro";
 import {
   languageOptions,
   localizedPath,
   localePaths,
-  type CoffeeSupport,
   type Locale,
   type NavItem
 } from "../data/site";
@@ -18,7 +16,6 @@ interface Props {
   openMenuLabel: string;
   closeMenuLabel: string;
   locale: Locale;
-  coffeeSupport: CoffeeSupport;
 }
 
 const {
@@ -28,8 +25,7 @@ const {
   languageLabel,
   openMenuLabel,
   closeMenuLabel,
-  locale,
-  coffeeSupport
+  locale
 } = Astro.props;
 const resolveHref = (href: string) => href.startsWith("#") ? `${localizedPath(locale)}${href}` : href;
 const cvPaths: Record<Locale, string> = {
@@ -46,10 +42,10 @@ const mobileLinks = [
 ];
 ---
 
-<header class="fixed inset-x-0 top-0 z-50 border-b border-black/5 bg-paper/86 backdrop-blur-xl backdrop-saturate-150">
+<header class="fixed inset-x-0 top-0 z-50 border-b border-black/10 bg-white">
   <nav class="mx-auto max-w-site px-5 lg:px-8" aria-label="Primary navigation">
     <div class="flex h-16 items-center justify-between gap-4">
-      <a href={localizedPath(locale)} class="site-brand group flex items-center gap-2 font-semibold text-ink">
+      <a href={localizedPath(locale)} class="site-brand flex items-center font-semibold text-ink">
         <span>{brand}</span>
       </a>
 
@@ -61,8 +57,8 @@ const mobileLinks = [
         ))}
       </div>
 
-      <div class="flex items-center gap-6">
-        <div class="hidden h-9 items-center gap-4 sm:flex" aria-label={languageLabel}>
+      <div class="flex items-center gap-4 sm:gap-5">
+        <div class="hidden h-9 items-center gap-3 sm:flex md:mr-1" aria-label={languageLabel}>
           {languageOptions.map((option) => (
             <a
               href={localePaths[option.locale]}
@@ -87,23 +83,6 @@ const mobileLinks = [
         </a>
 
         <button
-          type="button"
-          class="group hidden items-center gap-2 rounded-lg border border-black/10 bg-transparent px-4 py-2.5 text-sm font-semibold text-muted transition hover:-translate-y-0.5 hover:border-black/15 hover:bg-black/4 hover:text-ink md:inline-flex"
-          aria-label={coffeeSupport.ariaLabel}
-          aria-haspopup="dialog"
-          data-support-trigger
-        >
-          <svg class="h-4 w-4 shrink-0 text-accent transition group-hover:text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M7 8h9a3 3 0 0 1 0 6h-1" />
-            <path d="M6 8h11v7a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V8Z" />
-            <path d="M8 5v3M12 5v3M16 5v3" />
-            <path d="M4 19h16" />
-          </svg>
-          <span>{coffeeSupport.tooltipLabel}</span>
-        </button>
-        <SupportModal {...coffeeSupport} titleId="support-modal-title-navbar" />
-
-        <button
           id="mobile-menu-button"
           aria-controls="mobile-menu"
           aria-expanded="false"
@@ -124,7 +103,7 @@ const mobileLinks = [
       </div>
 
       <nav class="mt-8 flex flex-col gap-3" aria-label="Mobile primary">
-        {mobileLinks.map((item, index) => (
+        {mobileLinks.map((item) => (
           <a
             href={resolveHref(item.href)}
             target={item.href.startsWith("http") ? "_blank" : undefined}
@@ -132,7 +111,7 @@ const mobileLinks = [
             download={item.href.endsWith(".pdf") ? true : undefined}
             class:list={[
               "flex min-h-11 items-center justify-between rounded-lg px-4 py-3 text-lg font-semibold",
-              index === 0 ? "bg-ink text-white shadow-sm" : "text-ink hover:bg-black/4"
+              item.href === "#contact" ? "bg-ink text-white shadow-sm" : "text-ink hover:bg-black/4"
             ]}
           >
             <span>{item.label}</span>
@@ -142,26 +121,6 @@ const mobileLinks = [
             />
           </a>
         ))}
-
-        <button
-          type="button"
-          class="flex min-h-11 items-center justify-between rounded-lg border border-black/10 bg-transparent px-4 py-3 text-lg font-semibold text-muted transition hover:bg-black/4 hover:text-ink"
-          aria-label={coffeeSupport.ariaLabel}
-          aria-haspopup="dialog"
-          data-support-trigger
-        >
-          <span class="flex items-center gap-2">
-            <svg class="h-4 w-4 shrink-0 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M7 8h9a3 3 0 0 1 0 6h-1" />
-              <path d="M6 8h11v7a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V8Z" />
-              <path d="M8 5v3M12 5v3M16 5v3" />
-              <path d="M4 19h16" />
-            </svg>
-            <span>{coffeeSupport.tooltipLabel}</span>
-          </span>
-          <Icon name="arrow-up-right" class="h-4 w-4" />
-        </button>
-        <SupportModal {...coffeeSupport} titleId="support-modal-title-navbar-mobile" />
 
         <div class="mt-4 border-t border-black/6 pt-4">
           <p class="mb-2 text-sm text-muted">{languageLabel}</p>
