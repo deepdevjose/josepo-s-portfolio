@@ -15,23 +15,23 @@ const { eyebrow, title, description, cta, cards } = Astro.props;
 ---
 
 <section id="research" class="relative flex items-center bg-white py-10 sm:py-16">
-  <div class="mx-auto grid max-w-site gap-8 px-5 lg:grid-cols-[0.9fr_2.6fr] lg:px-8">
+  <div class="mx-auto grid w-full max-w-[1400px] gap-8 px-5 lg:grid-cols-[1fr_3fr] lg:px-8">
     <div>
       <div class="flex items-center gap-3">
         <p class="mono-label text-xs font-semibold uppercase text-ink">{eyebrow}</p>
         <span class="h-px w-4 bg-accent"></span>
       </div>
-      <h2 class="mt-6 max-w-xs text-3xl font-semibold leading-tight text-ink sm:text-4xl">
+      <h2 class="mt-6 max-w-sm text-3xl font-semibold leading-tight text-ink sm:text-4xl">
         {title}
       </h2>
-      <p class="mt-5 max-w-sm leading-7 text-muted">{description}</p>
+      <p class="mt-5 max-w-md leading-7 text-muted">{description}</p>
       <a href="#projects" class="group mt-7 inline-flex items-center gap-2 text-sm font-semibold text-ink">
         <span>{cta}</span>
         <Icon name="arrow-down" class="h-4 w-4 transition group-hover:translate-y-0.5" />
       </a>
     </div>
 
-    <div class="scrollbar-none -mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-2 scroll-px-5 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 sm:scroll-px-0 xl:grid-cols-4">
+    <div class="scrollbar-none -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 scroll-px-5 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 sm:scroll-px-0 xl:grid-cols-4">
       {cards.map((card) => {
         const isExternal = card.href.startsWith("http");
         return (
@@ -39,7 +39,7 @@ const { eyebrow, title, description, cta, cards } = Astro.props;
           href={card.href}
           target={isExternal ? "_blank" : undefined}
           rel={isExternal ? "noreferrer" : undefined}
-          class="surface-card group flex min-w-[82%] snap-start flex-col overflow-hidden rounded-lg border border-black/10 bg-white/92 backdrop-blur transition duration-300 hover:-translate-y-1.5 hover:border-black/20 hover:shadow-soft sm:min-h-[350px] sm:min-w-0"
+          class="surface-card group flex min-w-[82%] snap-start flex-col overflow-hidden rounded-lg border border-black/10 bg-white/92 backdrop-blur transition duration-300 hover:-translate-y-1.5 hover:border-black/20 hover:shadow-soft sm:min-h-[360px] sm:min-w-0"
         >
           <div class="ecosystem-visual-frame relative h-28 overflow-hidden border-b border-black/10 p-2.5 sm:h-40 sm:p-3">
             <div class="relative z-10 h-full overflow-hidden rounded-md shadow-[0_16px_36px_rgba(0,0,0,0.12)] ring-1 ring-black/10 transition duration-500 group-hover:scale-[1.035]">

@@ -21,11 +21,11 @@ const { eyebrow, viewAll, viewAllHref, projects, currentEyebrow, currentViewMore
 
 <section id="projects" class="flex items-center bg-white py-12 sm:py-16">
   <span id="work" class="sr-only" aria-hidden="true"></span>
-  <div class="mx-auto grid max-w-site gap-8 px-5 lg:grid-cols-[minmax(0,1fr)_240px] lg:px-8">
+  <div class="mx-auto grid w-full max-w-[1400px] gap-8 px-5 lg:grid-cols-[minmax(0,1fr)_300px] lg:px-8">
     <div>
       <SectionHeader eyebrow={eyebrow} action={viewAll} href={viewAllHref} />
 
-      <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
         {projects.map((project) => (
           <a
             href={project.href}
@@ -33,7 +33,7 @@ const { eyebrow, viewAll, viewAllHref, projects, currentEyebrow, currentViewMore
             rel={project.href.startsWith("http") ? "noreferrer" : undefined}
             class="surface-card group overflow-hidden rounded-lg border border-black/10 bg-white/95 transition duration-300 hover:-translate-y-1.5 hover:border-black/20 hover:shadow-soft"
           >
-            <div class="project-visual-frame relative aspect-[16/10] overflow-hidden border-b border-black/10 p-2.5 sm:h-48 sm:p-3">
+            <div class="project-visual-frame relative aspect-[16/10] overflow-hidden border-b border-black/10 p-2.5 sm:h-52 sm:p-3">
               <img
                 src={project.image}
                 alt={project.imageAlt}
@@ -43,7 +43,7 @@ const { eyebrow, viewAll, viewAllHref, projects, currentEyebrow, currentViewMore
                 class="relative z-10 h-full w-full rounded-md bg-white/70 object-contain shadow-[0_12px_30px_rgba(0,0,0,0.12)] ring-1 ring-black/10 transition duration-500 group-hover:scale-[1.02]"
               />
             </div>
-            <div class="flex min-h-0 flex-col p-4 sm:min-h-[196px]">
+            <div class="flex min-h-0 flex-col p-4 sm:min-h-[210px]">
               <p class="mono-label text-[0.68rem] font-semibold uppercase text-accent">
                 {project.category}
               </p>

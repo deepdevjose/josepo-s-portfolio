@@ -67,9 +67,9 @@
 
   .hero-ambient {
     background:
-      radial-gradient(circle at 70% 42%, rgba(44, 60, 93, 0.07), transparent 14%),
-      radial-gradient(circle at 72% 70%, rgba(44, 60, 93, 0.035), transparent 17%),
-      linear-gradient(to right, rgba(255, 255, 255, 0.64), transparent 68%);
+      radial-gradient(circle at 68% 64%, rgba(44, 60, 93, 0.16), transparent 23%),
+      radial-gradient(circle at 92% 22%, rgba(5, 5, 5, 0.15), transparent 30%),
+      linear-gradient(to right, rgba(255, 255, 255, 0.72), transparent 44%, rgba(5, 5, 5, 0.1));
     pointer-events: none;
   }
 
