@@ -27,7 +27,7 @@
   }
 
   ::selection {
-    background: rgba(167, 74, 255, 0.18);
+    background: rgba(44, 60, 93, 0.18);
   }
 
   a {
@@ -40,14 +40,14 @@
   }
 
   :focus-visible {
-    outline: 2px solid #A74AFF;
+    outline: 2px solid #2c3c5d;
     outline-offset: 4px;
   }
 
   .site-brand:focus-visible {
     outline: 0;
     text-decoration: underline;
-    text-decoration-color: #A74AFF;
+    text-decoration-color: #2c3c5d;
     text-decoration-thickness: 2px;
     text-underline-offset: 6px;
   }
@@ -67,7 +67,7 @@
 
   .hero-ambient {
     background:
-      radial-gradient(circle at 68% 64%, rgba(167, 74, 255, 0.16), transparent 23%),
+      radial-gradient(circle at 68% 64%, rgba(44, 60, 93, 0.16), transparent 23%),
       radial-gradient(circle at 92% 22%, rgba(5, 5, 5, 0.15), transparent 30%),
       linear-gradient(to right, rgba(255, 255, 255, 0.72), transparent 44%, rgba(5, 5, 5, 0.1));
     pointer-events: none;
@@ -110,7 +110,7 @@
   .ecosystem-visual-frame,
   .project-visual-frame {
     background:
-      radial-gradient(circle at 78% 14%, rgba(167, 74, 255, 0.18), transparent 32%),
+      radial-gradient(circle at 78% 14%, rgba(44, 60, 93, 0.18), transparent 32%),
       linear-gradient(135deg, #ffffff 0%, #f3f3ef 48%, #deded8 100%);
   }
 
@@ -227,7 +227,7 @@
     color: #050505;
     font-weight: 700;
     text-decoration: underline;
-    text-decoration-color: rgba(167, 74, 255, 0.45);
+    text-decoration-color: rgba(44, 60, 93, 0.45);
     text-underline-offset: 4px;
   }
 

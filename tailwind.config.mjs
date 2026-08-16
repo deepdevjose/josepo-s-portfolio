@@ -12,7 +12,7 @@ export default {
         line: "#dedede",
         paper: "#f7f7f5",
         soft: "#eeeeeb",
-        accent: "#A74AFF"
+        accent: "#2c3c5d"
       },
       fontFamily: {
         sans: [
