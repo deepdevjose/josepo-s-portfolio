@@ -54,7 +54,10 @@ const cvHref = cvPaths[locale] ?? cvPaths.en;
     links={copy.nav.links}
     connect={copy.nav.connect}
     languageLabel={copy.nav.languageLabel}
+    openMenuLabel={copy.nav.openMenuLabel}
+    closeMenuLabel={copy.nav.closeMenuLabel}
     locale={locale}
+    coffeeSupport={copy.hero.coffeeSupport}
   />
   <main>
     <Hero {...copy.hero} cvHref={cvHref} />
@@ -100,5 +103,6 @@ const cvHref = cvPaths[locale] ?? cvPaths.en;
     bottom={copy.footer.bottom}
     closing={copy.footer.closing}
     columns={copy.footer.columns}
+    coffeeSupport={copy.hero.coffeeSupport}
   />
 </Layout>

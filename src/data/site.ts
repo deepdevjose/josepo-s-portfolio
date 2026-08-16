@@ -27,6 +27,21 @@ export interface HeroPill {
   label: string;
 }
 
+export interface CoffeeSupport {
+  ringText: string;
+  ariaLabel: string;
+  tooltipLabel: string;
+  modalTitle: string;
+  modalDescription: string;
+  buyCoffeeLabel: string;
+  bankTitle: string;
+  nameLabel: string;
+  clabeLabel: string;
+  copyLabel: string;
+  copiedLabel: string;
+  closeLabel: string;
+}
+
 export interface MissionMetric {
   label: string;
   value: string;
@@ -69,6 +84,8 @@ export const siteText: Record<
       links: NavItem[];
       connect: string;
       languageLabel: string;
+      openMenuLabel: string;
+      closeMenuLabel: string;
     };
     hero: {
       eyebrow: string;
@@ -78,20 +95,7 @@ export const siteText: Record<
       primaryCta: string;
       secondaryCta: string;
       portraitAlt: string;
-      coffeeSupport: {
-        ringText: string;
-        ariaLabel: string;
-        tooltipLabel: string;
-        modalTitle: string;
-        modalDescription: string;
-        buyCoffeeLabel: string;
-        bankTitle: string;
-        nameLabel: string;
-        clabeLabel: string;
-        copyLabel: string;
-        copiedLabel: string;
-        closeLabel: string;
-      };
+      coffeeSupport: CoffeeSupport;
     };
     ecosystem: {
       eyebrow: string;
@@ -147,6 +151,8 @@ export const siteText: Record<
       brand: "deepdevjose",
       connect: "Let's connect",
       languageLabel: "Language",
+      openMenuLabel: "Open menu",
+      closeMenuLabel: "Close menu",
       links: [
         { label: "Projects", href: "#projects" },
         { label: "Research", href: "#research" },
@@ -170,19 +176,19 @@ export const siteText: Record<
       secondaryCta: "Download CV",
       portraitAlt: "Grayscale portrait of José Manuel Cortés Cerón",
       coffeeSupport: {
-        ringText: "BUY ME A COFFEE",
-        ariaLabel: "Open support options",
-        tooltipLabel: "Support my work",
-        modalTitle: "Support my work",
+        ringText: "DONATE ONLINE",
+        ariaLabel: "Open donation options",
+        tooltipLabel: "Donate",
+        modalTitle: "Donate online",
         modalDescription:
           "Your support helps me continue building, researching, and sharing AI, software, and cultural technology projects from Mexico.",
-        buyCoffeeLabel: "Buy me a coffee ↗",
+        buyCoffeeLabel: "Donate online ↗",
         bankTitle: "Bank transfer — BBVA",
         nameLabel: "Name",
         clabeLabel: "CLABE",
         copyLabel: "Copy CLABE",
         copiedLabel: "Copied",
-        closeLabel: "Close support options"
+        closeLabel: "Close donation options"
       }
     },
     ecosystem: {
@@ -276,6 +282,8 @@ export const siteText: Record<
       brand: "deepdevjose",
       connect: "Conectemos",
       languageLabel: "Idioma",
+      openMenuLabel: "Abrir menú",
+      closeMenuLabel: "Cerrar menú",
       links: [
         { label: "Proyectos", href: "#projects" },
         { label: "Investigación", href: "#research" },
@@ -299,19 +307,19 @@ export const siteText: Record<
       secondaryCta: "Descargar CV",
       portraitAlt: "Retrato en escala de grises de José Manuel Cortés Cerón",
       coffeeSupport: {
-        ringText: "INVÍTAME UN CAFÉ",
-        ariaLabel: "Abrir opciones de apoyo",
-        tooltipLabel: "Apoya mi trabajo",
-        modalTitle: "Apoya mi trabajo",
+        ringText: "DONAR EN LINEA",
+        ariaLabel: "Abrir opciones de donación",
+        tooltipLabel: "Donar",
+        modalTitle: "Donar en línea",
         modalDescription:
-          "Tu apoyo me ayuda a seguir construyendo, investigando y compartiendo proyectos de IA, software y tecnología cultural desde México.",
-        buyCoffeeLabel: "Invítame un café ↗",
+          "Tu donación me ayuda a seguir construyendo, investigando y compartiendo proyectos de IA, software y tecnología cultural desde México.",
+        buyCoffeeLabel: "Donar en línea ↗",
         bankTitle: "Transferencia bancaria — BBVA",
         nameLabel: "Nombre",
         clabeLabel: "CLABE",
         copyLabel: "Copiar CLABE",
         copiedLabel: "Copiado",
-        closeLabel: "Cerrar modal"
+        closeLabel: "Cerrar opciones de donación"
       }
     },
     ecosystem: {
@@ -405,6 +413,8 @@ export const siteText: Record<
       brand: "deepdevjose",
       connect: "联系一下",
       languageLabel: "语言",
+      openMenuLabel: "打开菜单",
+      closeMenuLabel: "关闭菜单",
       links: [
         { label: "项目", href: "#projects" },
         { label: "研究", href: "#research" },
@@ -428,18 +438,18 @@ export const siteText: Record<
       secondaryCta: "下载简历",
       portraitAlt: "José Manuel Cortés Cerón 的黑白肖像",
       coffeeSupport: {
-        ringText: "BUY ME A COFFEE",
-        ariaLabel: "打开支持选项",
-        tooltipLabel: "支持我的工作",
-        modalTitle: "支持我的工作",
-        modalDescription: "你的支持帮助我继续在墨西哥构建、研究和分享人工智能、软件与文化科技项目。",
-        buyCoffeeLabel: "请我喝杯咖啡 ↗",
+        ringText: "在线捐赠",
+        ariaLabel: "打开捐赠选项",
+        tooltipLabel: "捐赠",
+        modalTitle: "在线捐赠",
+        modalDescription: "你的捐赠帮助我继续在墨西哥构建、研究和分享人工智能、软件与文化科技项目。",
+        buyCoffeeLabel: "在线捐赠 ↗",
         bankTitle: "银行转账 — BBVA",
         nameLabel: "姓名",
         clabeLabel: "CLABE",
         copyLabel: "复制 CLABE",
         copiedLabel: "已复制",
-        closeLabel: "关闭支持选项"
+        closeLabel: "关闭捐赠选项"
       }
     },
     ecosystem: {

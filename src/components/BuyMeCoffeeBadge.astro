@@ -1,26 +1,16 @@
 ---
 import SupportModal from "./SupportModal.astro";
+import type { CoffeeSupport } from "../data/site";
 
-interface Props {
-  ringText: string;
-  ariaLabel: string;
-  tooltipLabel: string;
-  modalTitle: string;
-  modalDescription: string;
-  buyCoffeeLabel: string;
-  bankTitle: string;
-  nameLabel: string;
-  clabeLabel: string;
-  copyLabel: string;
-  copiedLabel: string;
-  closeLabel: string;
+interface Props extends CoffeeSupport {
+  titleId?: string;
 }
 
 const {
   ringText,
   ariaLabel,
   tooltipLabel,
-  ...supportModal
+  titleId = "support-modal-title-hero"
 } = Astro.props;
 ---
 
@@ -63,7 +53,7 @@ const {
   <span class="coffee-badge__label" aria-hidden="true">{tooltipLabel}</span>
 </button>
 
-<SupportModal {...supportModal} />
+<SupportModal {...Astro.props} titleId={titleId} />
 
 <style>
   .coffee-badge {

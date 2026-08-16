@@ -1,6 +1,7 @@
 ---
 import Icon from "./Icon.astro";
-import { localizedPath, type FooterColumn, type Locale } from "../data/site";
+import SupportModal from "./SupportModal.astro";
+import { localizedPath, type CoffeeSupport, type FooterColumn, type Locale } from "../data/site";
 
 interface Props {
   brand: string;
@@ -11,6 +12,7 @@ interface Props {
   closing: string;
   columns: FooterColumn[];
   locale?: Locale;
+  coffeeSupport: CoffeeSupport;
 }
 
 const {
@@ -21,7 +23,8 @@ const {
   bottom,
   closing,
   columns,
-  locale = "en"
+  locale = "en",
+  coffeeSupport
 } = Astro.props;
 
 const resolveHref = (href: string) => href.startsWith("#") ? `${localizedPath(locale)}${href}` : href;
@@ -91,7 +94,20 @@ const resolveHref = (href: string) => href.startsWith("#") ? `${localizedPath(lo
   <div class="relative border-t border-white/10">
     <div class="mx-auto flex max-w-site flex-col gap-3 px-5 py-5 text-sm text-white/55 sm:flex-row sm:items-center sm:justify-between lg:px-8">
       <p>{bottom}</p>
-      <p>{closing}</p>
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
+        <button
+          type="button"
+          class="group inline-flex items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/8 px-3 py-2 text-sm font-semibold text-white/82 shadow-sm transition hover:-translate-y-0.5 hover:bg-white/12 hover:text-white"
+          aria-label={coffeeSupport.ariaLabel}
+          aria-haspopup="dialog"
+          data-support-trigger
+        >
+          <span aria-hidden="true">☕</span>
+          <span>{coffeeSupport.tooltipLabel}</span>
+        </button>
+        <SupportModal {...coffeeSupport} titleId="support-modal-title-footer" />
+        <p class="sm:text-right">{closing}</p>
+      </div>
     </div>
   </div>
 </footer>

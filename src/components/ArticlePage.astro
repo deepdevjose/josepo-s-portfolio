@@ -101,7 +101,7 @@ const related = blogArticles.filter((item) => item.slug !== article.slug).slice(
 ---
 
 <Layout locale={locale} lang={copy.langAttr} title={`${article.title} - ${copy.metaTitle}`} description={article.description}>
-  <Navbar {...copy.nav} locale={locale} />
+  <Navbar {...copy.nav} locale={locale} coffeeSupport={copy.hero.coffeeSupport} />
   <main id="top" class="min-h-screen bg-paper pt-24">
     <article class="mx-auto max-w-[980px] px-5 pb-16 pt-8 lg:px-8">
       <a href={localizedPath(locale, "blog/")} class="inline-flex items-center gap-2 text-sm font-semibold text-muted transition hover:text-ink">
@@ -154,5 +154,5 @@ const related = blogArticles.filter((item) => item.slug !== article.slug).slice(
       </aside>
     </article>
   </main>
-  <Footer {...copy.footer} locale={locale} />
+  <Footer {...copy.footer} locale={locale} coffeeSupport={copy.hero.coffeeSupport} />
 </Layout>

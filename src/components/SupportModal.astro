@@ -1,14 +1,8 @@
 ---
-interface Props {
-  modalTitle: string;
-  modalDescription: string;
-  buyCoffeeLabel: string;
-  bankTitle: string;
-  nameLabel: string;
-  clabeLabel: string;
-  copyLabel: string;
-  copiedLabel: string;
-  closeLabel: string;
+import type { CoffeeSupport } from "../data/site";
+
+interface Props extends CoffeeSupport {
+  titleId?: string;
 }
 
 const {
@@ -20,7 +14,8 @@ const {
   clabeLabel,
   copyLabel,
   copiedLabel,
-  closeLabel
+  closeLabel,
+  titleId = "support-modal-title"
 } = Astro.props;
 
 const href = "https://buymeacoffee.com/deepdevjose";
@@ -34,7 +29,7 @@ const clabe = "012180015773176591";
     class="support-modal__panel"
     role="dialog"
     aria-modal="true"
-    aria-labelledby="support-modal-title"
+    aria-labelledby={titleId}
     tabindex="-1"
     data-support-panel
   >
@@ -44,7 +39,7 @@ const clabe = "012180015773176591";
 
     <div class="support-modal__header">
       <p class="support-modal__eyebrow">DEEPDEVJOSE</p>
-      <h2 id="support-modal-title">{modalTitle}</h2>
+      <h2 id={titleId}>{modalTitle}</h2>
       <p>{modalDescription}</p>
     </div>
 

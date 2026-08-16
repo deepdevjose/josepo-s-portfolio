@@ -2,6 +2,9 @@
 import { Image } from "astro:assets";
 import BuyMeCoffeeBadge from "./BuyMeCoffeeBadge.astro";
 import Icon from "./Icon.astro";
+import type { CoffeeSupport } from "../data/site";
+import academyIcon from "../assets/bitbybit-icon.png";
+import nextLetters from "../assets/next-letters.png";
 import portrait from "../assets/nobgavatar.png";
 
 interface Props {
@@ -12,20 +15,7 @@ interface Props {
   secondaryCta: string;
   cvHref?: string;
   portraitAlt: string;
-  coffeeSupport: {
-    ringText: string;
-    ariaLabel: string;
-    tooltipLabel: string;
-    modalTitle: string;
-    modalDescription: string;
-    buyCoffeeLabel: string;
-    bankTitle: string;
-    nameLabel: string;
-    clabeLabel: string;
-    copyLabel: string;
-    copiedLabel: string;
-    closeLabel: string;
-  };
+  coffeeSupport: CoffeeSupport;
 }
 
 const {
@@ -96,7 +86,17 @@ const mobileSubtitle =
             class="inline-flex h-11 items-center rounded-lg border border-black/10 bg-white/70 px-3 shadow-sm transition hover:-translate-y-0.5 hover:bg-white"
             aria-label="Next.js"
           >
-            <img src="/assets/next_letters.png" alt="Next.js" class="h-4 w-auto max-w-[94px] object-contain" loading="eager" />
+            <Image
+              src={nextLetters}
+              alt="Next.js"
+              loading="eager"
+              decoding="async"
+              format="webp"
+              quality={82}
+              widths={[94, 188, 282]}
+              sizes="94px"
+              class="h-4 w-auto max-w-[94px] object-contain"
+            />
           </a>
           <a
             href="https://nexus-aax.pages.dev/es/"
@@ -105,7 +105,17 @@ const mobileSubtitle =
             class="inline-flex h-11 items-center gap-2 rounded-lg border border-black/10 bg-white/70 px-3 text-sm font-semibold text-ink shadow-sm transition hover:-translate-y-0.5 hover:bg-white"
             aria-label="BitByBit Academy"
           >
-            <img src="/assets/icon.png" alt="" class="h-6 w-6 rounded-md object-contain" loading="eager" />
+            <Image
+              src={academyIcon}
+              alt=""
+              loading="eager"
+              decoding="async"
+              format="webp"
+              quality={82}
+              widths={[24, 48, 72]}
+              sizes="24px"
+              class="h-6 w-6 rounded-md object-contain"
+            />
             <span>BitByBit Academy</span>
           </a>
         </div>
@@ -127,7 +137,7 @@ const mobileSubtitle =
           />
         </div>
 
-        <BuyMeCoffeeBadge {...coffeeSupport} />
+        <BuyMeCoffeeBadge {...coffeeSupport} titleId="support-modal-title-hero" />
       </div>
     </div>
   </div>
