@@ -49,13 +49,13 @@ const mobileLinks = [
 <header class="fixed inset-x-0 top-0 z-50 border-b border-black/5 bg-paper/86 backdrop-blur-xl backdrop-saturate-150">
   <nav class="mx-auto max-w-site px-5 lg:px-8" aria-label="Primary navigation">
     <div class="flex h-16 items-center justify-between gap-4">
-      <a href={localizedPath(locale)} class="site-brand flex items-center font-semibold text-ink">
+      <a href={localizedPath(locale)} class="site-brand flex items-center font-semibold text-ink transition hover:-translate-y-0.5 hover:text-accent">
         <span>{brand}</span>
       </a>
 
       <div class="hidden items-center gap-7 md:flex">
         {links.map((item) => (
-          <a class="text-sm font-medium text-ink/78 transition hover:text-ink" href={resolveHref(item.href)}>
+          <a class="rounded-md px-2 py-1 text-sm font-medium text-ink/78 transition hover:bg-black/4 hover:text-accent" href={resolveHref(item.href)}>
             {item.label}
           </a>
         ))}
@@ -67,8 +67,8 @@ const mobileLinks = [
             <a
               href={localePaths[option.locale]}
               class:list={[
-                "relative inline-flex h-8 items-center px-1 text-xs leading-none transition",
-                option.locale === locale ? "font-bold text-ink after:absolute after:bottom-0 after:left-1/2 after:h-1 after:w-1 after:-translate-x-1/2 after:rounded-full after:bg-accent" : "font-semibold text-muted hover:text-ink"
+                "relative inline-flex h-8 items-center rounded-md px-2 text-xs leading-none transition",
+                option.locale === locale ? "font-bold text-ink after:absolute after:bottom-0 after:left-1/2 after:h-1 after:w-1 after:-translate-x-1/2 after:rounded-full after:bg-accent" : "font-semibold text-muted hover:bg-black/4 hover:text-accent"
               ]}
               aria-current={option.locale === locale ? "page" : undefined}
               title={option.name}
@@ -80,7 +80,7 @@ const mobileLinks = [
 
         <a
           href={`${localizedPath(locale)}#contact`}
-          class="group hidden items-center gap-2 rounded-lg bg-ink px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-black md:inline-flex"
+          class="group hidden items-center gap-2 rounded-lg bg-ink px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-accent hover:shadow-md md:inline-flex"
         >
           <span>{connect}</span>
           <Icon name="arrow-up-right" class="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -88,7 +88,7 @@ const mobileLinks = [
 
         <button
           type="button"
-          class="group hidden items-center gap-2 rounded-lg border border-black/10 bg-transparent px-4 py-2.5 text-sm font-semibold text-muted transition hover:-translate-y-0.5 hover:border-black/15 hover:bg-black/4 hover:text-ink md:inline-flex"
+          class="group hidden items-center gap-2 rounded-lg border border-black/10 bg-transparent px-4 py-2.5 text-sm font-semibold text-muted transition hover:-translate-y-0.5 hover:border-accent hover:bg-[rgba(44,60,93,0.08)] hover:text-accent hover:shadow-sm md:inline-flex"
           aria-label={coffeeSupport.ariaLabel}
           aria-haspopup="dialog"
           data-support-trigger
@@ -118,7 +118,7 @@ const mobileLinks = [
     <div id="mobile-menu" class="hidden fixed inset-0 z-[80] h-dvh w-screen flex-col overflow-y-auto bg-paper p-5 md:hidden" aria-hidden="true">
       <div class="flex items-center justify-between">
         <a href={localizedPath(locale)} class="text-xl font-semibold">{brand}</a>
-        <button id="mobile-menu-close" class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-black/5 bg-white p-0 text-ink" aria-label={closeMenuLabel}>
+        <button id="mobile-menu-close" class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-black/5 bg-white p-0 text-ink transition hover:bg-[rgba(44,60,93,0.08)] hover:text-accent" aria-label={closeMenuLabel}>
           <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
         </button>
       </div>
@@ -131,8 +131,8 @@ const mobileLinks = [
             rel={item.href.startsWith("http") ? "noreferrer" : undefined}
             download={item.href.endsWith(".pdf") ? true : undefined}
             class:list={[
-              "flex min-h-11 items-center justify-between rounded-lg px-4 py-3 text-lg font-semibold",
-              item.href === "#contact" ? "bg-ink text-white shadow-sm" : "text-ink hover:bg-black/4"
+              "flex min-h-11 items-center justify-between rounded-lg px-4 py-3 text-lg font-semibold transition",
+              item.href === "#contact" ? "bg-ink text-white shadow-sm hover:bg-accent" : "text-ink hover:bg-[rgba(44,60,93,0.08)] hover:text-accent"
             ]}
           >
             <span>{item.label}</span>
@@ -145,7 +145,7 @@ const mobileLinks = [
 
         <button
           type="button"
-          class="flex min-h-11 items-center justify-between rounded-lg border border-black/10 bg-transparent px-4 py-3 text-lg font-semibold text-muted transition hover:bg-black/4 hover:text-ink"
+          class="flex min-h-11 items-center justify-between rounded-lg border border-black/10 bg-transparent px-4 py-3 text-lg font-semibold text-muted transition hover:border-accent hover:bg-[rgba(44,60,93,0.08)] hover:text-accent"
           aria-label={coffeeSupport.ariaLabel}
           aria-haspopup="dialog"
           data-support-trigger
@@ -170,8 +170,8 @@ const mobileLinks = [
               <a
                 href={localePaths[option.locale]}
                 class:list={[
-                  "rounded-md px-3 py-2 text-sm font-semibold",
-                  option.locale === locale ? "bg-ink text-white" : "text-muted hover:bg-black/4"
+                  "rounded-md px-3 py-2 text-sm font-semibold transition",
+                  option.locale === locale ? "bg-ink text-white" : "text-muted hover:bg-[rgba(44,60,93,0.08)] hover:text-accent"
                 ]}
                 aria-current={option.locale === locale ? "page" : undefined}
               >
